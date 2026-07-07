@@ -13,7 +13,7 @@ right place.
 
 ## What is this series about?
 
-Lots of students — especially those in non-technical majors — want a portfolio website and a
+Lots of students want a portfolio website and a
 solid online presence, but they don't know they already have **free tools** to build one, and
 long tutorials scare them off. This series fixes that.
 
