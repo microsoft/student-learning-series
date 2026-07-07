@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello World</title>
+  <style>
+    :root {
+      --smiley: #ffd43b;
+      --smiley-edge: #f2b705;
+      --face: #1a1a2e;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      text-align: center;
+      color: #ffffff;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    p {
+      margin: 0;
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      opacity: 0.9;
+    }
+
+    /* A big smiley face drawn with pure CSS */
+    .smiley {
+      position: relative;
+      width: clamp(140px, 40vw, 220px);
+      height: clamp(140px, 40vw, 220px);
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fff08a, var(--smiley) 55%, var(--smiley-edge));
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), inset 0 -10px 20px rgba(0, 0, 0, 0.08);
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    .eye {
+      position: absolute;
+      top: 32%;
+      width: 13%;
+      height: 18%;
+      background: var(--face);
+      border-radius: 50%;
+    }
+
+    .eye.left { left: 27%; }
+    .eye.right { right: 27%; }
+
+    .mouth {
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      width: 46%;
+      height: 34%;
+      transform: translateX(-50%);
+      border: 0 solid var(--face);
+      border-bottom-width: 12%;
+      border-radius: 0 0 100% 100% / 0 0 100% 100%;
+      box-sizing: border-box;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .smiley { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="smiley" role="img" aria-label="A big smiley face">
+    <span class="eye left"></span>
+    <span class="eye right"></span>
+    <span class="mouth"></span>
+  </div>
+  <h1>Hello World</h1>
+  <p>Built with one prompt in GitHub Copilot &middot; Episode 1</p>
+</body>
+</html>
