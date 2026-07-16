@@ -1,11 +1,8 @@
-# Episode 7 plugin prototypes
+# Episode 7 plugin
 
-This folder contains two temporary `resume-site-sync` plugin packages for the recording dry run. Install only one at a time because both intentionally expose the same `/resume-site-sync` skill command.
+This folder contains the final `resume-site-sync` plugin selected for Episode 7.
 
-| Plugin | Input contract |
-| --- | --- |
-| `resume-site-sync-two-pdf` | Previous resume PDF, updated resume PDF, and the open portfolio |
-| `resume-site-sync-updated-pdf` | Updated resume PDF and the open portfolio |
+The skill compares a previous resume PDF with an updated resume PDF, then maps verified differences to the portfolio repository currently open. It proposes changes before editing and requires explicit approval before validation, commit, and push.
 
 ## Local dry-run setup
 
@@ -15,22 +12,20 @@ From a Copilot CLI session, add the repository checkout as a local marketplace:
 /plugin marketplace add C:\path\to\student-learning-series
 ```
 
-Install Option A:
+Install the plugin:
 
 ```text
-/plugin install resume-site-sync-two-pdf@student-learning-series
+/plugin install resume-site-sync@student-learning-series
 /skills info resume-site-sync
 ```
 
-Before testing Option B, remove Option A:
+Remove it when resetting:
 
 ```text
-/plugin uninstall resume-site-sync-two-pdf
-/plugin install resume-site-sync-updated-pdf@student-learning-series
-/skills info resume-site-sync
+/plugin uninstall resume-site-sync
 ```
 
-`/skills info resume-site-sync` must identify the expected originating plugin before each take. Restart the Copilot session if an uninstalled skill remains visible.
+`/skills info resume-site-sync` must identify the `resume-site-sync@student-learning-series` plugin before the take.
 
 ## Repository installation after merge
 
@@ -39,8 +34,6 @@ Once `.github/plugin/marketplace.json` is on the repository's default branch:
 ```text
 /plugin marketplace add microsoft/student-learning-series
 ```
-
-The final implementation will keep only the selected contract, promote its plugin name to `resume-site-sync`, and remove the rejected prototype.
 
 ## Trust review
 
@@ -51,4 +44,4 @@ Before installation, show:
 3. The selected plugin's `plugin.json`.
 4. Its complete, readable `skills/resume-site-sync/SKILL.md`.
 
-These prototypes contain no hooks, MCP servers, executables, or pre-approved shell tools.
+This plugin contains no hooks, MCP servers, executables, or pre-approved shell tools.

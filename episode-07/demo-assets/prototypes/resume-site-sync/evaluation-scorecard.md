@@ -29,9 +29,9 @@ Run both prototypes through the same questions:
 
 ## Decision
 
-- Selected option:
-- Reason:
-- Rejected option:
-- Trade-off accepted:
-- Follow-up changes required before final skill implementation:
-
+- Selected option: Option A, two PDFs.
+- Reason: The independent evaluation tied both options at 42/50, but Option A supports one evidence-backed four-row proposal that can flow through a literal `approve all` to the intended final portfolio. It also completed the benchmark with lower mean time and token use.
+- Rejected option: Option B, updated PDF and website.
+- Trade-off accepted: The student must provide both the previous and updated resumes. In return, additions, changed facts, and resume removals have explicit before-and-after evidence.
+- Follow-up changes applied: The final skill distinguishes verified resume removal from human-approved portfolio deletion, groups the two First-Gen Voices metrics into one proposal row, and sanitizes internal paths and output details.
+- Production gate: The recording owner accepted marketplace execution and recording topology as production assumptions for script creation rather than requiring the planned dry runs before selection.

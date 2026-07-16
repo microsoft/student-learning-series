@@ -5,20 +5,14 @@
   },
   "metadata": {
     "description": "Plugins demonstrated in the Student AI Learning Series",
-    "version": "0.1.0"
+    "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "resume-site-sync-two-pdf",
-      "description": "Prototype that compares previous and updated resumes before proposing portfolio updates.",
-      "version": "0.1.0",
-      "source": "episode-07/demo-assets/plugins/resume-site-sync-two-pdf"
-    },
-    {
-      "name": "resume-site-sync-updated-pdf",
-      "description": "Prototype that compares an updated resume with the current portfolio before proposing updates.",
-      "version": "0.1.0",
-      "source": "episode-07/demo-assets/plugins/resume-site-sync-updated-pdf"
+      "name": "resume-site-sync",
+      "description": "Compare previous and updated resumes, then propose approved portfolio updates.",
+      "version": "1.0.0",
+      "source": "episode-07/demo-assets/plugins/resume-site-sync"
     }
   ]
 }
