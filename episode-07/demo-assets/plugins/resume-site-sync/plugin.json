@@ -1,0 +1,16 @@
+{
+  "name": "resume-site-sync",
+  "description": "Compare previous and updated resumes, then propose approved portfolio updates.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Microsoft"
+  },
+  "repository": "https://github.com/microsoft/student-learning-series",
+  "license": "MIT",
+  "keywords": [
+    "resume",
+    "portfolio",
+    "student"
+  ],
+  "skills": "skills/"
+}
