@@ -1,0 +1,53 @@
+{
+  "skill_name": "resume-site-sync",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "While the fixture portfolio repository is open, run `/resume-site-sync \"common/Jamie Rivera - Resume.pdf\" \"episode-07/demo-assets/Jamie Rivera - Resume Updated.pdf\"`. Compare the resumes and show me the proposed portfolio updates, but do not edit anything yet.",
+      "expected_output": "The response begins by confirming that no files changed and presents one numbered proposal covering the fixture's title change, new internship, removed barista role, and updated project metrics. Every row includes old/new resume evidence, current portfolio content, a concrete proposed change, a repository-relative target file/field, and confidence. It distinguishes the verified resume removal from the decision to remove portfolio content, then explains that `approve all` or selected rows authorize edit, validation, commit, and push.",
+      "files": [
+        "../../../../../../common/Jamie Rivera - Resume.pdf",
+        "../../../../Jamie Rivera - Resume Updated.pdf"
+      ],
+      "expectations": [
+        "No portfolio file is edited before approval.",
+        "The proposal identifies added, removed, and changed resume facts.",
+        "Each numbered row contains resume evidence, current portfolio content, proposed change, target file or field, and confidence.",
+        "The response explicitly says approval authorizes editing, validation, commit, and push.",
+        "The response supports both `approve all` and selected row approval."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Continue the reviewed resume-site-sync proposal in the fixture portfolio. The approved proposal context is: row 1 updates the title, row 2 adds the internship, row 3 removes the barista entry, and row 4 updates project metrics. I have reviewed it and reply: `approve 1,3`. Apply exactly those rows and complete the authorized workflow.",
+      "expected_output": "Only proposal rows 1 and 3 are applied; rows 2 and 4 and unrelated repository content remain unchanged. The skill runs the portfolio's relevant validation, checks the diff against the approval and pre-existing Git status, commits only the approved changes, pushes the commit to the configured remote, and reports the validation, commit hash, and push result. If any authorized step fails, it reports the exact stopping point without claiming full success.",
+      "files": [
+        "../../../../../../common/Jamie Rivera - Resume.pdf",
+        "../../../../Jamie Rivera - Resume Updated.pdf"
+      ],
+      "expectations": [
+        "Only rows 1 and 3 are edited.",
+        "Unapproved proposal rows and unrelated content remain unchanged.",
+        "Repository validation runs before commit.",
+        "The commit contains only approved portfolio changes and excludes pre-existing changes.",
+        "The final response reports validation, commit, and push outcomes accurately."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Run `/resume-site-sync \"common/Jamie Rivera - Resume.pdf\" \"episode-07/demo-assets/Jamie Rivera - Resume Updated.pdf\"` in a fixture portfolio where the changed project metrics could map to two similarly named project entries and neither is an exact match. Prepare the review proposal and handle the ambiguity safely.",
+      "expected_output": "The skill compares the PDFs without editing, reports the changed project metric evidence, and shows the competing current portfolio locations rather than guessing. The corresponding numbered row uses `Needs clarification`, identifies the plausible repository-relative targets, and is non-actionable until the user identifies the intended project entry. Other direct mappings remain independently approvable. No commit or push occurs merely from this invocation.",
+      "files": [
+        "../../../../../../common/Jamie Rivera - Resume.pdf",
+        "../../../../Jamie Rivera - Resume Updated.pdf"
+      ],
+      "expectations": [
+        "No files are edited before human review.",
+        "The ambiguous mapping is not silently assigned to either project entry.",
+        "The proposal records the resume evidence and plausible portfolio targets.",
+        "The ambiguous row is marked `Needs clarification` and is not actionable.",
+        "No commit or push occurs without explicit approval of resolved rows."
+      ]
+    }
+  ]
+}
