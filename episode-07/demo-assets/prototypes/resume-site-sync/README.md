@@ -6,6 +6,8 @@ Which input contract makes the clearest, safest, and most useful generic `resume
 
 - [Option A: two PDFs](./option-a-two-pdf.md)
 - [Option B: one updated PDF and the current website](./option-b-updated-pdf-and-website.md)
+- [Option A recording dry-run script](./recording-script-option-a-two-pdf.md)
+- [Option B recording dry-run script](./recording-script-option-b-updated-pdf-and-website.md)
 
 These are throwaway planning prototypes, not final skill instructions.
 
@@ -40,4 +42,3 @@ Regardless of input model, the prototype must:
 ## Evaluation
 
 Use [evaluation-scorecard.md](./evaluation-scorecard.md) after walking through both options.
-
