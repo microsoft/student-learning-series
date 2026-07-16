@@ -1,0 +1,41 @@
+{
+  "skill_name": "resume-site-sync",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run /resume-site-sync \"candidate-resume-2027.pdf\" in this open Next.js portfolio repository. The updated resume promotes the candidate from Product Designer to Senior Product Designer, adds a 2027 accessibility conference talk, and updates a case study from 18% to 31% conversion growth. The current site still has the older title and metric and has no talk entry. Do not change anything until I review the proposal.",
+      "expected_output": "A no-edit response with one numbered proposal table containing three independently approvable rows: the title mismatch, missing talk, and metric mismatch. Every row cites updated-resume evidence, current portfolio content, a proposed change, an exact target file or field, and confidence. The response explains that approval authorizes edit, validation, commit, and push and offers approve all or selected row syntax.",
+      "files": [],
+      "expectations": [
+        "The response explicitly states that no files have changed.",
+        "The proposal is numbered and includes resume evidence, current portfolio content, proposed change, target file or field, and confidence for each row.",
+        "The response does not edit, validate, commit, or push before approval.",
+        "The approval notice explicitly authorizes editing, validation, commit, and push and supports both approve all and selected row numbers."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Use /resume-site-sync \"updated-resume.pdf\" in the open Hugo portfolio. The site includes a detailed volunteer mentoring entry and a personal photography project that are not on the new resume. The resume also changes the current employer start date. Compare them and show me what you recommend, but remember that the resume was shortened to one page.",
+      "expected_output": "A review-only numbered proposal that treats the start date as a direct mismatch and treats the mentoring and photography entries as website-only content requiring human judgment. It must not claim that resume omission proves either entry is obsolete or should be deleted, and it must preserve the site by default pending explicit approval.",
+      "files": [],
+      "expectations": [
+        "The changed employer start date is identified as a direct mismatch.",
+        "Both website-only entries are identified and labeled as requiring human judgment.",
+        "The response does not infer deletion from absence in the one-page resume.",
+        "No repository edits, commits, or pushes occur before explicit approval."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Continue the resume-site-sync review in this open Astro portfolio. The proposal has four rows, and I reply `approve 1,3`. Apply only those rows. The repository's existing build command then fails because the approved project metric violates a content schema. Show the correct stopping behavior.",
+      "expected_output": "Only rows 1 and 3 are edited; rows 2 and 4 remain unchanged. The skill runs the existing validation, reports the schema failure with actionable evidence, and stops without creating a commit or pushing. It preserves the approved edits for review and does not make unrelated design or cleanup changes.",
+      "files": [],
+      "expectations": [
+        "Only approved rows 1 and 3 are applied, while rows 2 and 4 remain unchanged.",
+        "The repository's existing validation is run after editing.",
+        "The validation failure is reported and no commit or push is performed.",
+        "The skill preserves design and unrelated content and leaves the approved edits available for review."
+      ]
+    }
+  ]
+}
