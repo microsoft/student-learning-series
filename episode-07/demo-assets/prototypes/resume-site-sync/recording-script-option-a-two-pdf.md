@@ -10,6 +10,8 @@ The target is a 60-75 second marketplace segment. Do not rush the trust check, p
 
 - Open Jamie's portfolio repository in GitHub Copilot.
 - Confirm the marketplace is available but the `resume-site-sync` plugin is not installed.
+- Install only `resume-site-sync-two-pdf@student-learning-series`.
+- Run `/skills info resume-site-sync` and confirm it originates from `resume-site-sync-two-pdf`.
 - Keep these files easy to locate:
   - `common/Jamie Rivera - Resume.pdf`
   - `episode-07/demo-assets/Jamie Rivera - Resume Updated.pdf`
@@ -36,6 +38,13 @@ Show the `microsoft/student-learning-series` repository URL, then open the reada
 **On screen**
 
 Briefly point to the proposal-before-editing and approval-before-push instructions. Install the plugin. Edit out installation wait time.
+
+For the local dry run, use:
+
+```text
+/plugin install resume-site-sync-two-pdf@student-learning-series
+/skills info resume-site-sync
+```
 
 ### 0:24-0:34 - Invoke with the previous and updated resumes
 
@@ -106,4 +115,3 @@ Record these immediately after the take:
 - Were unrelated wording and design preserved?
 - Did the validation, commit, and push result read clearly on screen?
 - Keep, revise, or reject this option:
-

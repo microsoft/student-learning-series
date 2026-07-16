@@ -10,6 +10,9 @@ The target is a 60-75 second marketplace segment. This option may need one extra
 
 - Open Jamie's portfolio repository in GitHub Copilot.
 - Confirm the marketplace is available but the `resume-site-sync` plugin is not installed.
+- Uninstall `resume-site-sync-two-pdf` if it was used in the previous take.
+- Install only `resume-site-sync-updated-pdf@student-learning-series`.
+- Run `/skills info resume-site-sync` and confirm it originates from `resume-site-sync-updated-pdf`.
 - Keep `episode-07/demo-assets/Jamie Rivera - Resume Updated.pdf` easy to locate.
 - Confirm the portfolio still shows junior status, no Summer 2026 internship, Barista experience, and the old First-Gen Voices metrics.
 
@@ -34,6 +37,14 @@ Show the `microsoft/student-learning-series` repository URL, then open the reada
 **On screen**
 
 Briefly point to the proposal-before-editing and approval-before-push instructions. Install the plugin. Edit out installation wait time.
+
+For the local dry run, use:
+
+```text
+/plugin uninstall resume-site-sync-two-pdf
+/plugin install resume-site-sync-updated-pdf@student-learning-series
+/skills info resume-site-sync
+```
 
 ### 0:24-0:32 - Invoke with the updated resume
 
@@ -119,4 +130,3 @@ Record these immediately after the take:
 - Were unrelated wording and design preserved?
 - Did the validation, commit, and push result read clearly on screen?
 - Keep, revise, or reject this option:
-

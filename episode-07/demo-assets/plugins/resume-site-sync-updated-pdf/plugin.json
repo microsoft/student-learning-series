@@ -1,0 +1,16 @@
+{
+  "name": "resume-site-sync-updated-pdf",
+  "description": "Compare an updated resume with the current portfolio, then apply only approved updates.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Microsoft"
+  },
+  "repository": "https://github.com/microsoft/student-learning-series",
+  "license": "MIT",
+  "keywords": [
+    "resume",
+    "portfolio",
+    "student"
+  ],
+  "skills": "skills/"
+}
