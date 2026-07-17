@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "resume-site-sync",
-      "description": "Compare previous and updated resumes, then propose approved portfolio updates.",
+      "description": "Reconcile current and updated resumes with a portfolio, then apply approved website changes.",
       "version": "1.0.0",
       "source": "episode-07/demo-assets/plugins/resume-site-sync"
     }
