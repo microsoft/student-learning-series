@@ -127,7 +127,15 @@ def render_post_page(metadata: dict[str, str], body_html: str) -> str:
       <a href="../../" class="brand">Jamie Rivera</a>
       <ul id="nav-links" class="nav-links">
         <li><a href="../../">Home</a></li>
-        <li><a href="../">Blog</a></li>
+        <li><a href="../../#about">About</a></li>
+        <li><a href="../../#resume">Resume</a></li>
+        <li><a href="../../#experience">Experience</a></li>
+        <li><a href="../../#projects">Projects</a></li>
+        <li><a href="../" aria-current="page">Blog</a></li>
+        <li><a href="../../#skills">Skills</a></li>
+        <li><a href="../../#education">Education</a></li>
+        <li><a href="../../#leadership">Leadership</a></li>
+        <li><a href="../../#contact">Contact</a></li>
       </ul>
       <div class="nav-controls">
         <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">Dark mode</button>
