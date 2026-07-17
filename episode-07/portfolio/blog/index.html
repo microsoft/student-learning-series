@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Jamie Rivera</title>
+  <meta name="description" content="Blog posts from Jamie Rivera." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a href="../" class="brand">Jamie Rivera</a>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#resume">Resume</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../#projects">Projects</a></li>
+        <li><a href="./" aria-current="page">Blog</a></li>
+        <li><a href="../#skills">Skills</a></li>
+        <li><a href="../#education">Education</a></li>
+        <li><a href="../#leadership">Leadership</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          Dark mode
+        </button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" type="button">
+          Menu
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container reveal">
+      <p class="eyebrow">Writing and reflections</p>
+      <h1>Blog</h1>
+    </section>
+
+    <section class="container section reveal" aria-label="Published posts">
+      <div class="blog-list" data-post-list data-post-source="posts.json"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Jamie Rivera</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
