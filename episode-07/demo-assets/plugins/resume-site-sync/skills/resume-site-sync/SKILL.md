@@ -1,6 +1,6 @@
 ---
 name: resume-site-sync
-description: Reconcile a current resume PDF and an updated resume PDF with the personal portfolio website in the current repository, propose precise website changes, and implement only explicitly approved rows. Use whenever a user invokes `/resume-site-sync`, asks to update a portfolio from a new resume, or wants resume changes reflected on their personal website.
+description: Update a personal portfolio website by comparing a current resume with an updated resume, proposing website changes, and applying approved edits. Use this skill when the user asks to update their portfolio website.
 license: MIT
 ---
 
@@ -72,7 +72,7 @@ Adapt approved facts to the site's existing voice and structure. Do not invent a
 
 After the table, state:
 
-> Approval authorizes editing only the approved website fields, preserving the existing design and unrelated content, running the repository's existing validation, committing only those changes, and pushing the commit to the configured remote.
+> Approving these edits will update the website while preserving its existing design and unrelated content. It will also validate and commit the approved changes, then push the commit to your remote GitHub repository.
 >
 > Reply `approve all` or select rows, for example `approve 1,3`.
 
