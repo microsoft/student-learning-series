@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+  Local review page for the Skill -> Plugin -> Marketplace animation
+  ("Integrate and retime the expanded animation", issue #26). Plays both
+  final cuts side by side directly from the `out/` render output so the
+  60s and 90s versions can be compared without opening a video editor.
+  Not part of the render pipeline itself -- regenerate `out/` via
+  `npm run render:all` (and refresh stills via `npm run contact-sheet:all`)
+  before opening this file, since `out/` is gitignored and not committed.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Skill / Plugin / Marketplace animation review</title>
+<style>
+  body {
+    background: #f7f7f5;
+    color: #242424;
+    font-family: "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+  }
+  h1 {
+    margin: 0 0 8px;
+  }
+  p.sub {
+    color: #6b7280;
+    margin: 0 0 32px;
+  }
+  .cuts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .cut {
+    background: #ffffff;
+    border: 1px solid #d8dce2;
+    border-radius: 14px;
+    padding: 20px;
+    width: 720px;
+  }
+  .cut h2 {
+    margin-top: 0;
+  }
+  video {
+    width: 100%;
+    border-radius: 8px;
+    background: #000;
+  }
+  .meta {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .stills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .stills img {
+    width: 110px;
+    border: 1px solid #d8dce2;
+    border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+  <h1>Skill &rarr; Plugin &rarr; Marketplace animation</h1>
+  <p class="sub">
+    Local review of both final cuts rendered from
+    <code>episode-07/demo-assets/animations/skill-plugin-marketplace/</code>.
+    Silent H.264, 1920x1080, 30fps.
+  </p>
+
+  <div class="cuts">
+    <div class="cut">
+      <h2>Modular &mdash; 60s (1,800 frames)</h2>
+      <video controls preload="metadata">
+        <source src="out/skill-plugin-marketplace-modular-60s.mp4" type="video/mp4" />
+      </video>
+      <div class="meta">out/skill-plugin-marketplace-modular-60s.mp4</div>
+      <div class="stills">
+        <img src="out/contact-sheet/SkillPluginMarketplaceModular/frame-00000.png" alt="frame 0" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceModular/frame-00360.png" alt="frame 360" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceModular/frame-00720.png" alt="frame 720" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceModular/frame-01080.png" alt="frame 1080" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceModular/frame-01440.png" alt="frame 1440" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceModular/frame-01799.png" alt="frame 1799" />
+      </div>
+    </div>
+
+    <div class="cut">
+      <h2>Extended &mdash; 90s (2,700 frames)</h2>
+      <video controls preload="metadata">
+        <source src="out/skill-plugin-marketplace-extended-90s.mp4" type="video/mp4" />
+      </video>
+      <div class="meta">out/skill-plugin-marketplace-extended-90s.mp4</div>
+      <div class="stills">
+        <img src="out/contact-sheet/SkillPluginMarketplaceExtended/frame-00000.png" alt="frame 0" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceExtended/frame-00540.png" alt="frame 540" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceExtended/frame-01080.png" alt="frame 1080" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceExtended/frame-01620.png" alt="frame 1620" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceExtended/frame-02160.png" alt="frame 2160" />
+        <img src="out/contact-sheet/SkillPluginMarketplaceExtended/frame-02699.png" alt="frame 2699" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
