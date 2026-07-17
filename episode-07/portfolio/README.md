@@ -1,27 +1,20 @@
-# Jamie Rivera portfolio
+# Episode 7 portfolio website
 
-This is the frozen Episode 7 starting website. It extends the Jamie Rivera portfolio merged in commit
-`aab5fdf72c21520c12a435528cb2d09c28f418f1` and uses plain HTML, CSS, and JavaScript.
+This folder contains Jamie Rivera's portfolio website for Episode 7.
 
-## Blog folder contract
+## Folder contents
 
-- Save authored Markdown drafts in `blog/posts-src/<post-slug>.md`.
-- Generate approved static post pages in `blog/posts/<post-slug>.html`.
-- Add approved post metadata to `blog/posts.json` so the homepage and full blog page list it.
-- Keep links relative so the website works from a local HTTP server and from a repository subpath.
+| Path | Purpose |
+| --- | --- |
+| `index.html` | Main portfolio page, including the homepage blog preview. |
+| `styles.css` | Shared styling for the portfolio, blog, and published posts. |
+| `script.js` | Responsive navigation, theme switching, animations, and blog listing behavior. |
+| `resume/` | Resume displayed and downloaded from the portfolio. |
+| `blog/index.html` | Full list of published blog posts. |
+| `blog/posts-src/` | Markdown source files used to write and edit posts. |
+| `blog/posts/` | Static HTML pages generated for published posts. |
+| `blog/posts.json` | Post titles, dates, summaries, and links shown in the website's blog lists. |
+| `blog/generate_posts.py` | Converts approved Markdown sources into static post pages and updates `posts.json`. |
 
-Drafts are source material and are not linked from the website. The starting `posts.json` is empty, so this
-recording baseline intentionally contains no published posts.
-
-Each Markdown source uses this metadata:
-
-```markdown
----
-title: Post title
-date: 2026-07-17
-summary: A short description shown on the homepage and blog page.
----
-```
-
-After approval, run `python blog/generate_posts.py` from this folder to regenerate the static post pages and
-listing metadata.
+The website starts with no published posts. To generate approved posts, run
+`python blog/generate_posts.py` from this folder.
