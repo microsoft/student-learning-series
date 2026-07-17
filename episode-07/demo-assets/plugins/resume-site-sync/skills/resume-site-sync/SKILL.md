@@ -1,6 +1,6 @@
 ---
 name: resume-site-sync
-description: Update a personal portfolio website by comparing a current resume with an updated resume, proposing website changes, and applying approved edits. Use this skill when the user asks to update their portfolio website.
+description: Update a personal portfolio website by comparing a current resume with an updated resume, proposing website changes, and applying approved edits. Use this skill when the user asks to update their portfolio website from a new or updated resume.
 license: MIT
 ---
 
@@ -72,7 +72,7 @@ Adapt approved facts to the site's existing voice and structure. Do not invent a
 
 After the table, state:
 
-> Approving these edits will update the website while preserving its existing design and unrelated content. It will also validate and commit the approved changes, then push the commit to your remote GitHub repository.
+> If you approve these updates, I'll update only the selected parts of your website without changing its design or unrelated content. Then I'll make sure the site still works, commit the changes, and push them to GitHub.
 >
 > Reply `approve all` or select rows, for example `approve 1,3`.
 
