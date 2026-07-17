@@ -1,210 +1,220 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Jamie Rivera's portfolio - Communication & Media Studies student, storyteller, and data-curious creator.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jamie Rivera | Portfolio</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta
+    name="description"
+    content="Portfolio of Jamie Rivera (they/them), Communication & Media Studies student focused on content, communications, and community impact."
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <nav class="nav container" aria-label="Primary">
-      <a class="brand" href="./">Jamie Rivera</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul id="site-menu" class="nav-menu">
-        <li><a href="./">Home</a></li>
+      <a href="#top" class="brand">Jamie Rivera</a>
+      <ul id="nav-links" class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#resume">Resume</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="blog/">Blog</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#leadership">Leadership</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          Dark mode
+        </button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" type="button">
+          Menu
+        </button>
+      </div>
     </nav>
   </header>
 
-  <main id="main-content">
-    <section id="top" class="hero">
-      <div class="container hero-content">
-        <p class="eyebrow">Seattle, WA</p>
-        <h1>Jamie Rivera</h1>
-        <p class="headline">Storyteller and data-curious.</p>
-        <p class="intro">
-          I turn ideas into clear stories across writing, audio, and social, then use simple data to show impact.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View my work</a>
-          <a class="btn btn-secondary" href="resume/Jamie-Rivera-Resume.docx" download>Download résumé</a>
-        </div>
-        <ul class="hero-links">
-          <li><a class="email-trigger" href="mailto:jamie.rivera@cascade.edu" data-email="jamie.rivera@cascade.edu">jamie.rivera@cascade.edu</a></li>
-        </ul>
+  <main id="main">
+    <section id="top" class="hero container reveal">
+      <p class="eyebrow">Seattle, WA</p>
+      <h1>Jamie Rivera <span class="muted">(they/them)</span></h1>
+      <p class="headline">Communication &amp; Media Studies Student | Storyteller and data-curious</p>
+      <p class="summary">
+        Junior Communication &amp; Media Studies major with a Data Analytics minor who turns ideas into clear stories
+        across writing, audio, and social. Comfortable pairing creative work with simple data to show impact.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:jamie.rivera@cascade.edu?subject=Internship%20Opportunity">Contact me for internships</a>
+        <a class="btn btn-secondary" href="resume/Jamie%20Rivera%20-%20Resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container narrow">
-        <h2>About</h2>
-        <p>
-          I’m a junior Communication &amp; Media Studies major at Cascade State University, with a minor in Data Analytics.
-          My work sits at the intersection of creativity and clarity: writing content people actually read, producing media that
-          feels human, and using lightweight data to understand what’s working. I’m currently looking for roles in content,
-          communications, and community programs.
-        </p>
-        <div class="about-meta">
-          <p><strong>Education:</strong> B.A. Communication &amp; Media Studies, Minor in Data Analytics (Expected May 2027)</p>
-          <p><strong>GPA:</strong> 3.7 / 4.0</p>
-          <p><strong>Relevant coursework:</strong> Digital Media Production, Intro to Data Analytics, Public Relations Writing, Web Content and Design</p>
-        </div>
+    <section id="about" class="container section reveal">
+      <h2>About</h2>
+      <p>
+        I am a junior at Cascade State University studying Communication &amp; Media Studies with a minor in Data
+        Analytics. I enjoy creating clear, audience-first content and using simple data to show what is working.
+        I am seeking internship roles in content, communications, and community programs.
+      </p>
+    </section>
+
+    <section id="resume" class="container section reveal">
+      <h2>Resume Preview</h2>
+      <p class="small">
+        If the preview does not load in your browser, use the download button above.
+      </p>
+      <div class="resume-frame-wrap">
+        <iframe
+          class="resume-frame"
+          title="Jamie Rivera resume preview"
+          src="resume/Jamie%20Rivera%20-%20Resume.pdf"
+        ></iframe>
       </div>
     </section>
 
-    <section id="skills" class="section section-soft">
-      <div class="container">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-          <article class="card">
-            <h3>Tools</h3>
-            <p>Microsoft 365 (Word, Excel, PowerPoint), Canva, Adobe Express, Audacity, basic HTML &amp; CSS, Git &amp; GitHub (learning)</p>
-          </article>
-          <article class="card">
-            <h3>Data &amp; Research</h3>
-            <p>Spreadsheets, basic charting, survey design</p>
-          </article>
-          <article class="card">
-            <h3>Communication</h3>
-            <p>Copywriting, public speaking, social media strategy</p>
-          </article>
-          <article class="card">
-            <h3>Languages</h3>
-            <p>English (native), Spanish (conversational)</p>
-          </article>
-        </div>
+    <section id="experience" class="container section reveal">
+      <h2>Experience</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Marketing and Communications Intern</h3>
+          <p class="meta">Greenline Community Trust | Seattle, WA | Jun 2025 - Present</p>
+          <ul>
+            <li>Rebuilt the nonprofit social presence and grew Instagram following by <strong>40%</strong> in one semester.</li>
+            <li>Write and schedule a weekly newsletter reaching more than <strong>1,200 subscribers</strong>.</li>
+            <li>Produce short-form volunteer event recaps from filming through captions.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Peer Writing Tutor</h3>
+          <p class="meta">Cascade State Writing Center | Seattle, WA | Sep 2024 - Present</p>
+          <ul>
+            <li>Coach <strong>60+ students</strong> each term on essays, resumes, and application materials.</li>
+            <li>Led two campus workshops on clear, structured writing.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Barista</h3>
+          <p class="meta">Foghorn Coffee | 2023 - 2024</p>
+          <ul>
+            <li>Trained four new hires and supported reliable service during high-volume shifts.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section id="experience" class="section">
-      <div class="container">
-        <h2>Experience</h2>
-        <ol class="timeline">
-          <li class="timeline-item">
-            <article class="card">
-              <p class="role-meta">Jun 2025 - Present · Seattle, WA</p>
-              <h3>Marketing &amp; Communications Intern</h3>
-              <p class="org">Greenline Community Trust</p>
-              <ul>
-                <li>Rebuilt the nonprofit’s social presence and grew Instagram following by 40% in one semester.</li>
-                <li>Write and schedule a weekly newsletter reaching 1,200+ subscribers.</li>
-                <li>Produce short-form volunteer event recaps, from filming through captions.</li>
-              </ul>
-            </article>
-          </li>
-          <li class="timeline-item">
-            <article class="card">
-              <p class="role-meta">Sep 2024 - Present · Seattle, WA</p>
-              <h3>Peer Writing Tutor</h3>
-              <p class="org">Cascade State Writing Center</p>
-              <ul>
-                <li>Coach 60+ students per term on essays, résumés, and applications.</li>
-                <li>Led two campus workshops on clear, structured writing.</li>
-              </ul>
-            </article>
-          </li>
-          <li class="timeline-item">
-            <article class="card">
-              <p class="role-meta">2023 - 2024</p>
-              <h3>Barista</h3>
-              <p class="org">Foghorn Coffee</p>
-              <ul>
-                <li>Trained four new hires and kept service moving during high-volume mornings.</li>
-              </ul>
-            </article>
-          </li>
-        </ol>
+    <section id="projects" class="container section reveal">
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>First-Gen Voices Podcast <span class="muted">(Founder &amp; Producer)</span></h3>
+          <p class="meta">2024 - Present</p>
+          <ul>
+            <li>Launched a student podcast featuring first-generation college stories.</li>
+            <li>Published <strong>15 episodes</strong> and reached <strong>2,000+ downloads</strong>.</li>
+            <li>Own recording, editing, cover art, and release scheduling.</li>
+          </ul>
+          <a href="#" aria-label="Podcast link placeholder">Podcast link (TODO: add URL)</a>
+        </article>
+        <article class="card">
+          <h3>Campus Recycling Dashboard</h3>
+          <p class="meta">Spring 2025</p>
+          <ul>
+            <li>Analyzed two years of campus waste data and built charts of recycling trends.</li>
+            <li>Recommended three changes that the sustainability office later piloted.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Greenline Content Refresh</h3>
+          <p class="meta">Internship Project | 2025</p>
+          <ul>
+            <li>Rewrote the Get Involved page and simplified volunteer signup flow, lifting completions.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Trail Journal</h3>
+          <p class="meta">Personal Project | Ongoing</p>
+          <ul>
+            <li>Growing photo-and-notes log of Pacific Northwest day hikes.</li>
+          </ul>
+          <a href="#" aria-label="Trail Journal placeholder">Project link (TODO: add URL)</a>
+        </article>
       </div>
     </section>
 
-    <section id="projects" class="section section-soft">
-      <div class="container">
-        <h2>Featured Projects</h2>
-        <div class="projects-grid">
-          <article class="project-card">
-            <img src="assets/first-gen-voices.svg" alt="Abstract illustration representing a podcast conversation.">
-            <div class="project-content">
-              <h3>First-Gen Voices Podcast</h3>
-              <p>Student podcast featuring first-generation stories, with 15 episodes and 2,000+ downloads.</p>
-              <p class="tags">Podcast · Audio</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/recycling-dashboard.svg" alt="Abstract chart shapes representing recycling trends.">
-            <div class="project-content">
-              <h3>Campus Recycling Dashboard</h3>
-              <p>Analyzed two years of waste data and translated trends into practical recommendations.</p>
-              <p class="tags">Data · Charts</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/content-refresh.svg" alt="Abstract layout blocks representing improved web content flow.">
-            <div class="project-content">
-              <h3>Greenline Content Refresh</h3>
-              <p>Rewrote “Get Involved” content and simplified signups to increase form completions.</p>
-              <p class="tags">Writing · UX</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/trail-journal.svg" alt="Abstract landscape illustration inspired by Pacific Northwest trails.">
-            <div class="project-content">
-              <h3>Trail Journal</h3>
-              <p>A growing photo-and-notes log documenting Pacific Northwest day hikes.</p>
-              <p class="tags">Photography · Storytelling</p>
-            </div>
-          </article>
-        </div>
+    <section id="blog" class="container section reveal">
+      <h2>Blog</h2>
+      <div class="blog-list" data-post-list data-post-source="blog/posts.json" data-post-prefix="blog/" data-post-limit="3"></div>
+      <p class="blog-actions"><a href="blog/">View full blog <span aria-hidden="true">&rarr;</span></a></p>
+    </section>
+
+    <section id="skills" class="container section reveal">
+      <h2>Skills</h2>
+      <div class="grid">
+        <article class="panel">
+          <h3>Tools</h3>
+          <p>Microsoft 365, Canva, Adobe Express, Audacity, basic HTML/CSS, Git/GitHub (learning)</p>
+        </article>
+        <article class="panel">
+          <h3>Data</h3>
+          <p>Spreadsheets, basic charting, survey design</p>
+        </article>
+        <article class="panel">
+          <h3>Communication</h3>
+          <p>Copywriting, public speaking, social media strategy</p>
+        </article>
+        <article class="panel">
+          <h3>Languages</h3>
+          <p>English (native), Spanish (conversational)</p>
+        </article>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="container narrow">
-        <h2>Contact</h2>
-        <p>
-          I’d love to connect about content, communications, and community-focused opportunities.
+    <section id="education" class="container section reveal">
+      <h2>Education</h2>
+      <article class="panel">
+        <h3>Cascade State University</h3>
+        <p class="meta">Seattle, WA | Expected May 2027</p>
+        <p>B.A. in Communication &amp; Media Studies, Minor in Data Analytics | GPA 3.7 / 4.0</p>
+        <p class="small">
+          Relevant coursework: Digital Media Production, Intro to Data Analytics, Public Relations Writing, Web
+          Content and Design
         </p>
-        <p>
-          <a class="email-trigger" href="mailto:jamie.rivera@cascade.edu" data-email="jamie.rivera@cascade.edu">jamie.rivera@cascade.edu</a>
-        </p>
-        <p class="involvement">
-          Founder, First-Gen Voices Podcast · Member, Campus Sustainability Club · Volunteer, Seattle Public Library reading program
-        </p>
+      </article>
+    </section>
+
+    <section id="leadership" class="container section reveal">
+      <h2>Leadership &amp; Involvement</h2>
+      <ul class="list-clean">
+        <li>Founder, First-Gen Voices Podcast (2024 - Present)</li>
+        <li>Member, Campus Sustainability Club</li>
+        <li>Volunteer, Seattle Public Library reading program</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="container section reveal">
+      <h2>Contact</h2>
+      <p>
+        I am currently looking for internship opportunities in content, communications, and community-focused teams.
+        If you are hiring, I would love to connect.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:jamie.rivera@cascade.edu?subject=Internship%20Opportunity">Email Jamie</a>
+        <a class="btn btn-secondary" href="#" aria-label="LinkedIn placeholder">LinkedIn (TODO: add URL)</a>
+        <a class="btn btn-secondary" href="#" aria-label="GitHub placeholder">GitHub (TODO: add URL)</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Jamie Rivera</p>
+      <p>&copy; <span id="year"></span> Jamie Rivera</p>
     </div>
   </footer>
 
-  <div class="email-modal" id="emailModal" hidden>
-    <div class="email-modal__overlay" data-close></div>
-    <div class="email-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="emailModalTitle">
-      <button class="email-modal__close" type="button" data-close aria-label="Close dialog">&times;</button>
-      <h2 class="email-modal__title" id="emailModalTitle">Email me</h2>
-      <p class="email-modal__desc">Copy my address, or open it in your mail app.</p>
-      <div class="email-modal__address">
-        <span id="emailAddress">jamie.rivera@cascade.edu</span>
-        <button class="btn btn-primary email-modal__copy" id="copyEmailBtn" type="button">Copy</button>
-      </div>
-      <a class="btn btn-secondary email-modal__mail" id="openMailBtn" href="mailto:jamie.rivera@cascade.edu">Open in email app</a>
-    </div>
-  </div>
-
-  <script src="js/main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

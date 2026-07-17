@@ -1,44 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Blog posts from Jamie Rivera.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Jamie Rivera</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <meta name="description" content="Blog posts from Jamie Rivera." />
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <nav class="nav container" aria-label="Primary">
-      <a class="brand" href="../">Jamie Rivera</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul id="site-menu" class="nav-menu">
+      <a href="../" class="brand">Jamie Rivera</a>
+      <ul id="nav-links" class="nav-links">
         <li><a href="../">Home</a></li>
         <li><a href="./" aria-current="page">Blog</a></li>
       </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          Dark mode
+        </button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" type="button">
+          Menu
+        </button>
+      </div>
     </nav>
   </header>
 
-  <main id="main-content">
-    <header class="blog-hero">
-      <div class="container narrow">
-        <h1>Blog</h1>
-      </div>
-    </header>
+  <main id="main">
+    <section class="hero container reveal">
+      <p class="eyebrow">Writing and reflections</p>
+      <h1>Blog</h1>
+    </section>
 
-    <section class="blog-list container narrow" aria-label="Published posts"></section>
+    <section class="container section reveal" aria-label="Published posts">
+      <div class="blog-list" data-post-list data-post-source="posts.json"></div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Jamie Rivera</p>
+      <p>&copy; <span id="year"></span> Jamie Rivera</p>
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script src="../script.js"></script>
 </body>
 </html>
