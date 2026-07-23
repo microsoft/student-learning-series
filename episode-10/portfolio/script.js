@@ -1,6 +1,10 @@
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 const themeToggle = document.querySelector("#theme-toggle");
+const mobileProgressLabel = document.querySelector(".mobile-section-progress__label");
+const mobileProgressValue = document.querySelector(".mobile-section-progress__value");
+const mobileProgressTrack = document.querySelector(".mobile-section-progress__track");
+const mobileProgressFill = document.querySelector(".mobile-section-progress__fill");
 
 const themeStorageKey = "portfolio-theme";
 const savedTheme = localStorage.getItem(themeStorageKey);
@@ -57,7 +61,7 @@ const sectionNavItems = navLinks
           return null;
         }
 
-        return { link, section };
+        return { link, section, progress: 0 };
       })
       .filter((item) => item !== null)
   : [];
@@ -76,6 +80,7 @@ if (sectionNavItems.length > 0) {
       const sectionRect = item.section.getBoundingClientRect();
       const sectionHeight = Math.max(sectionRect.height, 1);
       const progress = clamp((marker - sectionRect.top) / sectionHeight, 0, 1);
+      item.progress = progress;
       item.link.style.setProperty("--section-progress", `${Math.round(progress * 100)}%`);
 
       if (marker >= sectionRect.top && marker < sectionRect.bottom) {
@@ -89,6 +94,7 @@ if (sectionNavItems.length > 0) {
 
     if (isAtPageEnd) {
       activeItem = lastItem;
+      lastItem.progress = 1;
       lastItem.link.style.setProperty("--section-progress", "100%");
     } else if (lastItem.section.getBoundingClientRect().bottom <= marker) {
       activeItem = lastItem;
@@ -99,6 +105,22 @@ if (sectionNavItems.length > 0) {
       item.link.classList.toggle("is-active", isActive);
       item.link.setAttribute("aria-current", isActive ? "true" : "false");
     });
+
+    if (
+      mobileProgressLabel &&
+      mobileProgressValue &&
+      mobileProgressTrack &&
+      mobileProgressFill
+    ) {
+      const sectionName = activeItem.link.textContent.trim();
+      const sectionProgress = Math.round(activeItem.progress * 100);
+
+      mobileProgressLabel.textContent = sectionName;
+      mobileProgressValue.textContent = `${sectionProgress}%`;
+      mobileProgressTrack.setAttribute("aria-label", `Progress through ${sectionName} section`);
+      mobileProgressTrack.setAttribute("aria-valuenow", String(sectionProgress));
+      mobileProgressFill.style.setProperty("--mobile-section-progress", `${sectionProgress}%`);
+    }
   };
 
   let scrollTicking = false;

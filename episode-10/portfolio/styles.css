@@ -114,6 +114,47 @@ a:hover {
   gap: var(--space-2);
 }
 
+.mobile-section-progress {
+  display: none;
+}
+
+.mobile-section-progress__status {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.mobile-section-progress__label {
+  overflow: hidden;
+  color: var(--primary);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mobile-section-progress__value {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.mobile-section-progress__track {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.mobile-section-progress__fill {
+  display: block;
+  width: var(--mobile-section-progress, 0%);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--primary);
+  transition: width 0.2s ease;
+}
+
 .brand {
   text-decoration: none;
   color: var(--text);
@@ -393,14 +434,32 @@ h3 {
 }
 
 @media (max-width: 900px) {
+  .nav {
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    padding-block: var(--space-1);
+  }
+
+  .nav-controls {
+    margin-left: auto;
+  }
+
+  .mobile-section-progress {
+    order: 3;
+    display: grid;
+    flex: 0 0 100%;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
 
   .nav-links {
     position: absolute;
-    right: 1rem;
-    top: 62px;
+    right: 0;
+    top: 100%;
     width: min(240px, 88vw);
     padding: var(--space-3);
     border: 1px solid var(--line);
