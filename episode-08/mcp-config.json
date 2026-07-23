@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "local",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@0.0.78", "--isolated", "--browser", "chromium"],
+      "tools": ["*"],
+      "timeout": 60000
+    }
+  }
+}

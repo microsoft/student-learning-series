@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Podcast conversation illustration">
+  <defs>
+    <linearGradient id="bg1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff2e7"/>
+      <stop offset="1" stop-color="#ffe2cc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg1)"/>
+  <circle cx="540" cy="430" r="190" fill="#ffd0aa"/>
+  <circle cx="1020" cy="430" r="190" fill="#f9ba8d"/>
+  <rect x="460" y="610" width="680" height="72" rx="36" fill="#c96f3d" opacity=".9"/>
+  <rect x="620" y="315" width="360" height="210" rx="36" fill="#ffffff" opacity=".95"/>
+  <circle cx="700" cy="420" r="54" fill="#c96f3d"/>
+  <rect x="790" y="370" width="120" height="22" rx="11" fill="#d18f63"/>
+  <rect x="790" y="410" width="150" height="22" rx="11" fill="#d18f63"/>
+  <rect x="790" y="450" width="98" height="22" rx="11" fill="#d18f63"/>
+</svg>
