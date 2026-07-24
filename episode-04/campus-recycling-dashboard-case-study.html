@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Recycling Dashboard Case Study | Jamie Rivera</title>
+  <meta
+    name="description"
+    content="Case study for Jamie Rivera's Campus Recycling Dashboard project: context, execution, and results."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a href="index.html" class="brand">Jamie Rivera</a>
+      <div class="cta-row">
+        <a class="btn btn-secondary" href="index.html#projects">Back to Projects</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container reveal">
+      <p class="eyebrow">Case Study | Spring 2025</p>
+      <h1>Campus Recycling Dashboard</h1>
+      <p class="headline">Turning two years of campus waste data into a clear story and action plan.</p>
+      <p class="summary">
+        This project used simulated educational data from January 2023 to December 2024 (24 monthly records) to
+        understand waste trends and propose practical behavior-change pilots for campus sustainability teams.
+      </p>
+    </section>
+
+    <section class="container section reveal">
+      <h2>What the project was</h2>
+      <article class="panel">
+        <p>
+          I created a dashboard-style analysis of landfill, recycling, compost, total tons, diversion rate, and
+          contamination rate using the <code>campus-waste-data-2023-2024-simulated.csv</code> dataset and project charts.
+        </p>
+        <p class="small">
+          Source files used: Campus Recycling Source Paper
+          (<a href="../common/campus-recycling/Campus-Recycling-Source-Paper.docx">DOCX</a> /
+          <a href="../common/campus-recycling/Campus-Recycling-Source-Paper.pdf">PDF</a>),
+          <a href="../common/campus-recycling/campus-waste-data-2023-2024-simulated.csv">campus dataset CSV</a>,
+          and chart exports from the shared
+          <a href="../common/campus-recycling/">Campus Recycling source pack</a>. All values are labeled simulated
+          educational data for training/demo purposes.
+        </p>
+      </article>
+    </section>
+
+    <section class="container section reveal">
+      <h2>What I did</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Data review and trend analysis</h3>
+          <ul>
+            <li>Summarized year-over-year performance from 2023 to 2024.</li>
+            <li>Compared diversion and contamination trajectories month by month.</li>
+            <li>Checked whether landfill reductions held while total material volume changed.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Visual storytelling</h3>
+          <ul>
+            <li>Built and presented three supporting visuals: diversion trend, stream totals, and contamination trend.</li>
+            <li>Used plain-language chart captions so non-technical campus teams could use the findings quickly.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Action recommendations</h3>
+          <ul>
+            <li>Standardize tri-bin stations and signage in high-traffic areas.</li>
+            <li>Run monthly contamination-focused communication prompts and examples.</li>
+            <li>Publish simple building-level waste snapshots to reinforce behavior change.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section reveal">
+      <h2>The result</h2>
+      <div class="grid">
+        <article class="panel">
+          <h3>Key outcomes from the source data</h3>
+          <ul>
+            <li>Diversion rate improved from <strong>49.2%</strong> in 2023 to <strong>56.9%</strong> in 2024.</li>
+            <li>Landfill tonnage dropped from <strong>930.0</strong> to <strong>807.5</strong> tons.</li>
+            <li>Average contamination decreased from <strong>17.4%</strong> to <strong>14.2%</strong>.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h3>Project impact</h3>
+          <p>
+            The dashboard and recommendations gave the sustainability office a concise baseline and three pilot-ready
+            interventions, which supported implementation discussions for campus recycling improvements.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section reveal">
+      <h2>Supporting visuals</h2>
+      <div class="figure-grid">
+        <figure class="figure-card">
+          <img class="figure-image" src="../common/campus-recycling/charts/diversion-rate-trend.png" alt="Monthly campus diversion rate trend for 2023 and 2024." />
+          <figcaption class="small">Diversion rate trend (2023-2024)</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img class="figure-image" src="../common/campus-recycling/charts/waste-stream-annual-totals.png" alt="Annual totals for landfill, recycling, and compost streams in 2023 and 2024." />
+          <figcaption class="small">Annual waste stream totals</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img class="figure-image" src="../common/campus-recycling/charts/contamination-trend.png" alt="Monthly contamination trend showing declining recycling contamination in 2024." />
+          <figcaption class="small">Contamination trend (2023-2024)</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Jamie Rivera</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
