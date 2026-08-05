@@ -1,8 +1,6 @@
-# Episode 04
+# Episode 6 - Extend GitHub Copilot with Tools and MCP Servers
 
-_Title to be added._
-
-This folder holds the artifacts for Episode 04 of the Student AI Learning Series —
+This folder holds the artifacts for Episode 6 of Build your personal brand with Copilot -
 things like the scoping brief, prompts used on camera, demo assets, screenshots, and any
 code snippets shown in the video.
 

@@ -1,4 +1,4 @@
-# Student AI Learning Series PR Quality Gates
+# Build your personal brand with Copilot PR Quality Gates
 
 Apply these gates to every episode PR (01-10) before merge.
 

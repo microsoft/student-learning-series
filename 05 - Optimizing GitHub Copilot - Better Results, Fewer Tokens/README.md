@@ -1,4 +1,4 @@
-# Episode 5 — Context
+# Episode 5 - Optimizing GitHub Copilot: Better Results, Fewer Tokens
 
 **Phase 2 · Concepts**
 
@@ -21,7 +21,7 @@ The portfolio begins without a `README.md` or `AGENTS.md`. During the episode, C
 From the repository root, run:
 
 ```powershell
-python -m http.server 8765 --bind 127.0.0.1 --directory episode-05\portfolio
+python -m http.server 8765 --bind 127.0.0.1 --directory "05 - Optimizing GitHub Copilot - Better Results, Fewer Tokens\portfolio"
 ```
 
 Then open http://127.0.0.1:8765/.

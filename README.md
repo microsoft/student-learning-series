@@ -1,9 +1,9 @@
-# Student AI Learning Series 🎓
+# Build your personal brand with Copilot 🎓
 
 > _"Empower every student on the planet to achieve more using tools in the Microsoft Ecosystem."_
 
-Welcome! This repository is the **home for all the artifacts** from the **Student AI Learning
-Series** — a short YouTube series that shows students how to build a professional personal brand
+Welcome! This repository is the **home for all the artifacts** from **Build your personal brand
+with Copilot** — a short YouTube series that shows students how to build a professional personal brand
 online using **free** Microsoft + GitHub tools. No "developer" background required.
 
 If you watched an episode and want the files, prompts, or demos that went with it, you're in the
@@ -39,24 +39,20 @@ Every episode ends with something real you can show off.
 The repo is intentionally simple. Each episode has its own folder, and shared files live in
 `common/`.
 
-```
-.
-├── common/           # Shared assets used across multiple episodes (e.g. the mock resume)
-├── episode-01/       # Artifacts for Episode 1
-├── episode-02/       # Artifacts for Episode 2
-├── episode-03/       #  ...and so on
-├── episode-04/
-├── episode-05/
-├── episode-06/
-├── episode-07/
-├── episode-08/
-├── episode-09/
-└── episode-10/
-```
+1. [`01 - Get Started with GitHub Copilot and the Student Developer Pack`](01%20-%20Get%20Started%20with%20GitHub%20Copilot%20and%20the%20Student%20Developer%20Pack/)
+2. [`02 - Build a Portfolio Website from Your Resume with GitHub Copilot`](02%20-%20Build%20a%20Portfolio%20Website%20from%20Your%20Resume%20with%20GitHub%20Copilot/)
+3. [`03 - Publish Your Portfolio with Git, GitHub, and GitHub Pages`](03%20-%20Publish%20Your%20Portfolio%20with%20Git,%20GitHub,%20and%20GitHub%20Pages/)
+4. [`04 - Configure GitHub Copilot - Settings, Sessions, and Modes`](04%20-%20Configure%20GitHub%20Copilot%20-%20Settings,%20Sessions,%20and%20Modes/)
+5. [`05 - Optimizing GitHub Copilot - Better Results, Fewer Tokens`](05%20-%20Optimizing%20GitHub%20Copilot%20-%20Better%20Results,%20Fewer%20Tokens/)
+6. [`06 - Extend GitHub Copilot with Tools and MCP Servers`](06%20-%20Extend%20GitHub%20Copilot%20with%20Tools%20and%20MCP%20Servers/)
+7. [`07 - Build Reusable Copilot Workflows with Skills and Agents`](07%20-%20Build%20Reusable%20Copilot%20Workflows%20with%20Skills%20and%20Agents/)
+8. [`08 - Bring Your Own Model Within the GitHub Copilot App`](08%20-%20Bring%20Your%20Own%20Model%20Within%20the%20GitHub%20Copilot%20App/)
+9. [`09 - Modernize Your Portfolio with Bootstrap and GitHub Copilot`](09%20-%20Modernize%20Your%20Portfolio%20with%20Bootstrap%20and%20GitHub%20Copilot/)
+10. [`10 - Control GitHub Copilot Remotely from Your Phone`](10%20-%20Control%20GitHub%20Copilot%20Remotely%20from%20Your%20Phone/)
 
-### Episode folders (`episode-01` … `episode-10`)
+### Episode folders
 
-Each `episode-NN/` folder holds everything tied to that episode: the scoping brief, the prompts
+Each numbered folder holds everything tied to that episode: the scoping brief, the prompts
 used on camera, demo assets, screenshots, and any code snippets. Open the `README.md` inside any
 episode folder to see what it covers.
 
@@ -72,8 +68,8 @@ episode folder to see what it covers.
 
 ## How to navigate as a student
 
-1. **Find your episode.** Open the folder that matches the episode you watched, e.g.
-   [`episode-02/`](episode-02/).
+1. **Find your episode.** Open the numbered folder with the matching video title, e.g.
+   [`02 - Build a Portfolio Website from Your Resume with GitHub Copilot`](02%20-%20Build%20a%20Portfolio%20Website%20from%20Your%20Resume%20with%20GitHub%20Copilot/).
 2. **Read the folder's `README.md`** for a quick summary of what that episode builds.
 3. **Grab the artifacts** — prompts, assets, and demo files are right there in the folder.
 4. **Need a shared file** (like the sample resume)? Look in [`common/`](common/).
