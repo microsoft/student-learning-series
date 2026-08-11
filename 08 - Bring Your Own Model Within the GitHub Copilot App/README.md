@@ -13,6 +13,41 @@ how to train a model.
 > Azure services can use paid credit. Check the estimated cost before approving a
 > deployment, monitor usage, and delete resources when you finish.
 
+## What you'll learn
+
+- How Copilot, a model provider, and a Microsoft Foundry deployment connect.
+- How to verify an Azure subscription, permissions, model availability, quota, and cost.
+- How to configure and test a compatible custom model without exposing credentials.
+- How to diagnose endpoint, API, authentication, and rate-limit problems.
+
+## Try it yourself
+
+1. Read the prerequisites and cost warning before creating resources.
+2. Follow [`PROMPTS.md`](PROMPTS.md) in order and stop when a verification step fails.
+3. Test the deployment in Foundry before connecting it to Copilot.
+4. Delete the learning resources when the exercise is complete.
+
+## Prompts
+
+[`PROMPTS.md`](PROMPTS.md) contains the reviewed prompt path. Replace placeholders only
+after checking the proposed resource names, region, model, quota, and billing.
+
+Never place an API key, tenant ID, subscription ID, or real endpoint value in a prompt.
+
+## Expected result
+
+A compatible Microsoft Foundry deployment answers a harmless test prompt, works through
+the configured Copilot model provider, and can call a simple tool. The resource group can
+be identified and removed after the exercise.
+
+## Troubleshooting
+
+- Test the deployment, API, and Copilot provider separately so failures stay isolated.
+- A 404 usually means the provider URL, API path, or deployment mapping is wrong.
+- An unsupported-operation error usually means the model and provider use different APIs.
+- Quota and permissions cannot be bypassed by Copilot or Azure MCP.
+- See [Detailed troubleshooting](#detailed-troubleshooting) for step-by-step checks.
+
 ## What you are building
 
 Think of the pieces like this:
@@ -291,7 +326,7 @@ Read
 [Using your own LLM models in GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models)
 for the current provider formats and model requirements.
 
-## Troubleshooting
+## Detailed troubleshooting
 
 ### HTTP 404: Not Found
 

@@ -1,38 +1,38 @@
 # Episode 1 - Get Started with GitHub Copilot and the Student Developer Pack
 
-**Phase 1 · Foundation**
+**Phase 1 - Foundation**
 
-In this episode a student goes from *nothing installed* to a working free toolkit
-(GitHub Student Developer Pack + VS Code + GitHub Copilot) and builds a tiny
-"proof-of-life" webpage from a single prompt.
+Set up your student developer toolkit and use one prompt to build a first webpage.
 
-## Demo artifact: Hello World + smiley page
+## What you'll learn
 
-Folder: [`hello-world/`](hello-world/)
+- What GitHub, the Student Developer Pack, GitHub Copilot, and VS Code are for.
+- How to give Copilot a simple website task.
+- How to open the generated files in a browser and VS Code.
 
-This is the on-camera deliverable — a simple webpage that says **Hello World** with a big
-smiley face, the kind of page Copilot builds from one sentence and that you then open in
-VS Code.
+## Try it yourself
 
-**The single prompt used on camera:**
+1. Open [`hello-world/index.html`](hello-world/index.html) in a browser.
+2. Open the `hello-world` folder in VS Code.
+3. Ask Copilot to make one small change, such as choosing a different background color.
 
-> "Create a simple webpage that says Hello World with a big smiley face."
+## Prompts
 
-### How to open it
+The prompt used in the episode is:
 
-- Double-click `hello-world/index.html` to open it in your browser, **or**
-- Open the `hello-world` folder in VS Code and use a Live Preview / "Open with Live Server"
-  extension to view it.
+> Create a simple webpage that says Hello World with a big smiley face.
 
-It's a single self-contained HTML file (no build step, no dependencies), so it works
-anywhere — exactly what a first-time student needs.
+## Expected result
 
-## What a viewer can do after this episode
+A self-contained webpage displays **Hello World** and a large smiley face. No package
+installation or build step is required.
 
-- Explain, in plain terms, what an AI coding agent is (it can read and change files and take
-  steps for you — not just autocomplete).
-- Use one prompt to build a simple webpage.
-- Open the generated code in VS Code.
+## Troubleshooting
 
-> The real portfolio build begins in **Episode 2**, using the shared mock resume in
-> [`../common/`](../common/).
+- If the page does not open, confirm the file is named `index.html`.
+- If a change does not appear, save the file and refresh the browser.
+- If Copilot access is unavailable, confirm that the correct GitHub account is signed in
+  and that any required student-benefit enrollment is complete.
+
+The portfolio project begins in Episode 2 with the mock resume in
+[`../common/`](../common/).
