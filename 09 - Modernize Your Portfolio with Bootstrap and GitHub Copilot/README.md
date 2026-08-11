@@ -1,8 +1,6 @@
-# Episode 09
+# Episode 9 - Modernize Your Portfolio with Bootstrap and GitHub Copilot
 
-_Title to be added._
-
-This folder holds the artifacts for Episode 09 of the Student AI Learning Series —
+This folder holds the artifacts for Episode 9 of Build your personal brand with Copilot -
 things like the scoping brief, prompts used on camera, demo assets, screenshots, and any
 code snippets shown in the video.
 

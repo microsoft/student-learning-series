@@ -1,8 +1,6 @@
-# Episode 02
+# Episode 2 - Build a Portfolio Website from Your Resume with GitHub Copilot
 
-_Title to be added._
-
-This folder holds the artifacts for Episode 02 of the Student AI Learning Series —
+This folder holds the artifacts for Episode 2 of Build your personal brand with Copilot -
 things like the scoping brief, prompts used on camera, demo assets, screenshots, and any
 code snippets shown in the video.
 

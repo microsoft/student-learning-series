@@ -1,4 +1,4 @@
-# Episode 1 — Your Free AI Toolkit
+# Episode 1 - Get Started with GitHub Copilot and the Student Developer Pack
 
 **Phase 1 · Foundation**
 

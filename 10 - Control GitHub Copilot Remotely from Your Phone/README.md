@@ -1,4 +1,4 @@
-# Episode 10 — Integrated Section Progress Navigation
+# Episode 10 - Control GitHub Copilot Remotely from Your Phone
 
 **Phase 2 · Concepts**
 
@@ -20,7 +20,7 @@ posts.
 From the repository root, run:
 
 ```powershell
-python -m http.server 8770 --bind 127.0.0.1 --directory episode-10\portfolio
+python -m http.server 8770 --bind 127.0.0.1 --directory "10 - Control GitHub Copilot Remotely from Your Phone\portfolio"
 ```
 
 Then open <http://127.0.0.1:8770/>.

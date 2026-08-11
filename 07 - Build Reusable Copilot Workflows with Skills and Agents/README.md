@@ -1,4 +1,4 @@
-# Episode 7 — Teaching Copilot Skills!
+# Episode 7 - Build Reusable Copilot Workflows with Skills and Agents
 
 **Phase 2 · Concepts**
 
@@ -25,7 +25,7 @@ episode, Copilot:
 From the repository root, run:
 
 ```powershell
-python -m http.server 8767 --bind 127.0.0.1 --directory episode-07\portfolio
+python -m http.server 8767 --bind 127.0.0.1 --directory "07 - Build Reusable Copilot Workflows with Skills and Agents\portfolio"
 ```
 
 Then open <http://127.0.0.1:8767/>.
@@ -74,7 +74,7 @@ copilot plugin install resume-site-sync@student-learning-series
 Then invoke the skill:
 
 ```text
-/resume-site-sync "common/Jamie Rivera - Resume.pdf" "episode-07/demo-assets/Jamie Rivera - Resume Updated.pdf"
+/resume-site-sync "common/Jamie Rivera - Resume.pdf" "07 - Build Reusable Copilot Workflows with Skills and Agents/demo-assets/Jamie Rivera - Resume Updated.pdf"
 ```
 
 Review plugin instructions before installing them. A marketplace helps with discovery; it

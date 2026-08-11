@@ -1,4 +1,4 @@
-# Episode 8 - Bring Your Own Model with Microsoft Foundry
+# Episode 8 - Bring Your Own Model Within the GitHub Copilot App
 
 **Phase 2 - Concepts**
 
