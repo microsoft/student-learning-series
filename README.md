@@ -3,8 +3,9 @@
 > _"Empower every student on the planet to achieve more using tools in the Microsoft Ecosystem."_
 
 Welcome! This repository is the **home for all the artifacts** from **Build your personal brand
-with Copilot** — a short YouTube series that shows students how to build a professional personal brand
-online using **free** Microsoft + GitHub tools. No "developer" background required.
+with Copilot** — a YouTube series that shows students how to build a professional personal brand
+online using Microsoft and GitHub tools that are free or available through eligible student offers.
+No "developer" background required.
 
 If you watched an episode and want the files, prompts, or demos that went with it, you're in the
 right place.
@@ -13,13 +14,13 @@ right place.
 
 ## What is this series about?
 
-Lots of students want a portfolio website and a
-solid online presence, but they don't know they already have **free tools** to build one, and
-long tutorials scare them off. This series fixes that.
+Lots of students want a portfolio website and a solid online presence, but they don't know which
+tools are available at no cost or through student offers, and long tutorials scare them off. This
+series fixes that.
 
-Across ~7–10 short episodes (about 5–7 minutes each), you'll use tools like **GitHub Copilot
-CLI**, **VS Code**, and **GitHub Pages** to build a complete personal portfolio site — one small,
-useful step per episode.
+Across 10 focused episodes — ranging from quick introductions to deeper step-by-step walkthroughs
+— you'll use tools like the **GitHub Copilot app**, **VS Code**, and **GitHub Pages** to build a
+complete personal portfolio site, one useful step at a time.
 
 The series comes in two phases:
 
