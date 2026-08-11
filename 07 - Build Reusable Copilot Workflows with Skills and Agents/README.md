@@ -7,6 +7,43 @@ that repeatable publishing process as a Copilot skill, and reuses the skill for 
 project. The episode also shows how plugins package shared capabilities and how a
 marketplace helps students discover and install them.
 
+## What you'll learn
+
+- How to recognize a repeated workflow that should become a skill.
+- How an agent persona can provide focused, read-only feedback.
+- How skills, plugins, and marketplaces relate to one another.
+- Why human approval should remain part of publishing and portfolio updates.
+
+## Try it yourself
+
+1. Review the numbered files in
+   [`demo-assets/prompts/`](demo-assets/prompts/).
+2. Use the first set of notes to create and review one blog post.
+3. Save the repeatable process as a project skill.
+4. Run the skill with the second notes file and compare the output.
+
+## Prompts
+
+Follow the numbered prompt files in order. Prompts
+[`06a.md`](demo-assets/prompts/06a.md) and
+[`06b.md`](demo-assets/prompts/06b.md) offer short and explicit ways to create the same
+`create-blog` skill.
+
+## Expected result
+
+The portfolio contains two published blog posts, a reusable project skill, and a plugin
+that can propose source-backed resume updates for human approval.
+
+## Troubleshooting
+
+- If a skill is not discovered, confirm its folder and `SKILL.md` structure, then start a
+  fresh session.
+- If the blog page is missing, verify that the generated HTML and `posts.json` entry were
+  both created.
+- If the plugin is unavailable, confirm the marketplace path and installed plugin name.
+- If a source document cannot be read, confirm that the matching file exists in
+  `demo-assets/`.
+
 ## Demo artifact: Jamie's portfolio with an empty blog
 
 Folder: [`portfolio/`](portfolio/)

@@ -1,5 +1,43 @@
 # Episode 5 - Optimizing GitHub Copilot: Better Results, Fewer Tokens
 
+## What you'll learn
+
+- How context and tokens affect Copilot's response.
+- Why concise project guidance can reduce guesses and repeated corrections.
+- When to continue, compact, or start a fresh session.
+- How to compare the same task with and without project context.
+
+## Try it yourself
+
+1. Open [`index.html`](index.html) and choose a portfolio project.
+2. Run the case-study prompt in a fresh session without project guidance.
+3. Review concise `README.md` and `AGENTS.md` guidance with Copilot.
+4. Run the same prompt in another fresh session and compare the questions and corrections.
+
+## Prompts
+
+Use the case-study prompt below for both attempts. The detailed project-context prompt is
+included in the [prompt reference](#prompts-used-in-the-demo).
+
+```text
+Add a case-study page for [Project X] that matches my portfolio. Include what the project
+was, what I did, and the result. Link it from the matching project.
+```
+
+## Expected result
+
+The portfolio links to a style-matched case-study page. The comparison shows how focused,
+reusable context changes Copilot's process without guaranteeing a correct result.
+
+## Troubleshooting
+
+- If Copilot uses details from the first attempt, confirm that the comparison starts in a
+  fresh session.
+- If the case-study link fails, confirm the file name and relative link in `index.html`.
+- If the page does not load from the command below, confirm that Python is installed or
+  open `index.html` directly.
+- If `/compact` is unavailable, start a new session instead of relying on that command.
+
 ## Add a Project Case Study to Your Portfolio
 
 This folder contains Jamie Rivera's portfolio website and the completed Campus Recycling
