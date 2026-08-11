@@ -1,14 +1,19 @@
 # Episode 5 - Optimizing GitHub Copilot: Better Results, Fewer Tokens
 
-**Phase 2 · Concepts**
+## Add a Project Case Study to Your Portfolio
 
-In this episode, Shivani and Emily explain how context, tokens, and the context window affect Copilot’s work. They compare the same portfolio task before and after adding concise project notes, demonstrating how relevant context can reduce repeated questions, corrections, and broad file searches.
+This folder contains Jamie Rivera's portfolio website and the completed Campus Recycling
+Dashboard case study used in Episode 05 of the Student AI Learning Series.
 
-## Demo artifact: Student portfolio
+Open [`index.html`](index.html) in a browser to view the portfolio, then select **View case
+study** under Campus Recycling Dashboard. You can also open the
+[case-study page](campus-recycling-dashboard-case-study.html) directly.
 
-**Folder:** `portfolio/`
+The case study uses the simulated dataset, source paper, presentation, and charts in the
+shared [`../common/campus-recycling/`](../common/campus-recycling/) source pack. The mock
+resume is also shared from [`../common/`](../common/).
 
-The portfolio begins without a `README.md` or `AGENTS.md`. During the episode, Copilot:
+During the episode, Copilot:
 
 - Attempts to create a case-study page without project context.
 - Creates concise project notes for future sessions.
@@ -21,7 +26,7 @@ The portfolio begins without a `README.md` or `AGENTS.md`. During the episode, C
 From the repository root, run:
 
 ```powershell
-python -m http.server 8765 --bind 127.0.0.1 --directory "05 - Optimizing GitHub Copilot - Better Results, Fewer Tokens\portfolio"
+python -m http.server 8765 --bind 127.0.0.1 --directory "05 - Optimizing GitHub Copilot - Better Results, Fewer Tokens"
 ```
 
 Then open http://127.0.0.1:8765/.

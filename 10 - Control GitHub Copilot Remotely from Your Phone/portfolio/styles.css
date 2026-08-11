@@ -114,6 +114,47 @@ a:hover {
   gap: var(--space-2);
 }
 
+.mobile-section-progress {
+  display: none;
+}
+
+.mobile-section-progress__status {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.mobile-section-progress__label {
+  overflow: hidden;
+  color: var(--primary);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mobile-section-progress__value {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.mobile-section-progress__track {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.mobile-section-progress__fill {
+  display: block;
+  width: var(--mobile-section-progress, 0%);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--primary);
+  transition: width 0.2s ease;
+}
+
 .brand {
   text-decoration: none;
   color: var(--text);
@@ -165,9 +206,23 @@ a:hover {
 }
 
 .nav-links a {
+  --section-progress: 0%;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.2rem;
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: var(--section-progress) 2px;
+  background-position: left calc(100% - 1px);
+  transition: color 0.2s ease, background-size 0.2s ease;
+}
+
+.nav-links a.is-active {
+  color: var(--primary);
+  font-weight: 700;
 }
 
 .nav-links a:focus-visible,
@@ -238,7 +293,8 @@ h3 {
 }
 
 .cards,
-.grid {
+.grid,
+.blog-list {
   display: grid;
   gap: var(--space-3);
 }
@@ -252,12 +308,39 @@ h3 {
 }
 
 .card,
-.panel {
+.panel,
+.blog-card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: var(--space-4);
   box-shadow: var(--shadow);
+}
+
+.blog-card h2,
+.blog-card h3 {
+  margin-bottom: var(--space-1);
+}
+
+.blog-card h2 {
+  font-size: 1.3rem;
+}
+
+.blog-card p:last-child {
+  margin-bottom: 0;
+}
+
+.blog-actions {
+  margin-top: var(--space-4);
+  font-weight: 600;
+}
+
+.blog-post {
+  max-width: 760px;
+}
+
+.blog-post > * + * {
+  margin-top: var(--space-3);
 }
 
 .meta {
@@ -339,97 +422,6 @@ h3 {
   color: var(--muted);
 }
 
-.figure-grid {
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.figure-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: var(--space-3);
-}
-
-.figure-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  display: block;
-  border: 1px solid var(--line);
-}
-
-.photo-rotator {
-  padding: var(--space-3);
-}
-
-.rotator-viewport {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: #000;
-}
-
-.rotator-slide {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-}
-
-.rotator-slide.is-active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.rotator-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.rotator-slide figcaption {
-  position: absolute;
-  left: var(--space-2);
-  right: var(--space-2);
-  bottom: var(--space-2);
-  margin: 0;
-  padding: 0.4rem 0.65rem;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.58);
-  color: #fff;
-  font-size: 0.9rem;
-}
-
-.rotator-dots {
-  margin-top: var(--space-3);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.45rem;
-}
-
-.rotator-dot {
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--bg);
-  padding: 0;
-}
-
-.rotator-dot.is-active {
-  background: var(--primary);
-  border-color: var(--primary);
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(8px);
@@ -442,14 +434,32 @@ h3 {
 }
 
 @media (max-width: 900px) {
+  .nav {
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    padding-block: var(--space-1);
+  }
+
+  .nav-controls {
+    margin-left: auto;
+  }
+
+  .mobile-section-progress {
+    order: 3;
+    display: grid;
+    flex: 0 0 100%;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
 
   .nav-links {
     position: absolute;
-    right: 1rem;
-    top: 62px;
+    right: 0;
+    top: 100%;
     width: min(240px, 88vw);
     padding: var(--space-3);
     border: 1px solid var(--line);

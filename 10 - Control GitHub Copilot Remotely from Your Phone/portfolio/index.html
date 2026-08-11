@@ -21,13 +21,28 @@
         <li><a href="#resume">Resume</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#leadership">Leadership</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
-        <li><a href="#photos">Photos</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="mobile-section-progress">
+        <div class="mobile-section-progress__status">
+          <span class="mobile-section-progress__label" aria-live="polite" aria-atomic="true">About</span>
+          <span class="mobile-section-progress__value" aria-hidden="true">0%</span>
+        </div>
+        <div
+          class="mobile-section-progress__track"
+          role="progressbar"
+          aria-label="Progress through About section"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span class="mobile-section-progress__fill"></span>
+        </div>
+      </div>
       <div class="nav-controls">
         <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
           Dark mode
@@ -45,19 +60,19 @@
       <h1>Jamie Rivera <span class="muted">(they/them)</span></h1>
       <p class="headline">Communication &amp; Media Studies Student | Storyteller and data-curious</p>
       <p class="summary">
-        Junior Communication &amp; Media Studies major with a Data Analytics minor who turns ideas into clear stories
+        Senior Communication &amp; Media Studies major with a Data Analytics minor who turns ideas into clear stories
         across writing, audio, and social. Comfortable pairing creative work with simple data to show impact.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="mailto:jamie.rivera@cascade.edu?subject=Internship%20Opportunity">Contact me for internships</a>
-        <a class="btn btn-secondary" href="../common/Jamie%20Rivera%20-%20Resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+        <a class="btn btn-secondary" href="resume/Jamie%20Rivera%20-%20Resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
       </div>
     </section>
 
     <section id="about" class="container section reveal">
       <h2>About</h2>
       <p>
-        I am a junior at Cascade State University studying Communication &amp; Media Studies with a minor in Data
+        I am a senior at Cascade State University studying Communication &amp; Media Studies with a minor in Data
         Analytics. I enjoy creating clear, audience-first content and using simple data to show what is working.
         I am seeking internship roles in content, communications, and community programs.
       </p>
@@ -72,7 +87,7 @@
         <iframe
           class="resume-frame"
           title="Jamie Rivera resume preview"
-          src="../common/Jamie%20Rivera%20-%20Resume.pdf"
+          src="resume/Jamie%20Rivera%20-%20Resume.pdf"
         ></iframe>
       </div>
     </section>
@@ -80,6 +95,14 @@
     <section id="experience" class="container section reveal">
       <h2>Experience</h2>
       <div class="cards">
+        <article class="card">
+          <h3>Content Strategy Intern</h3>
+          <p class="meta">Northwest Community Media | Summer 2026</p>
+          <ul>
+            <li>Planned and shipped cross-channel content calendars tied to audience goals.</li>
+            <li>Partnered with editors and program leads to improve weekly content consistency.</li>
+          </ul>
+        </article>
         <article class="card">
           <h3>Marketing and Communications Intern</h3>
           <p class="meta">Greenline Community Trust | Seattle, WA | Jun 2025 - Present</p>
@@ -97,13 +120,6 @@
             <li>Led two campus workshops on clear, structured writing.</li>
           </ul>
         </article>
-        <article class="card">
-          <h3>Barista</h3>
-          <p class="meta">Foghorn Coffee | 2023 - 2024</p>
-          <ul>
-            <li>Trained four new hires and supported reliable service during high-volume shifts.</li>
-          </ul>
-        </article>
       </div>
     </section>
 
@@ -115,7 +131,7 @@
           <p class="meta">2024 - Present</p>
           <ul>
             <li>Launched a student podcast featuring first-generation college stories.</li>
-            <li>Published <strong>15 episodes</strong> and reached <strong>2,000+ downloads</strong>.</li>
+            <li>Published <strong>28 episodes</strong> and reached <strong>4,500+ downloads</strong>.</li>
             <li>Own recording, editing, cover art, and release scheduling.</li>
           </ul>
           <a href="#" aria-label="Podcast link placeholder">Podcast link (TODO: add URL)</a>
@@ -127,7 +143,6 @@
             <li>Analyzed two years of campus waste data and built charts of recycling trends.</li>
             <li>Recommended three changes that the sustainability office later piloted.</li>
           </ul>
-          <a href="campus-recycling-dashboard-case-study.html">View case study</a>
         </article>
         <article class="card">
           <h3>Greenline Content Refresh</h3>
@@ -145,6 +160,12 @@
           <a href="#" aria-label="Trail Journal placeholder">Project link (TODO: add URL)</a>
         </article>
       </div>
+    </section>
+
+    <section id="blog" class="container section reveal">
+      <h2>Blog</h2>
+      <div class="blog-list" data-post-list data-post-source="blog/posts.json" data-post-prefix="blog/" data-post-limit="3"></div>
+      <p class="blog-actions"><a href="blog/">View full blog <span aria-hidden="true">&rarr;</span></a></p>
     </section>
 
     <section id="skills" class="container section reveal">
@@ -191,79 +212,6 @@
       </ul>
     </section>
 
-    <section id="hobbies" class="container section reveal">
-      <h2>Hobbies</h2>
-      <div class="grid">
-        <article class="panel">
-          <h3>Hiking &amp; Nature Photography</h3>
-          <p>Exploring Pacific Northwest trails and capturing landscapes along the way. Currently building a photo-and-notes trail journal.</p>
-        </article>
-        <article class="panel">
-          <h3>Podcasting &amp; Audio Production</h3>
-          <p>Recording, editing, and producing episodes for the First-Gen Voices podcast. Always experimenting with new storytelling formats.</p>
-        </article>
-        <article class="panel">
-          <h3>Reading &amp; Creative Writing</h3>
-          <p>Avid reader of narrative nonfiction and personal essays. Enjoys journaling and drafting short-form pieces on identity and belonging.</p>
-        </article>
-        <article class="panel">
-          <h3>Community Volunteering</h3>
-          <p>Regular volunteer at the Seattle Public Library reading program, helping young readers build confidence and curiosity.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="photos" class="container section reveal">
-      <h2>Trail Journal Photos</h2>
-      <p class="small">A rotating gallery of public-domain photos from recent Pacific Northwest trips.</p>
-      <div class="panel photo-rotator" data-rotator>
-        <div class="rotator-viewport">
-          <figure class="rotator-slide is-active" data-rotator-slide>
-            <img src="../common/trail-journal/photos/olympic/01-log-bridge-on-quinault-trail.jpg" alt="A narrow wooden bridge with a handrail on one side leads into a rainforest trail." loading="lazy" decoding="async" />
-            <figcaption>Olympic National Park - Quinault Trail</figcaption>
-          </figure>
-          <figure class="rotator-slide" data-rotator-slide>
-            <img src="../common/trail-journal/photos/olympic/02-mountain-reflection-lacrosse-basin.jpg" alt="Snowcapped peaks and dramatic clouds reflected in a serene mountain lake." loading="lazy" decoding="async" />
-            <figcaption>Olympic National Park - LaCrosse Basin</figcaption>
-          </figure>
-          <figure class="rotator-slide" data-rotator-slide>
-            <img src="../common/trail-journal/photos/olympic/03-lake-crescent-sunrise.jpg" alt="A brilliant orange and purple sky over a lake surrounded by mountains." loading="lazy" decoding="async" />
-            <figcaption>Olympic National Park - Lake Crescent</figcaption>
-          </figure>
-          <figure class="rotator-slide" data-rotator-slide>
-            <img src="../common/trail-journal/photos/mount-rainier/01-alta-vista-trail-view.jpg" alt="A paved trail cuts up a rocky meadow slope towards a mountain peak covered in glaciers." loading="lazy" decoding="async" />
-            <figcaption>Mount Rainier - Alta Vista Trail</figcaption>
-          </figure>
-          <figure class="rotator-slide" data-rotator-slide>
-            <img src="../common/trail-journal/photos/mount-rainier/02-pinnacle-peak-trail-view.jpg" alt="A narrow rocky trail along a steep slope heading towards a glaciated mountain peak." loading="lazy" decoding="async" />
-            <figcaption>Mount Rainier - Pinnacle Peak Trail</figcaption>
-          </figure>
-          <figure class="rotator-slide" data-rotator-slide>
-            <img src="../common/trail-journal/photos/mount-rainier/03-nisqually-river-carter-falls-trail.jpg" alt="A river flows through a wide rocky riverbed in a forested valley under a glaciated mountain peak." loading="lazy" decoding="async" />
-            <figcaption>Mount Rainier - Nisqually River</figcaption>
-          </figure>
-          <figure class="rotator-slide" data-rotator-slide>
-            <img src="../common/trail-journal/photos/north-cascades/01-cascade-pass-and-pelton-basin.jpg" alt="A broad green mountain basin rises toward rugged peaks beneath a clear blue sky." loading="lazy" decoding="async" />
-            <figcaption>North Cascades - Cascade Pass and Pelton Basin</figcaption>
-          </figure>
-          <figure class="rotator-slide" data-rotator-slide>
-            <img src="../common/trail-journal/photos/north-cascades/02-lupine-bloom-on-sahale-arm.jpg" alt="Purple lupine wildflowers line a rocky alpine trail below jagged North Cascades peaks." loading="lazy" decoding="async" />
-            <figcaption>North Cascades - Sahale Arm wildflowers</figcaption>
-          </figure>
-        </div>
-        <div class="rotator-dots" aria-label="Photo slide navigation">
-          <button class="rotator-dot is-active" data-rotator-dot type="button" aria-label="Show photo 1" aria-current="true"></button>
-          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 2"></button>
-          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 3"></button>
-          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 4"></button>
-          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 5"></button>
-          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 6"></button>
-          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 7"></button>
-          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 8"></button>
-        </div>
-      </div>
-    </section>
-
     <section id="contact" class="container section reveal">
       <h2>Contact</h2>
       <p>
@@ -273,7 +221,7 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="mailto:jamie.rivera@cascade.edu?subject=Internship%20Opportunity">Email Jamie</a>
         <a class="btn btn-secondary" href="#" aria-label="LinkedIn placeholder">LinkedIn (TODO: add URL)</a>
-        <a class="btn btn-secondary" href="https://github.com/Frostfire25/student-portfolio-website" target="_blank" rel="noopener noreferrer" aria-label="Portfolio repository on GitHub">GitHub Repository</a>
+        <a class="btn btn-secondary" href="#" aria-label="GitHub placeholder">GitHub (TODO: add URL)</a>
       </div>
     </section>
   </main>

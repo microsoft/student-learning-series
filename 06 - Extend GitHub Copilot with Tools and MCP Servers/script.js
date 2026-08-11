@@ -68,3 +68,55 @@ if ("IntersectionObserver" in window) {
 } else {
   revealElements.forEach((element) => element.classList.add("show"));
 }
+
+const rotator = document.querySelector("[data-rotator]");
+if (rotator) {
+  const slides = Array.from(rotator.querySelectorAll("[data-rotator-slide]"));
+  const dots = Array.from(rotator.querySelectorAll("[data-rotator-dot]"));
+  let currentIndex = 0;
+  let timerId;
+
+  const showSlide = (nextIndex) => {
+    currentIndex = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      const isActive = index === currentIndex;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+    dots.forEach((dot, index) => {
+      const isActive = index === currentIndex;
+      dot.classList.toggle("is-active", isActive);
+      if (isActive) {
+        dot.setAttribute("aria-current", "true");
+      } else {
+        dot.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const startRotation = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    timerId = window.setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, 4500);
+  };
+
+  const stopRotation = () => {
+    if (!timerId) return;
+    window.clearInterval(timerId);
+    timerId = undefined;
+  };
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      stopRotation();
+      showSlide(index);
+      startRotation();
+    });
+  });
+
+  rotator.addEventListener("mouseenter", stopRotation);
+  rotator.addEventListener("mouseleave", startRotation);
+  showSlide(0);
+  startRotation();
+}
