@@ -468,3 +468,12 @@ h3 {
     min-height: 600px;
   }
 }
+
+/* Attribution for the public-domain National Park Service photographs.
+   Each credit is recorded per image in common/trail-journal/sources.csv. */
+.rotator-slide figcaption .photo-credit {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  opacity: 0.72;
+}
