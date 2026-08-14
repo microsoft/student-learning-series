@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Build your personal brand with Copilot</title>
+<title>Build your personal brand with Copilot | Microsoft Developer</title>
 <meta name="description" content="A ten-episode learning series for students. Go from your first prompt to a live personal portfolio website with the GitHub Copilot app.">
 
 <!-- Sharing. Absolute URLs, because a scraper fetches these from the open internet with no session. -->
@@ -17,12 +17,12 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Build your personal portfolio website in minutes. A ten-episode series for students, produced by Microsoft Developer.">
+<meta property="og:image:alt" content="The Microsoft logo above the words Build your personal portfolio website in minutes, with the series title Build your personal brand with Copilot.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Build your personal brand with Copilot">
 <meta name="twitter:description" content="A ten-episode learning series for students. Go from your first prompt to a live personal portfolio website with the GitHub Copilot app.">
 <meta name="twitter:image" content="https://microsoft.github.io/student-learning-series/assets/share-plate.jpg">
-<meta name="twitter:image:alt" content="Build your personal portfolio website in minutes. A ten-episode series for students, produced by Microsoft Developer.">
+<meta name="twitter:image:alt" content="The Microsoft logo above the words Build your personal portfolio website in minutes, with the series title Build your personal brand with Copilot.">
 <style>
 /* ============================================================
    THE LANDING PAGE · every decision locked in the grilling
@@ -37,7 +37,7 @@
    Big             paper sheet, never dark    (round 10, design 2)
    ============================================================ */
 :root{
-  --ink:#323139;--ink-2:#5b5a63;--ink-3:#8b8a93;
+  --ink:#323139;--ink-2:#5b5a63;
   --paper:#f9fce8;--mint:#defbef;--peach:#fce9dd;--white:#fff;
   --line:rgba(50,49,57,.14);
   --accent:linear-gradient(90deg,#AA5AF9 0%,#FF32A3 17%,#FFA200 33%,#FFCE20 50%,#9BC72A 67%,#00B291 84%,#0097F4 100%);
@@ -45,9 +45,8 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{font-family:var(--font);color:var(--ink);
-  background:linear-gradient(140deg,var(--mint) 0%,var(--paper) 52%,var(--peach) 100%);
-  background-attachment:fixed;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
 button{font:inherit;color:inherit}
@@ -63,16 +62,10 @@ button{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 
 .kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:0}
-  .seriestitle{margin:0 0 .9rem;font-size:1.02rem;font-weight:600;color:var(--ink);letter-spacing:.01em;
-    display:inline-block;padding-bottom:.42rem;background-image:var(--accent);
-    background-repeat:no-repeat;background-position:0 100%;background-size:100% 3px}
-  @media (prefers-contrast:more){.seriestitle{background-image:none;border-bottom:3px solid var(--ink)}}
 .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.72rem 1.15rem;border-radius:999px;
   border:1px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;font-size:.92rem;cursor:pointer}
 .btn.ghost{background:transparent;color:var(--ink)}
-.btn.soon{opacity:.62;cursor:default}
 .btn .tag{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
-.tlink{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;font-size:.92rem}
 
 /* ---------- HERO · centred. One action, and it is honest about the date. ---------- */
 .hero{padding:11vh 6vw 5vh;text-align:center}
@@ -81,19 +74,19 @@ button{font:inherit;color:inherit}
 .hero .acts{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
 
 /* ---------- THE WALL · ten cards, five wide. The episode opens inside it. ---------- */
-.wall{max-width:1360px;margin:0 auto;padding:0 28px 90px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:start}
+.wall{max-width:1440px;margin:0 auto;padding:0 28px 90px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start}
 .card{position:relative;border:0;padding:0;background:none;cursor:pointer;text-align:left;
-  border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(50,49,57,.10);transition:transform .16s ease,box-shadow .16s ease}
+  border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(50,49,57,.10);transition:transform .16s ease,box-shadow .16s ease}
 .card img{aspect-ratio:16/9;object-fit:cover;width:100%}
 .card:hover{box-shadow:0 12px 28px rgba(50,49,57,.20)}
 .card.on{outline:3px solid var(--ink);outline-offset:2px}
 
 /* the band: a short ink band wipes up over the lower card. The art is never hidden. */
-.rv{position:absolute;inset:auto 0 0 0;color:#fff;background:var(--ink);padding:.6rem .75rem .65rem;
+.rv{position:absolute;inset:auto 0 0 0;color:#fff;background:var(--ink);padding:.8rem .95rem .85rem;
   display:grid;gap:.15rem;transform:translateY(100%);transition:transform .2s ease}
-.rv .barrule{display:block;position:absolute;inset:0 0 auto 0;height:3px}
-.rv .n{display:block;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;opacity:.72}
-.rv .d{display:block;font-size:.82rem;line-height:1.35}
+.rv .barrule{display:block;position:absolute;inset:0 0 auto 0;height:4px}
+.rv .n{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;opacity:.72}
+.rv .d{display:block;font-size:.95rem;line-height:1.35}
 .card:hover .rv,.card:focus-visible .rv,.card.on .rv{transform:none}
 @media (hover:none){ .rv{transform:none} }
 @media (prefers-reduced-motion: reduce){ .card,.card *{transition-duration:.01ms !important} }
@@ -112,8 +105,7 @@ button{font:inherit;color:inherit}
 .rowhead{display:flex;justify-content:space-between;align-items:center;gap:1rem;width:100%;
   background:none;border:0;border-bottom:1px solid var(--line);padding:.85rem .2rem;cursor:pointer;text-align:left;font-size:.95rem}
 .rowhead .lab{display:flex;align-items:center;gap:.6rem}
-.rowhead .sub{font-size:.8rem;color:var(--ink-3)}
-.rowhead .chev{transition:transform .18s ease;color:var(--ink-3)}
+.rowhead .chev{transition:transform .18s ease;color:var(--ink-2)}
 .rowhead[aria-expanded="true"] .chev{transform:rotate(90deg)}
 .rowbody{padding:16px .2rem 20px;border-bottom:1px solid var(--line)}
 
@@ -148,17 +140,14 @@ button{font:inherit;color:inherit}
   padding:14px 5vw;background:rgba(252,250,240,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .sheet .who{display:grid;gap:.1rem}
 .sheet .who strong{font-size:.98rem;font-weight:600}
-.sheet .who small{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.sheet .who small{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
 .sheet .shstage{padding:22px 5vw 40px;display:grid;gap:14px}
 .sheet .shstage > *{width:min(1280px,100%);margin:0 auto}
 .sheet iframe{height:min(78vh,900px)}
 body.sheeted{overflow:hidden}
 
 /* ---------- THE FOOT · one quiet credit line. No header anywhere. ---------- */
-.sitefoot{padding:34px 6vw 46px;display:grid;gap:.5rem;justify-items:center;text-align:center;
-  color:var(--ink-2);font-size:.86rem;line-height:1.55}
-.sitefoot strong{color:var(--ink)}
-.sitefoot a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+/* replaced by the ticket #37 footer, below */
 
 /* ---------- THE PHONE · two wide. All ten stay. There is no dropdown. ---------- */
 @media (max-width:900px){
@@ -170,22 +159,207 @@ body.sheeted{overflow:hidden}
      The art is never hidden — that rule holds on every screen. */
   .card{background:var(--ink);display:grid}
   .rv{position:static;transform:none;padding:.5rem .6rem .6rem}
-  .rv .barrule{position:static;height:3px;margin-bottom:.35rem}
+  .rv .barrule{position:static;height:4px;margin-bottom:.35rem}
 }
 
-/* ---------- the state switch. A prototype control, not part of the page. ---------- */
-#states{position:fixed;right:18px;bottom:18px;z-index:9999;width:250px;
-  background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:14px;
-  box-shadow:0 18px 46px rgba(50,49,57,.22);font-size:.8rem;overflow:hidden}
-#states .handle{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.5rem .7rem;cursor:grab;background:var(--ink);color:#fff}
-#states .handle b{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;font-weight:600}
-#states .handle button{background:transparent;border:0;color:#fff;cursor:pointer;opacity:.7;font-size:.95rem;line-height:1}
-#states .body{padding:.65rem}
-#states.min .body{display:none}
-#states p{margin:0 0 .28rem;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
-#states .seg{display:flex;gap:.28rem;margin-bottom:.45rem}
-#states .seg button{flex:1;border:1px solid var(--line);background:#fff;border-radius:8px;padding:.4rem;cursor:pointer;font-size:.72rem}
-#states .seg button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ---------- THE CARD · design G. It tilts to the pointer, and a light follows. ---------- */
+.card .art{display:block;overflow:hidden;border-radius:inherit}
+.card .art img{transition:transform .35s ease,filter .25s ease}
+
+.wall{perspective:1000px}
+.card .glow{position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;transition:opacity .2s ease;
+  background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.5),rgba(255,255,255,0) 62%)}
+.card{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(0);
+  transform-style:preserve-3d;transition:transform .12s ease,box-shadow .2s ease}
+
+
+/* ---- CTA C1 · the ghost pill that points at the wall ---- */
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.chevd{display:inline-block;animation:bob 1.6s ease-in-out infinite}
+
+
+/* The reader decides. No class can switch this off: the rig that carried one is gone. */
+@media (prefers-reduced-motion: reduce){
+  .card,.card *,.chevd{animation:none !important}
+  .card:hover,.card:active{transform:none !important}
+}
+
+/* ===== the phone, real ===== */
+@media (max-width:900px){
+  .wall{grid-template-columns:repeat(2,1fr) !important;padding:0 18px 70px;perspective:none;max-width:none !important}
+  .hero{padding:7vh 6vw 4vh}
+  .open .body{grid-template-columns:1fr}
+  .open{padding:18px}
+  .card{background:var(--ink);display:grid;transform:none !important}
+  .rv{position:static;transform:none !important;padding:.5rem .6rem .6rem}
+  .rv .barrule{position:static;height:4px;margin-bottom:.35rem}
+  .card .rv{animation:none !important}
+  .card{animation:none !important}
+  .card .glow{display:none}
+  .card .art img{transform:none !important;filter:none !important}
+  .acts{flex-direction:column;align-items:stretch}
+}
+
+
+/* ============================================================
+   TICKET 39 · the page field and the card surface.
+   The finding that decided it: the episode art has a mean
+   painted value of 237,238,225 — the page wash itself. Art on
+   the old diagonal wash measured 1.00:1, so no light field
+   could ever separate the two. The page therefore goes flat,
+   and the card is given a real edge.
+   FIELD  flat paper #F9FCE8, no gradient.
+   CARD   the art, with one ink hairline around it.
+   ============================================================ */
+
+/* the card is an object on the page, carried by its shadow alone.
+   The hairline was built, measured (4.90:1 on the paper, 4.34:1 on the palest
+   of the ten artworks) and rejected by eye: the shadow reads quieter.
+   A shadow is not measurable contrast, and Windows High Contrast drops it,
+   so the edge is restored as a real border in forced-colors and under
+   prefers-contrast: more. Those are the only places a border appears. */
+.card{box-shadow:0 6px 18px rgba(50,49,57,.18)}
+@media (prefers-contrast: more){ .card{border:1px solid var(--ink)} }
+@media (forced-colors: active){ .card{border:1px solid CanvasText} }
+.card:hover{box-shadow:0 20px 40px rgba(50,49,57,.3)}
+
+/* the light of design G was declared in the card build but never switched on */
+.card:hover .glow,.card:focus-visible .glow{opacity:1}
+
+/* the section adds no surface of its own. The page is quiet and the cards
+   carry the separation, so no band, no plate and no rule is needed.
+   The "Start anywhere" label was rejected and is gone: no heading, no label. */
+.sectionwrap{position:relative;padding:8px 0 0}
+
+/* ---------- THE HEADER · the Microsoft mark, wall aligned (ticket #36) ---------- */
+:root{ --logo-h:34px; }
+.msclear{ --clear:var(--logo-h); }
+.mslogo{ display:block; height:var(--logo-h); width:auto; }
+.mstitle{ margin:0; text-align:right; font-size:.82rem; letter-spacing:.11em;
+          text-transform:uppercase; font-weight:600; color:var(--ink-2); }
+@media (prefers-contrast:more){ .mstitle{ color:var(--ink); } }
+.mshead{ max-width:1440px; margin:0 auto; padding:calc(var(--logo-h)*1.3) 28px 0; }
+.mshead .row{ display:flex; align-items:center; }
+.mshead .thread{ flex:1; height:1px; background:var(--line);
+                 margin:0 var(--clear); min-width:var(--clear); }
+@media (max-width:820px){
+  :root{ --logo-h:28px; }
+  .mshead{ padding-top:calc(var(--logo-h)*1.5); }
+  .mshead .thread{ display:none; }
+  .mshead .row{ gap:var(--clear); }
+  .mstitle{ flex:1; font-size:.62rem; letter-spacing:.07em; line-height:1.5; }
+}
+
+/* ---------- THE FOOT · a light bar, two centred lines. Ticket #37. -------- */
+.sitefoot{--pad:18px;container-type:inline-size;
+  border-top:1px solid var(--line);color:var(--ink);
+  font-size:.8rem;line-height:1.5;padding:var(--pad) 0;text-align:center;
+  display:block;justify-items:initial;gap:0}
+.sitefoot .in{max-width:1280px;margin:0 auto;padding:0 6vw;
+  display:flex;flex-direction:column;align-items:center;gap:.42rem}
+.sitefoot .set{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.3rem 1.05rem}
+.sitefoot a{color:#5b5a63;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px}
+.sitefoot a:hover,.sitefoot a:focus-visible{color:var(--ink);border-bottom-color:currentColor}
+.sitefoot .cr{color:#5b5a63;white-space:nowrap}
+.sitefoot .credit{color:var(--ink);font-weight:600;white-space:nowrap}
+.sitefoot .credit a{color:var(--ink)}
+.sitefoot .quiet{font-size:.74rem}
+.sitefoot .quiet a,.sitefoot .quiet .cr{font-size:.74rem}
+@media (prefers-contrast:more){ .sitefoot a{border-bottom-color:currentColor} }
+@media (prefers-reduced-motion:reduce){ .sitefoot *{transition-duration:.01ms !important} }
+@container (max-width:520px){ .sitefoot .set{gap:.3rem .85rem} }
+
+
+/* ============================================================
+   TICKETS 2 + 40 · round 2. The opened episode: about, chapters,
+   people. The resources live below the wall, said once, and
+   episode 01 points at them.
+   The grey that fails AA at 3.27:1 on paper is gone from the page.
+   ============================================================ */
+.open .desc{margin:.1rem 0 0;font-size:.88rem;line-height:1.62;color:var(--ink-2)}
+.open .quiet{margin:.55rem 0 0;font-size:.78rem;line-height:1.5;color:var(--ink-2)}
+.open h3.ph{margin:1.25rem 0 .55rem;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:600;color:var(--ink-2)}
+/* the links this episode needs, and no others */
+.reslist{display:grid;gap:6px}
+.reslist a{display:grid;gap:.1rem;text-decoration:none;padding:.6rem .7rem;border-radius:10px;
+  border:1px solid var(--line);background:var(--white)}
+.reslist a:hover{border-color:var(--ink)}
+.reslist a b{font-size:.88rem;font-weight:600;line-height:1.3}
+.reslist a span{font-size:.78rem;color:var(--ink-2);line-height:1.45}
+
+.ptabrow{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);margin-bottom:.9rem}
+.ptabs{display:flex;gap:.15rem;flex-wrap:wrap;margin-bottom:-1px}
+.ptabs button{background:none;border:0;cursor:pointer;padding:.5rem .7rem;font-size:.84rem;
+  color:var(--ink-2);border-bottom:2px solid transparent}
+.ptabs button[aria-selected="true"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+.ptabs button:hover{color:var(--ink)}
+/* the episode files leave the page, so the link says so and is not a tab */
+.ghtab{display:inline-flex;align-items:center;gap:.42rem;padding:.5rem .2rem;font-size:.82rem;
+  color:var(--ink-2);text-decoration:none}
+.ghtab:hover,.ghtab:focus-visible{color:var(--ink)}
+.ghtab .ext{font-size:.8rem}
+.gico{display:inline-flex;align-items:center}
+.gico svg{display:block}
+.tabpane{min-height:14.5rem}
+
+.chaps{display:grid;gap:1px}
+.chaps .ch{display:grid;grid-template-columns:3.4rem 1fr;gap:.5rem;align-items:baseline;
+  padding:.3rem .35rem;border-radius:7px;font-size:.85rem;line-height:1.4;text-align:left}
+.chaps .ch .t{font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--ink-2)}
+.chaps span.ch,.chaps span.ch .l{color:var(--ink-2)}
+.chaps button.ch{background:none;border:0;cursor:pointer;color:var(--ink);width:100%;
+  transition:background-color .14s ease}
+.chaps button.ch:hover{background:rgba(50,49,57,.06)}
+.chaps button.ch .t{color:var(--ink)}
+.chaps.scroll{max-height:14.5rem;overflow:auto;padding-right:.3rem}
+@media (prefers-reduced-motion: reduce){ .chaps button.ch{transition-duration:.01ms !important} }
+
+.ppl{display:grid;gap:.7rem}
+.ppl .who{display:grid;gap:.12rem}
+.ppl .who b{font-size:.92rem;font-weight:600}
+.ppl .who > span{font-size:.79rem;color:var(--ink-2);line-height:1.4}
+.ppl .who .ln{display:flex;flex-wrap:wrap;gap:.15rem .8rem;margin-top:.15rem}
+.ppl .who .ln a{font-size:.79rem;color:var(--ink-2);text-decoration:none;
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.ppl .who .ln a:hover,.ppl .who .ln a:focus-visible{color:var(--ink);border-bottom-color:currentColor}
+
+
+/* ---------- THE RESOURCES · said once, below the wall ---------- */
+/* The section draws nothing. The page separates by object and by air: the card
+   carries its own shadow, and this section is the next paragraph, not a new
+   object. A rule here reads as a page end, and the brand rule would spend an
+   accent that earns its meaning by being rare. So the wall ends, the paper
+   opens, and the heading arrives on its own. 134px of it. */
+.gs{max-width:1440px;margin:44px auto 0;padding:0 28px 54px;text-align:left}
+.gs .in{background:none;border:0;border-radius:0;padding:0}
+.gs h2{margin:0 0 .5rem;max-width:24ch;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:300;
+  letter-spacing:-.03em;line-height:1.15}
+.gs .sub{margin:0 0 1.7rem;max-width:54ch;color:var(--ink-2);line-height:1.6}
+.gs .note{margin:1.3rem 0 0;font-size:.78rem;color:var(--ink-2);line-height:1.5;max-width:64ch}
+.gs .gh3{margin:0 0 .2rem;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:600;color:var(--ink-2);text-align:left}
+.gs .rows{margin-top:1.6rem;text-align:left}
+.gs .rowbody{border-bottom:0}
+/* at 390px the wall ends flush, so the break needs a floor of its own */
+@media (max-width:900px){ .gs{margin-top:88px;padding-left:18px;padding-right:18px} }
+
+
+/* the links are numbered steps on the paper itself: a ruled list, no fill,
+   no white, and a numeral that says these are done in order */
+.toolgrid{counter-reset:t;display:block;text-align:left}
+.toolgrid a{position:relative;display:grid;gap:.26rem;text-decoration:none;align-content:start;
+  border-top:1px solid var(--line);padding:1.35rem .15rem 1.4rem 3.6rem}
+.toolgrid a:last-child{border-bottom:1px solid var(--line)}
+.toolgrid a::before{counter-increment:t;content:counter(t,decimal-leading-zero);
+  position:absolute;left:.2rem;top:1.42rem;font-size:.8rem;font-variant-numeric:tabular-nums;
+  letter-spacing:.1em;color:var(--ink-2)}
+.toolgrid a:hover{background:rgba(50,49,57,.05)}
+.toolgrid a b{font-size:.94rem;font-weight:600;line-height:1.3}
+.toolgrid a span{font-size:.79rem;color:var(--ink-2);line-height:1.45}
+
 </style>
 </head>
 <body>
@@ -195,60 +369,60 @@ body.sheeted{overflow:hidden}
 const EPISODES = [
  {n:1,youtubeId:null,title:"Get Started with GitHub Copilot and the Student Developer Pack",
   summary:"Create a GitHub account, apply for GitHub Education, install the tools, and build a first website from one prompt. No coding experience is needed.",
-  build:"Your first website, from one prompt",
+  build:"Build your first website",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/01%20-%20Get%20Started%20with%20GitHub%20Copilot%20and%20the%20Student%20Developer%20Pack",
   result:"https://microsoft.github.io/student-learning-series/01%20-%20Get%20Started%20with%20GitHub%20Copilot%20and%20the%20Student%20Developer%20Pack/hello-world/",
   cap:"The Hello World page built from a single prompt."},
  {n:2,youtubeId:null,title:"Build a Portfolio Website from Your Resume with GitHub Copilot",
   summary:"Give the GitHub Copilot app a resume, then shape the website it generates until it looks like you.",
-  build:"A portfolio website, made from your resume",
+  build:"Turn your resume into a portfolio",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/02%20-%20Build%20a%20Portfolio%20Website%20from%20Your%20Resume%20with%20GitHub%20Copilot",
   result:"https://microsoft.github.io/student-learning-series/02%20-%20Build%20a%20Portfolio%20Website%20from%20Your%20Resume%20with%20GitHub%20Copilot/",
   cap:"The first portfolio, generated from a resume file."},
  {n:3,youtubeId:null,title:"Publish Your Portfolio with Git, GitHub, and GitHub Pages",
   summary:"Put your portfolio under version control, publish it free with GitHub Pages, and share a live link.",
-  build:"Your portfolio, live on the internet",
+  build:"Publish your portfolio online",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/03%20-%20Publish%20Your%20Portfolio%20with%20Git%2C%20GitHub%2C%20and%20GitHub%20Pages",
   result:"https://microsoft.github.io/student-learning-series/03%20-%20Publish%20Your%20Portfolio%20with%20Git%2C%20GitHub%2C%20and%20GitHub%20Pages/",
   cap:"The same portfolio, now published from a repository."},
  {n:4,youtubeId:null,title:"Configure GitHub Copilot: Settings, Sessions, and Modes",
   summary:"Set up the GitHub Copilot app the way you work, then plan and build a hobbies section with the mode that fits the job.",
-  build:"A hobbies section, planned then built",
+  build:"Configure how GitHub Copilot works",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/04%20-%20Configure%20GitHub%20Copilot%20-%20Settings%2C%20Sessions%2C%20and%20Modes",
   result:"https://microsoft.github.io/student-learning-series/04%20-%20Configure%20GitHub%20Copilot%20-%20Settings%2C%20Sessions%2C%20and%20Modes/",
   cap:"The portfolio with the new hobbies section added."},
  {n:5,youtubeId:null,title:"Optimizing GitHub Copilot: Better Results, Fewer Tokens",
   summary:"See how too little or too much context changes the result, then keep every session focused and cheap.",
-  build:"A case study page, written twice",
+  build:"Get better results with focused context",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/05%20-%20Optimizing%20GitHub%20Copilot%20-%20Better%20Results%2C%20Fewer%20Tokens",
   result:"https://microsoft.github.io/student-learning-series/05%20-%20Optimizing%20GitHub%20Copilot%20-%20Better%20Results%2C%20Fewer%20Tokens/",
   cap:"The case study page, written with the project files in view."},
  {n:6,youtubeId:null,title:"Extend GitHub Copilot with Tools and MCP Servers",
   summary:"Use the built-in file and web tools, then install the Playwright MCP server and drive a browser from a prompt.",
-  build:"A photo gallery, built by tools",
+  build:"Add tools and browser automation",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/06%20-%20Extend%20GitHub%20Copilot%20with%20Tools%20and%20MCP%20Servers",
   result:"https://microsoft.github.io/student-learning-series/06%20-%20Extend%20GitHub%20Copilot%20with%20Tools%20and%20MCP%20Servers/",
   cap:"The portfolio with the photo gallery the tools produced."},
  {n:7,youtubeId:null,title:"Build Reusable Copilot Workflows with Skills and Agents",
   summary:"Draft a blog post, improve it with an agent persona, publish it, then turn the whole workflow into a skill you can run again.",
-  build:"Blog posts, and a skill that repeats the work",
+  build:"Automate a repeated publishing workflow",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/07%20-%20Build%20Reusable%20Copilot%20Workflows%20with%20Skills%20and%20Agents",
   result:"https://microsoft.github.io/student-learning-series/07%20-%20Build%20Reusable%20Copilot%20Workflows%20with%20Skills%20and%20Agents/portfolio/",
   cap:"The portfolio with the published blog posts."},
  {n:8,youtubeId:null,title:"Bring Your Own Model Within the GitHub Copilot App",
   summary:"Create Microsoft Foundry resources with the Azure MCP Server, deploy a model, and connect it as a model provider.",
-  build:"Your own model, running your work",
+  build:"Deploy and connect your own AI model",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/08%20-%20Bring%20Your%20Own%20Model%20Within%20the%20GitHub%20Copilot%20App",
   result:null,cap:null},
  {n:9,youtubeId:null,title:"Modernize Your Portfolio with Bootstrap and GitHub Copilot",
   summary:"Compare Bootstrap, Tailwind CSS, and web components, then modernize the portfolio with Bootstrap 5.",
-  build:"The portfolio, rebuilt on Bootstrap 5",
+  build:"Modernize your portfolio without rebuilding",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/09%20-%20Modernize%20Your%20Portfolio%20with%20Bootstrap%20and%20GitHub%20Copilot",
   result:"https://microsoft.github.io/student-learning-series/09%20-%20Modernize%20Your%20Portfolio%20with%20Bootstrap%20and%20GitHub%20Copilot/portfolio/",
   cap:"The portfolio rebuilt on Bootstrap 5."},
  {n:10,youtubeId:null,title:"Control GitHub Copilot Remotely from Your Phone",
   summary:"Start a session on your computer, take it with you on your phone, and come back to a finished feature.",
-  build:"A feature finished from your phone",
+  build:"Continue your work from your phone",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/10%20-%20Control%20GitHub%20Copilot%20Remotely%20from%20Your%20Phone",
   result:"https://microsoft.github.io/student-learning-series/10%20-%20Control%20GitHub%20Copilot%20Remotely%20from%20Your%20Phone/portfolio/",
   cap:"The portfolio with the progress bar finished remotely."}
@@ -262,7 +436,67 @@ const HERO = {
   sum:"Go from your first prompt to a live, AI-powered personal brand using free tools across the Microsoft and GitHub ecosystem."
 };
 
-const state = { entered:null, rowOpen:false, sheet:null };
+const state = { entered:null, rowOpen:false, sheet:null, seek:null, tab:"about", cloudOpen:false };
+
+/* ---------- the parsed description of every episode ----------
+   intro, chapters {t,s,label}, people {name,role,links[{label,url}]}.
+   Built by parse_meta2.py. A person may carry more than one link:
+   episodes 01 and 09 list a YouTube channel beside a LinkedIn. */
+const META = {"1":{"intro":"Get started with GitHub Copilot for students and unlock the GitHub Student Developer Pack. Learn how to create a GitHub account, apply for GitHub Education, install the GitHub Copilot app and Visual Studio Code, and build your first website with AI. No coding experience is needed.","chapters":[{"t":"0:00","s":0,"label":"Welcome and what you'll build in this series"},{"t":"1:00","s":60,"label":"What GitHub is and why every student should have an account"},{"t":"1:50","s":110,"label":"GitHub Pro and the free tools students get"},{"t":"2:41","s":161,"label":"Inside the Student Developer Pack"},{"t":"3:15","s":195,"label":"Applying for GitHub Education, step by step"},{"t":"5:11","s":311,"label":"Approval timeline and enrolling for Copilot access"},{"t":"5:40","s":340,"label":"Installing the GitHub Copilot app and VS Code"},{"t":"7:08","s":428,"label":"First look inside the Copilot app"},{"t":"7:47","s":467,"label":"Your first prompt: a Hello World site with zero code"},{"t":"8:34","s":514,"label":"Opening your site in the canvas"},{"t":"8:54","s":534,"label":"Asking Copilot to move files and open a browser"},{"t":"9:45","s":585,"label":"Opening your project in VS Code"},{"t":"10:30","s":630,"label":"Recap and what's next"}],"people":[{"name":"Alexander Elguezabal","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/alex-elguezabal/"}]},{"name":"Gwendolyn Vongkasemsiri","role":"Cybersecurity Program Manager at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/cyb3rvalkyrie/"},{"label":"YouTube","url":"https://www.youtube.com/@cyb3rvalkyrie"}]}],"links":[{"label":"Episode 1 of 10 in Build your personal brand with Copilot. Continue to Episode 2 and explore the full series","url":"https://aka.ms/student-learning-series-website"},{"label":"Alexander Elguezabal - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/alex-elguezabal/"},{"label":"Gwendolyn Vongkasemsiri - Cybersecurity Program Manager at Microsoft","url":"https://www.linkedin.com/in/cyb3rvalkyrie/"},{"label":"Gwendolyn on YouTube","url":"https://www.youtube.com/@cyb3rvalkyrie"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]},"2":{"intro":"Build a professional portfolio website from your resume with the GitHub Copilot app. This beginner GitHub Copilot tutorial shows how to prompt AI to generate HTML, CSS, and JavaScript, then personalize the site with school colors, a resume preview, and dark mode.","chapters":[{"t":"0:00","s":0,"label":"Welcome and what you'll build"},{"t":"0:31","s":31,"label":"Reviewing the sample resume"},{"t":"1:11","s":71,"label":"Opening the GitHub Copilot app"},{"t":"2:03","s":123,"label":"Writing the prompt and asking clarifying questions"},{"t":"3:00","s":180,"label":"Uploading the resume and choosing a design"},{"t":"5:02","s":302,"label":"Generating the HTML, CSS, and JavaScript"},{"t":"7:01","s":421,"label":"Opening the generated files and website"},{"t":"8:01","s":481,"label":"Adding a resume preview on hover"},{"t":"9:01","s":541,"label":"Customizing the site with school colors"},{"t":"10:00","s":600,"label":"Adding dark and light modes"},{"t":"11:00","s":660,"label":"Adding sun and moon icons to the theme switcher"},{"t":"12:02","s":722,"label":"Asking Copilot for improvements and wrapping up"}],"people":[{"name":"Ashley Steitz","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/ashleysteitz/"}]},{"name":"Ahmed Ghaddah","role":"Product Manager at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/ahmed-ghaddah/"}]}],"links":[{"label":"Episode 2 of 10 in Build your personal brand with Copilot. Continue to Episode 3 and explore the full series","url":"https://aka.ms/student-learning-series-website"},{"label":"Ashley Steitz - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/ashleysteitz/"},{"label":"Ahmed Ghaddah - Product Manager at Microsoft","url":"https://www.linkedin.com/in/ahmed-ghaddah/"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]},"3":{"intro":"Publish your portfolio website for free with Git, GitHub, and GitHub Pages. Learn beginner version control concepts, including commits, branches, pull requests, and merges, while turning your local portfolio into a live website you can share with recruiters.","chapters":[{"t":"0:00","s":0,"label":"Welcome and an introduction to version control"},{"t":"3:01","s":181,"label":"Understanding commits, branches, and merges"},{"t":"7:10","s":430,"label":"GitHub and remote repositories"},{"t":"8:56","s":536,"label":"How pushing code and GitHub Pages work"},{"t":"10:00","s":600,"label":"Creating and configuring a GitHub repository"},{"t":"11:40","s":700,"label":"Downloading and installing Git"},{"t":"14:00","s":840,"label":"Cloning the repository with GitHub Desktop"},{"t":"18:32","s":1112,"label":"Adding and pushing the portfolio files"},{"t":"20:49","s":1249,"label":"Creating and reviewing a pull request"},{"t":"23:00","s":1380,"label":"Merging the pull request and deleting the feature branch"},{"t":"24:51","s":1491,"label":"Configuring GitHub Pages"},{"t":"26:02","s":1562,"label":"Visiting the live portfolio website"},{"t":"27:39","s":1659,"label":"Editing and updating the published website"},{"t":"30:42","s":1842,"label":"Recap and what's next"}],"people":[{"name":"Kurt Emrich","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/emrichkurt/"}]},{"name":"Alexander Elguezabal","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/alex-elguezabal/"}]}],"links":[{"label":"Episode 3 of 10 in Build your personal brand with Copilot. Continue to Episode 4 and explore the full series","url":"https://aka.ms/student-learning-series-website"},{"label":"Kurt Emrich - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/emrichkurt/"},{"label":"Alexander Elguezabal - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/alex-elguezabal/"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"GitHub Foundations Part 1 of 2 on Microsoft Learn","url":"https://aka.ms/StudentAI-Github-Foundations-Learning"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]},"4":{"intro":"Configure the GitHub Copilot app for better AI-assisted development. Explore Copilot settings, agent instructions, sessions, AI models, reasoning effort, worktrees, and the differences between Interactive, Plan, and Autopilot modes.","chapters":[{"t":"0:00","s":0,"label":"Welcome and GitHub Copilot configuration overview"},{"t":"0:30","s":30,"label":"Exploring the app, repository, and chat"},{"t":"0:50","s":50,"label":"Opening settings and managing accounts"},{"t":"1:06","s":66,"label":"Configuring tool permissions and agent instructions"},{"t":"1:28","s":88,"label":"Changing themes and accessibility settings"},{"t":"1:40","s":100,"label":"Understanding repositories and sessions"},{"t":"1:55","s":115,"label":"Choosing a model and reasoning effort"},{"t":"2:24","s":144,"label":"Using Interactive mode"},{"t":"2:42","s":162,"label":"Planning a new hobbies section"},{"t":"3:06","s":186,"label":"Keeping sessions separate with worktrees"},{"t":"3:29","s":209,"label":"Reviewing and editing a plan"},{"t":"4:08","s":248,"label":"Implementing the plan with Autopilot mode"},{"t":"4:47","s":287,"label":"Reviewing the completed hobbies section"},{"t":"5:04","s":304,"label":"Recap of settings, sessions, and modes"}],"people":[{"name":"Shivani Sundaresan","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/shivanisundaresan/"}]},{"name":"Grant Harris","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/grantwharris/"}]}],"links":[{"label":"Episode 4 of 10 in Build your personal brand with Copilot. Continue to Episode 5 and explore the full series","url":"https://aka.ms/student-learning-series-website"},{"label":"Shivani Sundaresan - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/shivanisundaresan/"},{"label":"Grant Harris - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/grantwharris/"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]},"5":{"intro":"Optimize GitHub Copilot context and token usage to get better AI results with fewer tokens. Learn how the context window works and use /context, /init, and /compact to keep Copilot sessions focused, accurate, and efficient.","chapters":[{"t":"0:00","s":0,"label":"Welcome and an introduction to context and tokens"},{"t":"0:21","s":21,"label":"What context includes"},{"t":"0:38","s":38,"label":"How Copilot processes information as tokens"},{"t":"0:46","s":46,"label":"Viewing context with /context"},{"t":"0:53","s":53,"label":"Understanding the context window with a suitcase analogy"},{"t":"1:04","s":64,"label":"Why too little or too much context can hurt results"},{"t":"2:07","s":127,"label":"Generating a case study page without project context"},{"t":"3:04","s":184,"label":"Adding project files for better results"},{"t":"3:57","s":237,"label":"Refreshing project context with /init"},{"t":"4:02","s":242,"label":"How copilot-instructions.md guides Copilot"},{"t":"5:02","s":302,"label":"Starting a focused session with the right context"},{"t":"6:08","s":368,"label":"Checking context usage"},{"t":"6:44","s":404,"label":"Reducing token usage with /compact"},{"t":"7:11","s":431,"label":"Recap of context and token optimization"}],"people":[{"name":"Emily Rothrock","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/emily-rothrock/"}]},{"name":"Shivani Sundaresan","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/shivanisundaresan/"}]}],"links":[{"label":"Episode 5 of 10 in Build your personal brand with Copilot. Continue to Episode 6 and explore the full series","url":"https://aka.ms/student-learning-series-website"},{"label":"Emily Rothrock - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/emily-rothrock/"},{"label":"Shivani Sundaresan - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/shivanisundaresan/"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]},"6":{"intro":"Extend GitHub Copilot with tools and Model Context Protocol (MCP) servers. Learn how Copilot can work with files, search the web, create content, and automate a browser by installing and using the Playwright MCP server.","chapters":[{"t":"0:00","s":0,"label":"Welcome and an introduction to tools and MCP servers"},{"t":"0:21","s":21,"label":"Copilot as the brain and tools as the hands"},{"t":"0:49","s":49,"label":"Built-in file system and internet tools"},{"t":"1:07","s":67,"label":"Setting up the portfolio tool demonstration"},{"t":"1:39","s":99,"label":"Searching local files and the internet"},{"t":"1:57","s":117,"label":"Using prompt keywords to select the right tools"},{"t":"2:26","s":146,"label":"Watching Copilot call tools automatically"},{"t":"2:40","s":160,"label":"Adding images to the portfolio"},{"t":"2:54","s":174,"label":"Creating a PowerPoint presentation with tools"},{"t":"3:34","s":214,"label":"What Model Context Protocol means"},{"t":"3:54","s":234,"label":"Installing the Playwright MCP server"},{"t":"4:58","s":298,"label":"Starting browser automation in a new session"},{"t":"6:08","s":368,"label":"Switching Playwright from Chrome to Microsoft Edge"},{"t":"7:37","s":457,"label":"Recap of built-in tools, MCP servers, and Playwright"}],"people":[{"name":"Garrett Berliner","role":"Technical Program Manager at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/garrettberliner/"}]},{"name":"Emily Rothrock","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/emily-rothrock/"}]}],"links":[{"label":"Episode 6 of 10 in Build your personal brand with Copilot. Continue to Episode 7 and explore the full series","url":"https://aka.ms/student-learning-series-website"},{"label":"Garrett Berliner - Technical Program Manager at Microsoft","url":"https://www.linkedin.com/in/garrettberliner/"},{"label":"Emily Rothrock - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/emily-rothrock/"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]},"7":{"intro":"Build reusable GitHub Copilot workflows with agent skills, custom agents, plugins, and marketplaces. Turn a repeated blog publishing process into an automated Copilot skill and use an agent persona to review and improve the result.","chapters":[{"t":"0:00","s":0,"label":"Welcome to skills, agent personas, plugins, and marketplaces"},{"t":"1:15","s":75,"label":"What an agent skill is"},{"t":"1:46","s":106,"label":"How agent personas, plugins, and marketplaces work"},{"t":"2:42","s":162,"label":"Drafting a blog post from podcast notes"},{"t":"3:01","s":181,"label":"Reviewing the draft with the rubber duck agent"},{"t":"5:25","s":325,"label":"Converting the improved blog post to HTML"},{"t":"6:08","s":368,"label":"Publishing the blog post to GitHub"},{"t":"7:04","s":424,"label":"Turning the manual workflow into a reusable skill"},{"t":"9:32","s":572,"label":"Reusing the skill in a new session"},{"t":"12:13","s":733,"label":"Creating and publishing a second blog post"},{"t":"15:03","s":903,"label":"Installing skills from a plugin marketplace"},{"t":"17:30","s":1050,"label":"Running the resume site sync skill"},{"t":"18:07","s":1087,"label":"Updating the portfolio from a new resume"},{"t":"20:50","s":1250,"label":"Exploring community skills and recapping the workflow"}],"people":[{"name":"Kaleb Cole","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/kaleb-cole"}]},{"name":"Kurt Emrich","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/emrichkurt/"}]}],"links":[{"label":"Episode 7 of 10 in Build your personal brand with Copilot. Continue to Episode 8 and explore the full series","url":"https://aka.ms/student-learning-series-website"},{"label":"Kaleb Cole - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/kaleb-cole"},{"label":"Kurt Emrich - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/emrichkurt/"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]},"8":{"intro":"Bring your own AI model to the GitHub Copilot app with Microsoft Foundry and Azure. Learn how to create Foundry resources with the Azure MCP Server, deploy a model, configure a model provider, connect securely with an API key, and fix token rate limits.","chapters":[{"t":"0:00","s":0,"label":"Welcome and bring your own model overview"},{"t":"0:17","s":17,"label":"Why model choice and token limits matter"},{"t":"0:45","s":45,"label":"Exploring model providers and hosting options"},{"t":"1:55","s":115,"label":"Introducing Microsoft Foundry and Azure for Students"},{"t":"2:39","s":159,"label":"Understanding the Azure portal, credits, and costs"},{"t":"3:30","s":210,"label":"Creating resources with the Azure MCP Server"},{"t":"4:12","s":252,"label":"Installing Azure MCP and signing in"},{"t":"5:40","s":340,"label":"Creating and verifying Microsoft Foundry resources"},{"t":"7:58","s":478,"label":"Understanding endpoints, API keys, and deployments"},{"t":"8:55","s":535,"label":"Deploying a GPT-5 mini model with Copilot"},{"t":"10:49","s":649,"label":"Connecting Microsoft Foundry as a model provider"},{"t":"11:46","s":706,"label":"Adding and selecting the deployed model"},{"t":"12:56","s":776,"label":"Fixing a token rate limit and testing again"},{"t":"14:21","s":861,"label":"Recap of Azure, Microsoft Foundry, and bring your own model"}],"people":[{"name":"Alexander Elguezabal","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/alex-elguezabal/"}]}],"links":[{"label":"Episode 8 of 10 in Build your personal brand with Copilot. Continue to Episode 9 and explore the full series","url":"https://aka.ms/student-learning-series-website"},{"label":"Alexander Elguezabal - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/alex-elguezabal/"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]},"9":{"intro":"Modernize your portfolio website with Bootstrap 5 and GitHub Copilot. Use AI to add a responsive layout, accessible navigation, animated cards, skill badges, hover effects, and a sticky footer without rebuilding the website from scratch.","chapters":[{"t":"0:00","s":0,"label":"Welcome and opening the portfolio in GitHub Copilot"},{"t":"0:45","s":45,"label":"Reviewing the current website in the canvas"},{"t":"1:08","s":68,"label":"Identifying design and interaction improvements"},{"t":"1:45","s":105,"label":"Asking Copilot to suggest modernization options"},{"t":"2:10","s":130,"label":"Comparing Bootstrap, Tailwind CSS, and web components"},{"t":"2:31","s":151,"label":"Prompting Copilot to use Bootstrap 5"},{"t":"3:01","s":181,"label":"Reviewing suggestions for navigation, cards, and accessibility"},{"t":"3:34","s":214,"label":"Implementing Bootstrap and animated cards"},{"t":"4:00","s":240,"label":"Reviewing the first update"},{"t":"4:20","s":260,"label":"Improving hover animations and shadows"},{"t":"5:05","s":305,"label":"Turning the skills list into badges"},{"t":"5:43","s":343,"label":"Adding a footer link back to the top"},{"t":"6:14","s":374,"label":"Making the footer sticky"},{"t":"6:51","s":411,"label":"Customization ideas and recap"}],"people":[{"name":"Gwendolyn Vongkasemsiri","role":"Cybersecurity Program Manager at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/cyb3rvalkyrie/"},{"label":"YouTube","url":"https://www.youtube.com/@cyb3rvalkyrie"}]},{"name":"Garrett Berliner","role":"Technical Program Manager at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/garrettberliner/"}]}],"links":[{"label":"Episode 9 of 10 in Build your personal brand with Copilot. Continue to Episode 10 and explore the full series","url":"https://aka.ms/student-learning-series-website"},{"label":"Gwendolyn Vongkasemsiri - Cybersecurity Program Manager at Microsoft","url":"https://www.linkedin.com/in/cyb3rvalkyrie/"},{"label":"Gwendolyn on YouTube","url":"https://www.youtube.com/@cyb3rvalkyrie"},{"label":"Garrett Berliner - Technical Program Manager at Microsoft","url":"https://www.linkedin.com/in/garrettberliner/"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]},"10":{"intro":"Control GitHub Copilot remotely from your phone with the GitHub mobile app. Start a Copilot session on your computer, connect with a QR code, answer questions from your phone, and return to a completed portfolio feature in the canvas.","chapters":[{"t":"0:00","s":0,"label":"Welcome to the final episode"},{"t":"0:47","s":47,"label":"How GitHub Copilot remote control works"},{"t":"1:18","s":78,"label":"Planning a page progress bar"},{"t":"1:58","s":118,"label":"Asking Copilot clarifying questions one at a time"},{"t":"2:31","s":151,"label":"Turning on remote control with /remote on"},{"t":"2:49","s":169,"label":"Scanning the QR code with the GitHub mobile app"},{"t":"3:01","s":181,"label":"Opening the same Copilot session on a phone"},{"t":"3:14","s":194,"label":"Continuing the session away from the computer"},{"t":"3:27","s":207,"label":"Answering the navigation bar question"},{"t":"3:56","s":236,"label":"Choosing where the progress bar should appear"},{"t":"4:29","s":269,"label":"Letting Copilot finish with reasonable assumptions"},{"t":"5:08","s":308,"label":"Reviewing the completed feature in the canvas"},{"t":"5:32","s":332,"label":"Recap of the remote control workflow"},{"t":"5:51","s":351,"label":"Series wrap-up"}],"people":[{"name":"Grant Harris","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/grantwharris/"}]},{"name":"Kaleb Cole","role":"Software Engineer at Microsoft","links":[{"label":"LinkedIn","url":"https://www.linkedin.com/in/kaleb-cole"}]}],"links":[{"label":"Episode 10 of 10 in Build your personal brand with Copilot. Explore the complete series","url":"https://aka.ms/student-learning-series-website"},{"label":"Grant Harris - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/grantwharris/"},{"label":"Kaleb Cole - Software Engineer at Microsoft","url":"https://www.linkedin.com/in/kaleb-cole"},{"label":"Download the prompts, code, and episode artifacts from GitHub","url":"https://aka.ms/student-learning-series"},{"label":"Learn more about GitHub Copilot","url":"https://aka.ms/StudentAI-GitHubCopilotApp"},{"label":"GitHub signup","url":"https://aka.ms/StudentAI-GitHub"},{"label":"GitHub Student Developer Pack enrollment","url":"https://aka.ms/StudentAI-GitHubPack"},{"label":"Azure signup","url":"https://aka.ms/StudentAI-Azure"},{"label":"Azure Education signup","url":"https://aka.ms/StudentAI-AzureEducation"},{"label":"Getting started in the Azure portal video","url":"https://aka.ms/StudentAI-AzurePortal"},{"label":"Subscribe to Microsoft Developer for more practical developer and AI learning","url":"https://www.youtube.com/@MicrosoftDeveloper"}]}};
+
+
+const ELIG = "Some features and cloud services may have eligibility, usage, or cost limits. Review the current terms before creating resources.";
+
+/* the set-up list, in the owner's own order. The editor is added after the
+   pack, because episode 01 installs it before it touches the cloud.
+   Microsoft Developer is not here: it is a subscribe link, not a tool, and
+   it lives in the footer. */
+const TOOLS = [
+  {t:"Learn more about the GitHub Copilot app", d:"What it is, and how to install it",
+   h:"https://aka.ms/StudentAI-GitHubCopilotApp"},
+  {t:"Create a GitHub account", d:"Free, and it takes a minute",
+   h:"https://aka.ms/StudentAI-GitHub"},
+  {t:"Apply for the Student Developer Pack", d:"Use your school e-mail",
+   h:"https://aka.ms/StudentAI-GitHubPack", sign:"Sign-in to GitHub is needed."},
+  {t:"Install Visual Studio Code", d:"The free editor",
+   h:"https://code.visualstudio.com/download?_exp_download=fb315fc982"},
+  {t:"Create an Azure account", d:"For the cloud episodes",
+   h:"https://aka.ms/StudentAI-Azure"},
+  {t:"Azure for Students", d:"Free credit, and no card is needed",
+   h:"https://aka.ms/StudentAI-AzureEducation"},
+  {t:"Getting started in the Azure portal", d:"A short video, not the portal itself",
+   h:"https://aka.ms/StudentAI-AzurePortal"}
+];
+
+/* GitHub's own mark and repository glyph, taken unchanged from the official
+   Octicons set (primer/octicons, MIT). They are used to link to GitHub, and
+   they are not redrawn, recoloured beyond currentColor, or reshaped. */
+const GH_PATH = "M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656";
+const REPO_PATH = "M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z";
+
+
+/* ---------- the footer link set. Ticket #37. ---------------------------- */
+const FOOT_SERIES = [
+  {t:"Watch the series", h:HERO.playlist},
+  {t:"Repository",       h:"https://github.com/microsoft/student-learning-series"}
+];
+const FOOT_LEGAL = [
+  {t:"Privacy & Cookies", h:"https://privacy.microsoft.com/en-us/privacystatement"},
+  {t:"Terms of Use",      h:"https://www.microsoft.com/en-us/legal/terms-of-use"},
+  {t:"Trademarks",        h:"https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks"},
+  {t:"Accessibility",     h:"https://www.microsoft.com/en-us/accessibility"}
+];
+function footLink(l){
+  if(!l.h) return `<span>${esc(l.t)}</span>`;
+  return `<a href="${l.h}" target="_blank" rel="noopener">${esc(l.t)}</a>`;
+}
+function siteFoot(){
+  return `<footer class="sitefoot"><div class="in">
+      <div class="set"><span class="credit">Produced by <a href="https://www.youtube.com/@MicrosoftDeveloper" target="_blank" rel="noopener">Microsoft Developer</a></span>${FOOT_SERIES.map(footLink).join("")}</div>
+      <div class="set quiet"><span class="cr">\u00a9 Microsoft 2026</span>${FOOT_LEGAL.map(footLink).join("")}</div>
+    </div></footer>`;
+}
+
 
 const pad = n => String(n).padStart(2,"0");
 const art800  = n => `assets/episodes/episode-${pad(n)}-800w.webp`;
@@ -270,9 +504,10 @@ const art1600 = n => `assets/episodes/episode-${pad(n)}-1600w.webp`;
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function videoBlock(ep){
+  const vid = ep.youtubeId;
   // A real id renders the privacy-enhanced player. No id renders plain text, never a control.
-  if(ep.youtubeId){
-    return `<div class="vid"><iframe class="player" src="https://www.youtube-nocookie.com/embed/${esc(ep.youtubeId)}"
+  if(vid){
+    return `<div class="vid"><iframe class="player" src="https://www.youtube-nocookie.com/embed/${esc(vid)}${state.seek==null?"":`?start=${state.seek}`}"
       title="Episode ${pad(ep.n)} · ${esc(ep.title)}" loading="lazy" allowfullscreen
       allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
@@ -287,10 +522,11 @@ function resultBlock(ep){
 }
 
 /* the card: the art, and a band that wipes up over its lower edge */
-function card(ep){
-  return `<button class="card${state.entered===ep.n?" on":""}" data-ep="${ep.n}"
-      aria-label="Episode ${pad(ep.n)} of 10, ${esc(ep.title)}. ${esc(ep.build)}">
-      <img src="${art800(ep.n)}" alt="${esc(ep.title)}" loading="lazy">
+function card(ep,i){
+  return `<button class="card${state.entered===ep.n?" on":""}" data-ep="${ep.n}" style="--i:${i}"
+      aria-label="Open episode ${pad(ep.n)} of 10, ${esc(ep.title)}. ${esc(ep.build)}">
+      <span class="art"><img src="${art800(ep.n)}" alt="${esc(ep.title)}" loading="lazy"></span>
+      <span class="glow" aria-hidden="true"></span>
       <span class="rv">
         <span class="barrule" aria-hidden="true"></span>
         <span class="n">Episode ${pad(ep.n)}</span>
@@ -299,46 +535,147 @@ function card(ep){
     </button>`;
 }
 
-/* the entered episode: the video leads, the words sit beside it,
-   and one row opens what the episode builds */
+/* ---------- the opened episode · about, chapters, people ----------
+   The resources are NOT repeated here: all ten descriptions carry the same
+   set-up list, so it is said once below the wall. Episode 01 points at it. */
+function vidOf(ep){ return ep.youtubeId; }
+function mfor(ep){ return META[String(ep.n)] || {intro:"",chapters:[],people:[],links:[]}; }
+function peopleHead(ep){ return mfor(ep).people.length === 1 ? "Presenter" : "People"; }
+
+/* THE PLACEHOLDER CONTRACT, #18. With a null id a chapter is plain text:
+   never an <a>, never a <button>, no aria-disabled, no tabindex, no role.
+   All ten ids are null, so this is the state the page ships in. */
+function chapRow(ep,c){
+  const inner = `<span class="t">${esc(c.t)}</span><span class="l">${esc(c.label)}</span>`;
+  if(vidOf(ep)) return `<button class="ch" data-seek="${c.s}">${inner}</button>`;
+  return `<span class="ch">${inner}</span>`;
+}
+function chapBlock(ep){
+  const note = vidOf(ep) ? "" : `<p class="quiet">The times work when the video publishes.</p>`;
+  return `<div class="chaps scroll">${mfor(ep).chapters.map(c=>chapRow(ep,c)).join("")}</div>${note}`;
+}
+function peopleBlock(ep){
+  return `<div class="ppl">${mfor(ep).people.map(p=>
+    `<div class="who"><b>${esc(p.name)}</b><span>${esc(p.role)}</span><span class="ln">${
+      p.links.map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${esc(l.label)} \u2197</a>`).join("")
+    }</span></div>`).join("")}</div>`;
+}
+/* the disclosure body of "See what it builds" is drawn in panel(), because
+   round 3 asks where that control lives. */
+
 function panel(ep){
-  const rowBody = state.rowOpen ? `<div class="rowbody">
-      <div class="vidwrap">
-        ${resultBlock(ep)}
-        <button class="cornerbtn" data-sheet="result">Expand ⤢</button>
-      </div>
+  const m = mfor(ep);
+  const T = [["about","About"],["chapters","Chapters"],["people",peopleHead(ep)]];
+
+  /* SETTLED · the GitHub link is a hyperlink in the tab row, with GitHub's own
+     mark and the words. The free-tools button sits under the About paragraph,
+     in every episode. These are declared BEFORE pane uses them: a
+     use-before-declaration throws at render time and node --check cannot see it. */
+  const GH_MARK = `<span class="gico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="${GH_PATH}"/></svg></span>`;
+  const ghTab = `<a class="ghtab" href="${ep.resource}" target="_blank" rel="noopener">${
+        GH_MARK}<span>Episode files on GitHub</span><span class="ext" aria-hidden="true">\u2197</span></a>`;
+  const chev = `<span class="chev">\u203a</span>`;
+
+  const pane = state.tab === "chapters" ? chapBlock(ep)
+             : state.tab === "people"   ? peopleBlock(ep)
+             : `<p class="lede">${esc(ep.summary)}</p><p class="desc">${esc(m.intro)}</p>${
+                 epLinkBlock(ep)}`;
+  const buildsBody = state.rowOpen ? `<div class="rowbody">
+      <div class="vidwrap">${resultBlock(ep)}<button class="cornerbtn" data-sheet="result">Expand \u2b1c</button></div>
     </div>` : "";
-  // An episode with no website renders no row at all — no control, no text, no surface.
-  const rows = ep.result ? `<div class="rows">
+
+  const foot = ep.result ? `<div class="rows">
         <button class="rowhead" data-row aria-expanded="${state.rowOpen}">
-          <span class="lab"><span class="chev">›</span><span>See what it builds</span></span>
-        </button>
-        ${rowBody}
+          <span class="lab">${chev}<span>See what it builds</span></span>
+        </button>${buildsBody}
       </div>` : "";
+
   return `<div class="open">
       <div class="openhead">
         <div><p class="kicker">Episode ${pad(ep.n)} of 10</p><h2>${esc(ep.title)}</h2></div>
         <button class="btn ghost" data-close>Close</button>
       </div>
       <div class="body">
-        <div class="vidwrap">
-          ${videoBlock(ep)}
-          <button class="cornerbtn" data-sheet="video">Expand ⤢</button>
-        </div>
+        <div class="vidwrap">${videoBlock(ep)}<button class="cornerbtn" data-sheet="video">Expand \u2b1c</button></div>
         <div class="lead-side">
-          <p class="lede">${esc(ep.summary)}</p>
-          <div style="display:flex;gap:.8rem;flex-wrap:wrap;align-items:center">
-            <a class="btn" href="${ep.resource}" target="_blank" rel="noopener">Open the episode on GitHub</a>
+          <div class="ptabrow">
+            <div class="ptabs" role="tablist">${T.map(t=>
+              `<button role="tab" data-tab="${t[0]}" aria-selected="${state.tab===t[0]}">${t[1]}</button>`).join("")}</div>
+            ${ghTab}
           </div>
+          <div class="tabpane" role="tabpanel">${pane}</div>
         </div>
       </div>
-      ${rows}
+      ${foot}
     </div>`;
+}
+
+/* the set-up section below the wall · the links are ON the page, not behind
+   a button. Three ways to lay them out, judged by looking. */
+function toolTile(r){
+  return `<a href="${r.h}" target="_blank" rel="noopener"><b>${esc(r.t)}</b><span>${esc(r.d)}</span>${
+    r.sign?`<span class="sign">${esc(r.sign)}</span>`:""}</a>`;
+}
+/* the first four get a student started; the last three are for the cloud
+   episodes only. Saying so stops a beginner opening Azure on day one. */
+const SETUP_FIRST = TOOLS.slice(0,4), SETUP_CLOUD = TOOLS.slice(4);
+
+/* WHICH LINK BELONGS TO WHICH EPISODE · recorded on #12, not invented here:
+   "aka.ms/StudentAI-GitHub (create a GitHub account) in Episode 1 resources;
+    aka.ms/StudentAI-AzureEducation and aka.ms/StudentAI-Azure in Episode 8
+    resources". Episode 03 is the only episode whose description carries a
+    link the other nine do not: the Microsoft Learn course.
+   Every other link in the ten descriptions is the same shared set-up list,
+   so it is said once, below the wall. */
+/* Episode 01 IS the set-up episode, so it carries the whole "Start here"
+   group: the Copilot app, the account, the pack, and the editor.
+   Episode 08 is the cloud episode and carries the three Azure links. */
+const EP_LINKS = {
+  1: SETUP_FIRST,
+  8: SETUP_CLOUD
+};
+function epLinks(ep){
+  const own = (EP_LINKS[ep.n] || []).slice();
+  mfor(ep).links.forEach(l=>{ if(/Microsoft Learn/i.test(l.label))
+    own.push({t:l.label, d:"A free course on Microsoft Learn", h:l.url}); });
+  return own;
+}
+function epLinkBlock(ep){
+  const own = epLinks(ep);
+  if(!own.length) return "";
+  /* the eligibility line follows cost, wherever cost is implied */
+  const cloud = own.some(r=>/azure/i.test(r.h));
+  return `<h3 class="ph">For this episode</h3>
+    <div class="reslist">${own.map(r=>
+      `<a href="${r.h}" target="_blank" rel="noopener"><b>${esc(r.t)}</b><span>${esc(r.d)}</span>${
+        r.sign?`<span class="sign">${esc(r.sign)}</span>`:""}</a>`).join("")}</div>${
+    cloud ? `<p class="quiet">${esc(ELIG)}</p>` : ""}`;
+}
+
+function setupSection(){
+  /* SETTLED · layout E. The four a beginner needs are open; the cloud three
+     sit behind the page's own disclosure row, so nobody opens Azure on day
+     one by mistake. The heading only says what the section is. */
+  const H2 = "Resources for this series";
+  const SUB = `The tools and accounts the episodes use. Episode 01 sets them up on screen.`;
+  const G1 = `Start here`, G2 = `For the cloud episodes`;
+  return `<section class="gs"><div class="in">
+      <h2>${H2}</h2><p class="sub">${SUB}</p>
+      <h3 class="gh3">${G1}</h3><div class="toolgrid">${SETUP_FIRST.map(toolTile).join("")}</div>
+      <div class="rows">
+        <button class="rowhead" data-cloud aria-expanded="${state.cloudOpen}">
+          <span class="lab"><span class="chev">\u203a</span><span>${G2}</span></span>
+        </button>
+        ${state.cloudOpen ? `<div class="rowbody"><div class="toolgrid">${
+          SETUP_CLOUD.map(toolTile).join("")}</div><p class="note">${esc(ELIG)}</p></div>` : ""}
+      </div>
+    </div></section>`;
 }
 
 /* big: a full sheet of the page's own wash. Never a dark layer. */
 function sheet(){
-  if(!state.sheet || !state.entered) return "";
+  if(!state.sheet) return "";
+  if(!state.entered) return "";
   const ep = EPISODES[state.entered-1];
   const isVideo = state.sheet === "video";
   return `<div class="sheet" role="dialog" aria-modal="true" aria-label="${isVideo?"The video":"What this episode builds"}">
@@ -351,28 +688,43 @@ function sheet(){
 }
 
 function page(){
-  const cols = window.innerWidth <= 900 ? 2 : 5;
+  const cols = window.innerWidth <= 900 ? 2 : 4;
   let wall = "";
   EPISODES.forEach((ep,i)=>{
-    wall += card(ep);
+    wall += card(ep,i);
     const rowEnd = (i+1)%cols===0 || i===EPISODES.length-1;
     if(!rowEnd) return;
     const rowStart = i-(i%cols);
     const open = EPISODES.slice(rowStart,i+1).find(e=>e.n===state.entered);
     if(open) wall += panel(open);
   });
-  return `<section class="hero">
-      <p class="seriestitle">${HERO.label}</p>
+  return `<header class="mshead">
+      <div class="row">
+        <span class="msclear">
+          <img class="mslogo" src="assets/ms-logo-color-trim.png" alt="Microsoft">
+        </span>
+        <span class="thread" aria-hidden="true"></span>
+        <p class="mstitle">${HERO.label}</p>
+      </div>
+    </header>
+    <section class="hero">
       <h1>${HERO.h1a}<span class="accent-text">${HERO.h1b}</span>.</h1>
       <p class="sum">${HERO.sum}</p>
-      <div class="acts"><a class="btn" href="${HERO.playlist}" target="_blank" rel="noopener">Watch the full series</a></div>
+      <div class="acts">${ctaActs()}</div>
     </section>
-    <section class="wall">${wall}</section>
-    <footer class="sitefoot">
-      <p><strong><a href="https://www.youtube.com/@MicrosoftDeveloper" target="_blank" rel="noopener">Produced by Microsoft Developer.</a></strong></p>
-      <p><a href="https://github.com/microsoft/student-learning-series" target="_blank" rel="noopener">View the repository</a></p>
-    </footer>`;
+    <div class="sectionwrap"><section class="wall">${wall}</section></div>
+    ${setupSection()}
+    ${siteFoot()}`;
 }
+
+
+/* CTA C1 · the series keeps primary weight, and a ghost pill points down. */
+const PLAY = "Pick an episode";
+function ctaActs(){
+  return `<a class="btn" href="${HERO.playlist}" target="_blank" rel="noopener">Watch the full series</a>`
+       + `<button class="btn ghost" data-jump>${PLAY} <span class="chevd" aria-hidden="true">\u2193</span></button>`;
+}
+
 
 const app = document.getElementById("app");
 
@@ -394,13 +746,28 @@ function render(keepScroll){
 }
 
 app.addEventListener("click", e=>{
+  if(e.target.closest("[data-jump]")){
+    const w = document.querySelector(".wall");
+    if(w) w.scrollIntoView({behavior:"smooth",block:"start"});
+    return;
+  }
   if(e.target.closest("[data-sheetclose]")){ state.sheet=null; render(true); return; }
   const s = e.target.closest("[data-sheet]");
   if(s){ state.sheet = s.dataset.sheet; render(true); return; }
   if(e.target.closest("[data-close]")){ state.entered=null; state.rowOpen=false; render(true); return; }
   if(e.target.closest("[data-row]")){ state.rowOpen=!state.rowOpen; render(true); return; }
+  if(e.target.closest("[data-cloud]")){ state.cloudOpen=!state.cloudOpen; render(true); return; }
+  const tb = e.target.closest("[data-tab]");
+  if(tb){ state.tab = tb.dataset.tab; render(true); return; }
+  const sk = e.target.closest("[data-seek]");
+  if(sk){ state.seek = Number(sk.dataset.seek); render(true); return; }
   const c = e.target.closest("[data-ep]");
-  if(c){ state.entered = state.entered===Number(c.dataset.ep) ? null : Number(c.dataset.ep); render(true); }
+  if(c){
+    const n = Number(c.dataset.ep);
+    state.entered = state.entered===n ? null : n;
+    state.seek=null; state.rowOpen=false; state.tab="about";
+    render(true);
+  }
 });
 
 document.addEventListener("keydown", e=>{
@@ -412,6 +779,24 @@ document.addEventListener("keydown", e=>{
 let rt; window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>render(true),180);});
 
 render(false);
+
+
+/* ---- design G · the card follows the pointer ---- */
+document.addEventListener("pointermove", e => {
+  const c = e.target.closest(".card"); if(!c) return;
+  const r = c.getBoundingClientRect();
+  const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+  c.style.setProperty("--mx", (px*100).toFixed(1)+"%");
+  c.style.setProperty("--my", (py*100).toFixed(1)+"%");
+  c.style.setProperty("--ry", ((px-.5)*10).toFixed(2)+"deg");
+  c.style.setProperty("--rx", ((.5-py)*8).toFixed(2)+"deg");
+});
+document.addEventListener("pointerout", e => {
+  const c = e.target.closest(".card"); if(!c) return;
+  c.style.setProperty("--rx","0deg"); c.style.setProperty("--ry","0deg");
+});
+
+
 </script>
 </body>
 </html>
