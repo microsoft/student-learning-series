@@ -96,7 +96,7 @@ button{font:inherit;color:inherit}
 .openhead{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:16px}
 .open h2{margin:.2rem 0 0;font-size:1.5rem;font-weight:600;letter-spacing:-.02em;line-height:1.2}
 .open .lede{margin:0;line-height:1.6;color:var(--ink-2)}
-.open .body{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:26px;align-items:start}
+.open .body{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);column-gap:26px;row-gap:0;align-items:start}
 .lead-side{display:grid;gap:1rem;align-content:start}
 .vidwrap{position:relative}
 
@@ -112,6 +112,7 @@ button{font:inherit;color:inherit}
 /* The result is a destination, not a disclosure. The accent marker keeps it
    connected to the series while the outward arrow states that it opens. */
 .result-actions{margin-top:20px}
+.open .body > .result-actions{grid-column:1/-1}
 .result-action{display:flex;align-items:center;gap:1rem;width:100%;padding:0;
   border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white);
   cursor:pointer;text-align:left}
@@ -160,7 +161,7 @@ body.sheeted{overflow:hidden}
 @media (max-width:900px){
   .wall{grid-template-columns:1fr;padding:0 18px 70px}
   .hero{padding:7vh 6vw 4vh}
-  .open .body{grid-template-columns:1fr}
+  .open .body{grid-template-columns:1fr;row-gap:18px}
   .open{padding:18px}
   /* Keep the card artwork unchanged on small screens. One tap opens the
      episode panel, so the desktop hover-only reveal is not needed here. */
@@ -195,8 +196,11 @@ body.sheeted{overflow:hidden}
 @media (max-width:900px){
   .wall{grid-template-columns:1fr !important;padding:0 18px 70px;perspective:none;max-width:none !important}
   .hero{padding:7vh 6vw 4vh}
-  .open .body{grid-template-columns:1fr}
+  .open .body{grid-template-columns:1fr;row-gap:18px}
   .open{padding:18px}
+  .open .body > .vidwrap{order:1}
+  .open .body > .result-actions{order:2;margin-top:0}
+  .open .body > .lead-side{order:3}
   .card{background:none;display:block;transform:none !important}
   .rv{display:none}
   .card{animation:none !important}
@@ -603,8 +607,8 @@ function panel(ep){
           </div>
           <div class="tabpane" role="tabpanel">${pane}</div>
         </div>
+        ${foot}
       </div>
-      ${foot}
     </div>`;
 }
 
