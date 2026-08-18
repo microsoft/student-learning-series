@@ -168,11 +168,10 @@ body.sheeted{overflow:hidden}
   .hero{padding:7vh 6vw 4vh}
   .open .body{grid-template-columns:1fr}
   .open{padding:18px}
-  /* a phone has no hover, so the band sits below the art instead of over it.
-     The art is never hidden — that rule holds on every screen. */
-  .card{background:var(--ink);display:grid}
-  .rv{position:static;transform:none;padding:.5rem .6rem .6rem}
-  .rv .barrule{position:static;height:4px;margin-bottom:.35rem}
+  /* Keep the card artwork unchanged on small screens. One tap opens the
+     episode panel, so the desktop hover-only reveal is not needed here. */
+  .card{background:none;display:block}
+  .rv{display:none}
 }
 
 
@@ -204,10 +203,8 @@ body.sheeted{overflow:hidden}
   .hero{padding:7vh 6vw 4vh}
   .open .body{grid-template-columns:1fr}
   .open{padding:18px}
-  .card{background:var(--ink);display:grid;transform:none !important}
-  .rv{position:static;transform:none !important;padding:.5rem .6rem .6rem}
-  .rv .barrule{position:static;height:4px;margin-bottom:.35rem}
-  .card .rv{animation:none !important}
+  .card{background:none;display:block;transform:none !important}
+  .rv{display:none}
   .card{animation:none !important}
   .card .glow{display:none}
   .card .art img{transform:none !important;filter:none !important}
