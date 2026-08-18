@@ -325,19 +325,25 @@ body.sheeted{overflow:hidden}
 .chaps.scroll{max-height:14.5rem;overflow:auto;padding-right:.3rem}
 @media (prefers-reduced-motion: reduce){ .chaps button.ch{transition-duration:.01ms !important} }
 
-.ppl{display:grid;gap:.7rem}
-.ppl .who{display:grid;gap:.12rem}
-.ppl .who b{font-size:.92rem;font-weight:600}
-.ppl .who > span{font-size:.79rem;color:var(--ink-2);line-height:1.4}
-.ppl .who .ln{display:flex;flex-wrap:wrap;gap:.15rem .8rem;margin-top:.15rem}
-.ppl .who .ln a{font-size:.79rem;color:var(--ink-2);text-decoration:none;
-  border-bottom:1px solid var(--line);padding-bottom:1px}
-.ppl .who .ln a.iconlink{display:inline-flex;align-items:center;justify-content:center;
-  width:24px;height:24px;padding:2px;border:0}
-.ppl .who .ln a.iconlink svg{display:block;width:18px;height:18px}
-.ppl .who .ln a.linkedin{color:#0a66c2}
-.ppl .who .ln a.youtube{color:#f00}
-.ppl .who .ln a:hover,.ppl .who .ln a:focus-visible{color:var(--ink);border-bottom-color:currentColor}
+.ppl{border:1px solid var(--line);border-radius:15px;padding:18px}
+.ppl .chooser{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.ppl .chooser button{border:1px solid var(--line);background:var(--white);border-radius:999px;
+  padding:.42rem .65rem;font-size:.75rem;color:var(--ink-2);cursor:pointer}
+.ppl .chooser button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.ppl .spotlight{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start}
+.ppl .initials{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;
+  background:var(--wash);font-size:1.05rem;font-weight:700}
+.ppl .who{display:grid;gap:.16rem;min-width:0}
+.ppl .who h3{font-size:1.05rem;font-weight:600;margin:0}
+.ppl .who .role{font-size:.79rem;color:var(--ink-2);line-height:1.4}
+.ppl .invite{font-size:.84rem;color:var(--ink-2);margin:.7rem 0 .45rem}
+.ppl .ln{display:flex;flex-wrap:wrap;gap:8px}
+.ppl .ln a{display:inline-flex;align-items:center;gap:.45rem;padding:.52rem .72rem;
+  border-radius:9px;color:var(--white);text-decoration:none;font-size:.79rem;font-weight:600}
+.ppl .ln a svg{display:block;width:18px;height:18px}
+.ppl .ln a.linkedin{background:#0a66c2}
+.ppl .ln a.youtube{background:#c00}
+.ppl .ln a:hover,.ppl .ln a:focus-visible{filter:brightness(.86)}
 
 
 /* ---------- THE RESOURCES · said once, below the wall ---------- */
@@ -449,7 +455,7 @@ const HERO = {
   sum:"Go from your first prompt to a live, AI-powered personal brand using free tools across the Microsoft and GitHub ecosystem."
 };
 
-const state = { entered:null, sheet:null, seek:null, tab:"about", cloudOpen:false };
+const state = { entered:null, sheet:null, seek:null, tab:"about", person:0, cloudOpen:false };
 
 /* ---------- the parsed description of every episode ----------
    intro, chapters {t,s,label}, people {name,role,links[{label,url}]}.
@@ -572,17 +578,31 @@ function peopleLink(person,link){
   const network = link.label.toLowerCase();
   if(network === "linkedin" || network === "youtube"){
     const path = network === "linkedin" ? LINKEDIN_PATH : YOUTUBE_PATH;
-    return `<a class="iconlink ${network}" href="${link.url}" target="_blank" rel="noopener"
+    const action = network === "linkedin" ? "Connect on LinkedIn" : "Watch on YouTube";
+    return `<a class="${network}" href="${link.url}" target="_blank" rel="noopener"
       aria-label="${esc(person.name)} on ${esc(link.label)}" title="${esc(link.label)}">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${path}"/></svg></a>`;
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${path}"/></svg>
+      <span>${action}</span></a>`;
   }
   return `<a href="${link.url}" target="_blank" rel="noopener">${esc(link.label)} \u2197</a>`;
 }
+function initials(name){
+  const words = name.trim().split(/\s+/);
+  return `${words[0][0]}${words.length > 1 ? words[words.length-1][0] : ""}`.toUpperCase();
+}
 function peopleBlock(ep){
-  return `<div class="ppl">${mfor(ep).people.map(p=>
-    `<div class="who"><b>${esc(p.name)}</b><span>${esc(p.role)}</span><span class="ln">${
-      p.links.map(l=>peopleLink(p,l)).join("")
-    }</span></div>`).join("")}</div>`;
+  const people = mfor(ep).people;
+  const index = Math.min(state.person, people.length-1);
+  const person = people[index];
+  const chooser = people.length > 1 ? `<div class="chooser" aria-label="Episode creators">${
+    people.map((p,i)=>`<button data-person="${i}" aria-pressed="${i===index}">${esc(p.name.split(" ")[0])}</button>`).join("")
+  }</div>` : "";
+  return `<div class="ppl">${chooser}<div class="spotlight">
+    <span class="initials" aria-hidden="true">${initials(person.name)}</span>
+    <div class="who"><h3>${esc(person.name)}</h3><span class="role">${esc(person.role)}</span>
+      <p class="invite">Keep learning with ${esc(person.name.split(" ")[0])} after the episode.</p>
+      <span class="ln">${person.links.map(l=>peopleLink(person,l)).join("")}</span>
+    </div></div></div>`;
 }
 /* the disclosure body of "See what it builds" is drawn in panel(), because
    round 3 asks where that control lives. */
@@ -793,6 +813,15 @@ app.addEventListener("click", e=>{
   }
   if(e.target.closest("[data-close]")){ state.entered=null; render(true); return; }
   if(e.target.closest("[data-cloud]")){ state.cloudOpen=!state.cloudOpen; render(true); return; }
+  const person = e.target.closest("[data-person]");
+  if(person){
+    state.person=Number(person.dataset.person);
+    const pane=app.querySelector(".tabpane");
+    const ep=EPISODES[state.entered-1];
+    if(pane && ep) pane.innerHTML=peopleBlock(ep);
+    requestAnimationFrame(()=>app.querySelector(`[data-person="${state.person}"]`)?.focus({preventScroll:true}));
+    return;
+  }
   const tb = e.target.closest("[data-tab]");
   if(tb){ state.tab = tb.dataset.tab; render(true); return; }
   const sk = e.target.closest("[data-seek]");
@@ -801,7 +830,7 @@ app.addEventListener("click", e=>{
   if(c){
     const n = Number(c.dataset.ep);
     state.entered = state.entered===n ? null : n;
-    state.seek=null; state.tab="about";
+    state.seek=null; state.tab="about"; state.person=0;
     render(true);
   }
 });
