@@ -681,8 +681,12 @@ function sheet(){
     </div>`;
 }
 
+const wallColumns = () => window.innerWidth <= 900 ? 1 : 4;
+let renderedColumns = wallColumns();
+
 function page(){
-  const cols = window.innerWidth <= 900 ? 1 : 4;
+  const cols = wallColumns();
+  renderedColumns = cols;
   let wall = "";
   EPISODES.forEach((ep,i)=>{
     wall += card(ep,i);
@@ -787,7 +791,13 @@ document.addEventListener("keydown", e=>{
   else if(state.entered){ state.entered=null; render(true); }
 });
 
-let rt; window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>render(true),180);});
+let rt; window.addEventListener("resize",()=>{
+  clearTimeout(rt);
+  rt=setTimeout(()=>{
+    const fullscreen = document.fullscreenElement || document.webkitFullscreenElement;
+    if(!fullscreen && wallColumns() !== renderedColumns) render(true);
+  },180);
+});
 
 render(false);
 
