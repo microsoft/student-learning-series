@@ -55,9 +55,11 @@ button{font:inherit;color:inherit}
    under prefers-contrast: more. Both guards are mandatory. */
 .accent-text{background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent}
 .barrule{background:var(--accent)}
+.rainbow-header{height:10px;background:var(--accent)}
 @media (prefers-contrast: more){
   .accent-text{background:none;color:var(--ink)}
   .barrule{background:#fff}
+  .rainbow-header{background:var(--ink)}
 }
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 
@@ -375,6 +377,7 @@ body.sheeted{overflow:hidden}
 </style>
 </head>
 <body>
+<div class="rainbow-header" aria-hidden="true"></div>
 <div id="app"></div>
 
 <script>
