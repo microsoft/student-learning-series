@@ -40,6 +40,12 @@ A compatible Microsoft Foundry deployment answers a harmless test prompt, works 
 the configured Copilot model provider, and can call a simple tool. The resource group can
 be identified and removed after the exercise.
 
+## Portfolio continuity
+
+This cloud and model episode does not change Jamie's portfolio artifact. The completed
+Episode 7 portfolio state, including its case study, hobbies, photo gallery, updated
+resume, and two published blog posts, carries forward unchanged.
+
 ## Troubleshooting
 
 - Test the deployment, API, and Copilot provider separately so failures stay isolated.

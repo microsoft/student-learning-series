@@ -12,7 +12,7 @@ interactive.
 
 ## Try it yourself
 
-1. Open [`portfolio/index.html`](portfolio/index.html) and review the completed example.
+1. Start the local server below and review the completed portfolio in your browser.
 2. Ask Copilot to recommend framework options for one specific design goal.
 3. Apply Bootstrap to a copy of your portfolio.
 4. Test the navigation, cards, skills, footer, and theme on desktop and mobile widths.
@@ -28,7 +28,28 @@ content, theme behavior, and accessibility. Explain the planned changes before e
 ## Expected result
 
 The portfolio uses Bootstrap 5 for a responsive layout, accessible navigation, interactive
-cards, skill badges, and footer behavior while preserving the original content.
+cards, skill badges, and footer behavior while preserving the complete Episode 7 state:
+the updated resume, case study, hobbies, Trail Journal photo gallery, and two published
+blog posts.
+
+## Completed portfolio artifact
+
+[`portfolio/`](portfolio/) is the cumulative completed state after Episode 9. It starts
+from the completed Episode 7 portfolio (Episode 8 does not change the artifact), then adds
+Bootstrap 5.3.3, Bootstrap Icons, responsive collapsible navigation, cards, badges,
+hover and reveal animations, a sticky footer, a back-to-top link, theme behavior, and
+accessibility improvements.
+
+### How to open it
+
+From the repository root, run:
+
+```powershell
+python -m http.server 8769 --bind 127.0.0.1 --directory .
+```
+
+Then open
+<http://127.0.0.1:8769/09%20-%20Modernize%20Your%20Portfolio%20with%20Bootstrap%20and%20GitHub%20Copilot/portfolio/>.
 
 ## Troubleshooting
 

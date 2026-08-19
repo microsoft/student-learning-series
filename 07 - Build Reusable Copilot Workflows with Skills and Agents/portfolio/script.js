@@ -69,6 +69,87 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((element) => element.classList.add("show"));
 }
 
+const rotator = document.querySelector("[data-rotator]");
+if (rotator) {
+  const slides = Array.from(rotator.querySelectorAll("[data-rotator-slide]"));
+  const dots = Array.from(rotator.querySelectorAll("[data-rotator-dot]"));
+  const rotationToggle = rotator.querySelector("[data-rotator-toggle]");
+  let currentIndex = 0;
+  let timerId;
+  let isPaused = false;
+
+  const showSlide = (nextIndex) => {
+    currentIndex = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      const isActive = index === currentIndex;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+    dots.forEach((dot, index) => {
+      const isActive = index === currentIndex;
+      dot.classList.toggle("is-active", isActive);
+      if (isActive) {
+        dot.setAttribute("aria-current", "true");
+      } else {
+        dot.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const startRotation = () => {
+    if (
+      isPaused ||
+      rotator.matches(":focus-within") ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) return;
+    stopRotation();
+    timerId = window.setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, 4500);
+  };
+
+  const stopRotation = () => {
+    if (!timerId) return;
+    window.clearInterval(timerId);
+    timerId = undefined;
+  };
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      stopRotation();
+      showSlide(index);
+      startRotation();
+    });
+  });
+
+  if (rotationToggle) {
+    rotationToggle.addEventListener("click", () => {
+      isPaused = !isPaused;
+      rotationToggle.textContent = isPaused ? "Play slideshow" : "Pause slideshow";
+      rotationToggle.setAttribute(
+        "aria-label",
+        isPaused ? "Resume automatic slideshow" : "Pause automatic slideshow"
+      );
+      if (isPaused) {
+        stopRotation();
+      } else {
+        startRotation();
+      }
+    });
+  }
+
+  rotator.addEventListener("mouseenter", stopRotation);
+  rotator.addEventListener("mouseleave", startRotation);
+  rotator.addEventListener("focusin", stopRotation);
+  rotator.addEventListener("focusout", (event) => {
+    if (!rotator.contains(event.relatedTarget)) {
+      startRotation();
+    }
+  });
+  showSlide(0);
+  startRotation();
+}
+
 const renderPostList = async (list) => {
   const response = await fetch(list.dataset.postSource);
   if (!response.ok) {

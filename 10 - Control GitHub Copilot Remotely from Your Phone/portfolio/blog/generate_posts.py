@@ -5,6 +5,7 @@ import json
 import re
 from datetime import date
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 
 BLOG_DIR = Path(__file__).parent
@@ -164,18 +165,12 @@ def render_post_page(metadata: dict[str, str], body_html: str) -> str:
 def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     posts: list[dict[str, str]] = []
+    rendered_posts: dict[str, str] = {}
 
-    for output_path in OUTPUT_DIR.glob("*.html"):
-        output_path.unlink()
-
-    for source_path in SOURCE_DIR.glob("*.md"):
+    for source_path in sorted(SOURCE_DIR.glob("*.md")):
         metadata, body = parse_post(source_path)
         output_name = f"{source_path.stem}.html"
-        output_path = OUTPUT_DIR / output_name
-        output_path.write_text(
-            render_post_page(metadata, render_markdown(body)),
-            encoding="utf-8",
-        )
+        rendered_posts[output_name] = render_post_page(metadata, render_markdown(body))
         posts.append(
             {
                 "title": metadata["title"],
@@ -186,7 +181,29 @@ def main() -> None:
         )
 
     posts.sort(key=lambda post: post["date"], reverse=True)
-    POSTS_FILE.write_text(f"{json.dumps(posts, indent=2)}\n", encoding="utf-8")
+    manifest = f"{json.dumps(posts, indent=2)}\n"
+
+    # Build everything in a temporary directory so invalid source never removes
+    # the last known-good published posts.
+    with TemporaryDirectory(dir=BLOG_DIR) as temporary_directory:
+        temporary_root = Path(temporary_directory)
+        temporary_posts = temporary_root / "posts"
+        temporary_posts.mkdir()
+
+        for output_name, page in rendered_posts.items():
+            (temporary_posts / output_name).write_text(page, encoding="utf-8")
+        temporary_manifest = temporary_root / POSTS_FILE.name
+        temporary_manifest.write_text(manifest, encoding="utf-8")
+
+        for temporary_post in temporary_posts.glob("*.html"):
+            temporary_post.replace(OUTPUT_DIR / temporary_post.name)
+        temporary_manifest.replace(POSTS_FILE)
+
+    generated_names = set(rendered_posts)
+    for output_path in OUTPUT_DIR.glob("*.html"):
+        if output_path.name not in generated_names:
+            output_path.unlink()
+
     print(f"Generated {len(posts)} post(s).")
 
 

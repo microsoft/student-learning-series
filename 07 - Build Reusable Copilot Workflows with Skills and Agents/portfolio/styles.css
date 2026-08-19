@@ -367,6 +367,133 @@ h3 {
   color: var(--muted);
 }
 
+.figure-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.figure-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-3);
+}
+
+.figure-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  border: 1px solid var(--line);
+}
+
+.photo-rotator {
+  padding: var(--space-3);
+}
+
+.rotator-viewport {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+}
+
+.rotator-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.rotator-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rotator-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rotator-slide figcaption {
+  position: absolute;
+  left: var(--space-2);
+  right: var(--space-2);
+  bottom: var(--space-2);
+  margin: 0;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.58);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.rotator-dots {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.rotator-dot {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.rotator-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+}
+
+.rotator-dot.is-active::after {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.rotator-dot:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 1px;
+  border-radius: 999px;
+}
+
+.rotator-toggle {
+  display: block;
+  margin: var(--space-3) auto 0;
+  border: 1px solid var(--btn-secondary-border);
+  border-radius: 8px;
+  background: var(--btn-secondary-bg);
+  color: var(--accent-hover);
+  padding: 0.4rem 0.7rem;
+  font: inherit;
+  font-weight: 600;
+}
+
+.rotator-toggle:hover {
+  background: var(--btn-secondary-hover-bg);
+}
+
+.rotator-toggle:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(8px);
@@ -404,4 +531,13 @@ h3 {
   .resume-frame {
     min-height: 600px;
   }
+}
+
+/* Attribution for the public-domain National Park Service photographs.
+   Each credit is recorded per image in common/trail-journal/sources.csv. */
+.rotator-slide figcaption .photo-credit {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  opacity: 0.72;
 }

@@ -42,10 +42,12 @@
             <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
             <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
             <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
             <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
             <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li>
             <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+            <li class="nav-item"><a class="nav-link" href="#photos">Photos</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
           <div class="nav-controls ms-lg-3">
@@ -64,14 +66,14 @@
       <h1 class="display-5 fw-semibold">Jamie Rivera <span class="muted">(they/them)</span></h1>
       <p class="headline lead">Communication &amp; Media Studies Student | Storyteller and data-curious</p>
       <p class="summary">
-        Junior Communication &amp; Media Studies major with a Data Analytics minor who turns ideas into clear stories
+        Senior Communication &amp; Media Studies major with a Data Analytics minor who turns ideas into clear stories
         across writing, audio, and social. Comfortable pairing creative work with simple data to show impact.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary btn-lg" href="mailto:jamie.rivera@cascade.edu?subject=Internship%20Opportunity">
           Contact me for internships
         </a>
-        <a class="btn btn-secondary btn-lg" href="../../common/Jamie%20Rivera%20-%20Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-secondary btn-lg" href="resume/Jamie%20Rivera%20-%20Resume.pdf" target="_blank" rel="noopener noreferrer">
           Download Resume
         </a>
       </div>
@@ -81,7 +83,7 @@
     <section id="about" class="container section reveal">
       <h2>About</h2>
       <p>
-        I am a junior at Cascade State University studying Communication &amp; Media Studies with a minor in Data
+        I am a senior at Cascade State University studying Communication &amp; Media Studies with a minor in Data
         Analytics. I enjoy creating clear, audience-first content and using simple data to show what is working.
         I am seeking internship roles in content, communications, and community programs.
       </p>
@@ -96,7 +98,7 @@
         <iframe
           class="resume-frame"
           title="Jamie Rivera resume preview"
-          src="../../common/Jamie%20Rivera%20-%20Resume.pdf"
+          src="resume/Jamie%20Rivera%20-%20Resume.pdf"
         ></iframe>
       </div>
     </section>
@@ -104,6 +106,16 @@
     <section id="experience" class="container section reveal py-5">
       <h2>Experience</h2>
       <div class="row g-5 cards-grid">
+        <div class="col-12 col-lg-6">
+          <article class="card card-hover h-100">
+            <h3>Content Strategy Intern</h3>
+            <p class="meta">Northwest Community Media | Summer 2026</p>
+            <ul>
+              <li>Planned and shipped cross-channel content calendars tied to audience goals.</li>
+              <li>Partnered with editors and program leads to improve weekly content consistency.</li>
+            </ul>
+          </article>
+        </div>
         <div class="col-12 col-lg-6">
           <article class="card card-hover h-100">
             <h3>Marketing and Communications Intern</h3>
@@ -125,15 +137,6 @@
             </ul>
           </article>
         </div>
-        <div class="col-12 col-lg-6">
-          <article class="card card-hover h-100">
-            <h3>Barista</h3>
-            <p class="meta">Foghorn Coffee | 2023 - 2024</p>
-            <ul>
-              <li>Trained four new hires and supported reliable service during high-volume shifts.</li>
-            </ul>
-          </article>
-        </div>
       </div>
     </section>
 
@@ -146,7 +149,7 @@
             <p class="meta">2024 - Present</p>
             <ul>
               <li>Launched a student podcast featuring first-generation college stories.</li>
-              <li>Published <strong>15 episodes</strong> and reached <strong>2,000+ downloads</strong>.</li>
+              <li>Published <strong>28 episodes</strong> and reached <strong>4,500+ downloads</strong>.</li>
               <li>Own recording, editing, cover art, and release scheduling.</li>
             </ul>
             <a href="#" aria-label="Podcast link placeholder">Podcast link (TODO: add URL)</a>
@@ -160,6 +163,7 @@
               <li>Analyzed two years of campus waste data and built charts of recycling trends.</li>
               <li>Recommended three changes that the sustainability office later piloted.</li>
             </ul>
+            <a href="campus-recycling-dashboard-case-study.html">View case study</a>
           </article>
         </div>
         <div class="col-12 col-lg-6">
@@ -182,6 +186,12 @@
           </article>
         </div>
       </div>
+    </section>
+
+    <section id="blog" class="container section reveal py-5">
+      <h2>Blog</h2>
+      <div class="blog-list" data-post-list data-post-source="blog/posts.json" data-post-prefix="blog/" data-post-limit="3"></div>
+      <p class="blog-actions"><a href="blog/">View full blog <span aria-hidden="true">&rarr;</span></a></p>
     </section>
 
     <section id="skills" class="container section reveal py-5">
@@ -265,6 +275,60 @@
           <h3>Community Volunteering</h3>
           <p>Regular volunteer at the Seattle Public Library reading program, helping young readers build confidence and curiosity.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="photos" class="container section reveal py-5">
+      <h2>Trail Journal Photos</h2>
+      <p class="small">A rotating gallery of public-domain photos from recent Pacific Northwest trips.</p>
+      <div class="panel photo-rotator" data-rotator>
+        <div class="rotator-viewport">
+          <figure class="rotator-slide is-active" data-rotator-slide>
+            <img src="../../common/trail-journal/photos/olympic/01-log-bridge-on-quinault-trail.jpg" alt="A narrow wooden bridge with a handrail on one side leads into a rainforest trail." loading="lazy" decoding="async" />
+            <figcaption>Olympic National Park - Quinault Trail<span class="photo-credit">NPS Photo by Jon Preston. Public domain.</span></figcaption>
+          </figure>
+          <figure class="rotator-slide" data-rotator-slide>
+            <img src="../../common/trail-journal/photos/olympic/02-mountain-reflection-lacrosse-basin.jpg" alt="Snowcapped peaks and dramatic clouds reflected in a serene mountain lake." loading="lazy" decoding="async" />
+            <figcaption>Olympic National Park - LaCrosse Basin<span class="photo-credit">NPS Photo by Jon Preston. Public domain.</span></figcaption>
+          </figure>
+          <figure class="rotator-slide" data-rotator-slide>
+            <img src="../../common/trail-journal/photos/olympic/03-lake-crescent-sunrise.jpg" alt="A brilliant orange and purple sky over a lake surrounded by mountains." loading="lazy" decoding="async" />
+            <figcaption>Olympic National Park - Lake Crescent<span class="photo-credit">NPS Photo. Public domain.</span></figcaption>
+          </figure>
+          <figure class="rotator-slide" data-rotator-slide>
+            <img src="../../common/trail-journal/photos/mount-rainier/01-alta-vista-trail-view.jpg" alt="A paved trail cuts up a rocky meadow slope towards a mountain peak covered in glaciers." loading="lazy" decoding="async" />
+            <figcaption>Mount Rainier - Alta Vista Trail<span class="photo-credit">NPS Photo. Public domain.</span></figcaption>
+          </figure>
+          <figure class="rotator-slide" data-rotator-slide>
+            <img src="../../common/trail-journal/photos/mount-rainier/02-pinnacle-peak-trail-view.jpg" alt="A narrow rocky trail along a steep slope heading towards a glaciated mountain peak." loading="lazy" decoding="async" />
+            <figcaption>Mount Rainier - Pinnacle Peak Trail<span class="photo-credit">NPS/S. Pigeon. Public domain.</span></figcaption>
+          </figure>
+          <figure class="rotator-slide" data-rotator-slide>
+            <img src="../../common/trail-journal/photos/mount-rainier/03-nisqually-river-carter-falls-trail.jpg" alt="A river flows through a wide rocky riverbed in a forested valley under a glaciated mountain peak." loading="lazy" decoding="async" />
+            <figcaption>Mount Rainier - Nisqually River<span class="photo-credit">NPS/C. Roundtree. Public domain.</span></figcaption>
+          </figure>
+          <figure class="rotator-slide" data-rotator-slide>
+            <img src="../../common/trail-journal/photos/north-cascades/01-cascade-pass-and-pelton-basin.jpg" alt="A broad green mountain basin rises toward rugged peaks beneath a clear blue sky." loading="lazy" decoding="async" />
+            <figcaption>North Cascades - Cascade Pass and Pelton Basin<span class="photo-credit">NPS Photo/Deby Dixon. Public domain.</span></figcaption>
+          </figure>
+          <figure class="rotator-slide" data-rotator-slide>
+            <img src="../../common/trail-journal/photos/north-cascades/02-lupine-bloom-on-sahale-arm.jpg" alt="Purple lupine wildflowers line a rocky alpine trail below jagged North Cascades peaks." loading="lazy" decoding="async" />
+            <figcaption>North Cascades - Sahale Arm wildflowers<span class="photo-credit">NPS/O'Casey. Public domain.</span></figcaption>
+          </figure>
+        </div>
+        <div class="rotator-dots" aria-label="Photo slide navigation">
+          <button class="rotator-dot is-active" data-rotator-dot type="button" aria-label="Show photo 1" aria-current="true"></button>
+          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 2"></button>
+          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 3"></button>
+          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 4"></button>
+          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 5"></button>
+          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 6"></button>
+          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 7"></button>
+          <button class="rotator-dot" data-rotator-dot type="button" aria-label="Show photo 8"></button>
+        </div>
+        <button class="rotator-toggle" data-rotator-toggle type="button" aria-label="Pause automatic slideshow">
+          Pause slideshow
+        </button>
       </div>
     </section>
 
