@@ -325,25 +325,22 @@ body.sheeted{overflow:hidden}
 .chaps.scroll{max-height:14.5rem;overflow:auto;padding-right:.3rem}
 @media (prefers-reduced-motion: reduce){ .chaps button.ch{transition-duration:.01ms !important} }
 
-.ppl{border:1px solid var(--line);border-radius:15px;padding:18px}
-.ppl .chooser{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
-.ppl .chooser button{border:1px solid var(--line);background:var(--white);border-radius:999px;
-  padding:.42rem .65rem;font-size:.75rem;color:var(--ink-2);cursor:pointer}
-.ppl .chooser button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--white)}
-.ppl .spotlight{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start}
-.ppl .initials{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;
+.ppl{display:grid;gap:12px}
+.ppl .creator{border:1px solid var(--line);border-radius:15px;padding:18px}
+.ppl .identity{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;margin-bottom:15px}
+.ppl .initials{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;
   background:var(--wash);font-size:1.05rem;font-weight:700}
 .ppl .who{display:grid;gap:.16rem;min-width:0}
 .ppl .who h3{font-size:1.05rem;font-weight:600;margin:0}
 .ppl .who .role{font-size:.79rem;color:var(--ink-2);line-height:1.4}
-.ppl .invite{font-size:.84rem;color:var(--ink-2);margin:.7rem 0 .45rem}
-.ppl .ln{display:flex;flex-wrap:wrap;gap:8px}
+.ppl .ln{display:flex;flex-wrap:wrap;gap:8px;padding-left:70px}
 .ppl .ln a{display:inline-flex;align-items:center;gap:.45rem;padding:.52rem .72rem;
   border-radius:9px;color:var(--white);text-decoration:none;font-size:.79rem;font-weight:600}
 .ppl .ln a svg{display:block;width:18px;height:18px}
 .ppl .ln a.linkedin{background:#0a66c2}
 .ppl .ln a.youtube{background:#c00}
 .ppl .ln a:hover,.ppl .ln a:focus-visible{filter:brightness(.86)}
+@media (max-width:900px){ .ppl .ln{padding-left:0} }
 
 
 /* ---------- THE RESOURCES · said once, below the wall ---------- */
@@ -455,7 +452,7 @@ const HERO = {
   sum:"Go from your first prompt to a live, AI-powered personal brand using free tools across the Microsoft and GitHub ecosystem."
 };
 
-const state = { entered:null, sheet:null, seek:null, tab:"about", person:0, cloudOpen:false };
+const state = { entered:null, sheet:null, seek:null, tab:"about", cloudOpen:false };
 
 /* ---------- the parsed description of every episode ----------
    intro, chapters {t,s,label}, people {name,role,links[{label,url}]}.
@@ -592,17 +589,12 @@ function initials(name){
 }
 function peopleBlock(ep){
   const people = mfor(ep).people;
-  const index = Math.min(state.person, people.length-1);
-  const person = people[index];
-  const chooser = people.length > 1 ? `<div class="chooser" aria-label="Episode creators">${
-    people.map((p,i)=>`<button data-person="${i}" aria-pressed="${i===index}">${esc(p.name.split(" ")[0])}</button>`).join("")
-  }</div>` : "";
-  return `<div class="ppl">${chooser}<div class="spotlight">
-    <span class="initials" aria-hidden="true">${initials(person.name)}</span>
-    <div class="who"><h3>${esc(person.name)}</h3><span class="role">${esc(person.role)}</span>
-      <p class="invite">Keep learning with ${esc(person.name.split(" ")[0])} after the episode.</p>
-      <span class="ln">${person.links.map(l=>peopleLink(person,l)).join("")}</span>
-    </div></div></div>`;
+  return `<div class="ppl">${people.map(person=>`<article class="creator">
+    <div class="identity"><span class="initials" aria-hidden="true">${initials(person.name)}</span>
+      <div class="who"><h3>${esc(person.name)}</h3><span class="role">${esc(person.role)}</span></div>
+    </div>
+    <span class="ln">${person.links.map(l=>peopleLink(person,l)).join("")}</span>
+  </article>`).join("")}</div>`;
 }
 /* the disclosure body of "See what it builds" is drawn in panel(), because
    round 3 asks where that control lives. */
@@ -813,15 +805,6 @@ app.addEventListener("click", e=>{
   }
   if(e.target.closest("[data-close]")){ state.entered=null; render(true); return; }
   if(e.target.closest("[data-cloud]")){ state.cloudOpen=!state.cloudOpen; render(true); return; }
-  const person = e.target.closest("[data-person]");
-  if(person){
-    state.person=Number(person.dataset.person);
-    const pane=app.querySelector(".tabpane");
-    const ep=EPISODES[state.entered-1];
-    if(pane && ep) pane.innerHTML=peopleBlock(ep);
-    requestAnimationFrame(()=>app.querySelector(`[data-person="${state.person}"]`)?.focus({preventScroll:true}));
-    return;
-  }
   const tb = e.target.closest("[data-tab]");
   if(tb){ state.tab = tb.dataset.tab; render(true); return; }
   const sk = e.target.closest("[data-seek]");
@@ -830,7 +813,7 @@ app.addEventListener("click", e=>{
   if(c){
     const n = Number(c.dataset.ep);
     state.entered = state.entered===n ? null : n;
-    state.seek=null; state.tab="about"; state.person=0;
+    state.seek=null; state.tab="about";
     render(true);
   }
 });
