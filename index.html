@@ -330,8 +330,9 @@ body.sheeted{overflow:hidden}
 .ppl{display:grid;gap:12px}
 .ppl .creator{border:1px solid var(--line);border-radius:15px;padding:18px}
 .ppl .identity{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;margin-bottom:15px}
-.ppl .initials{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;
-  background:var(--wash);font-size:1.05rem;font-weight:700}
+.ppl .initials,.ppl .portrait{width:56px;height:56px;border-radius:50%;background:var(--wash)}
+.ppl .initials{display:grid;place-items:center;font-size:1.05rem;font-weight:700}
+.ppl .portrait{display:block;object-fit:cover}
 .ppl .who{display:grid;gap:.16rem;min-width:0}
 .ppl .who h3{font-size:1.05rem;font-weight:600;margin:0}
 .ppl .who .role{font-size:.79rem;color:var(--ink-2);line-height:1.4}
@@ -586,14 +587,32 @@ function peopleLink(person,link){
   }
   return `<a href="${link.url}" target="_blank" rel="noopener">${esc(link.label)} \u2197</a>`;
 }
+const PRESENTER_PHOTOS = Object.freeze({
+  "Ahmed Ghaddah":"assets/presenters/ahmed-ghaddah.png",
+  "Alexander Elguezabal":"assets/presenters/alexander-elguezabal.png",
+  "Ashley Steitz":"assets/presenters/ashley-steitz.png",
+  "Emily Rothrock":"assets/presenters/emily-rothrock.png",
+  "Garrett Berliner":"assets/presenters/garrett-berliner.png",
+  "Grant Harris":"assets/presenters/grant-harris.png",
+  "Gwendolyn Vongkasemsiri":"assets/presenters/gwendolyn-vongkasemsiri.png",
+  "Kaleb Cole":"assets/presenters/kaleb-cole.png",
+  "Kurt Emrich":"assets/presenters/kurt-emrich.png",
+  "Shivani Sundaresan":"assets/presenters/shivani-sundaresan.png"
+});
 function initials(name){
   const words = name.trim().split(/\s+/);
   return `${words[0][0]}${words.length > 1 ? words[words.length-1][0] : ""}`.toUpperCase();
 }
+function presenterPortrait(person){
+  const photo = PRESENTER_PHOTOS[person.name];
+  return photo
+    ? `<img class="portrait" src="${photo}" alt="" width="56" height="56" loading="lazy">`
+    : `<span class="initials" aria-hidden="true">${initials(person.name)}</span>`;
+}
 function peopleBlock(ep){
   const people = mfor(ep).people;
   return `<div class="ppl">${people.map(person=>`<article class="creator">
-    <div class="identity"><span class="initials" aria-hidden="true">${initials(person.name)}</span>
+    <div class="identity">${presenterPortrait(person)}
       <div class="who"><h3>${esc(person.name)}</h3><span class="role">${esc(person.role)}</span></div>
     </div>
     <span class="ln">${person.links.map(l=>peopleLink(person,l)).join("")}</span>
