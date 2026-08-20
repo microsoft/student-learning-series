@@ -97,7 +97,7 @@ APIs differ by model, subscription, and Azure region.
 
 ## 1. Set up Azure for Students
 
-[Azure for Students](https://azure.microsoft.com/free/students/) provides eligible
+[Azure for Students](https://aka.ms/StudentAI-AzureEducation) provides eligible
 higher-education students with USD 100 of Azure credit for 12 months and does not
 require a credit card at signup. At the time this guide was written, you must:
 
