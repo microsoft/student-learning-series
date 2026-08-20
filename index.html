@@ -621,11 +621,17 @@ function peopleBlock(ep){
     <span class="ln">${person.links.map(l=>peopleLink(person,l)).join("")}</span>
   </article>`).join("")}</div>`;
 }
+function tabBlock(ep,tab=state.tab){
+  const m = mfor(ep);
+  return tab === "chapters" ? chapBlock(ep)
+       : tab === "people"   ? peopleBlock(ep)
+       : `<p class="lede">${esc(ep.summary)}</p><p class="desc">${esc(m.intro)}</p>${
+           epLinkBlock(ep)}`;
+}
 /* the disclosure body of "See what it builds" is drawn in panel(), because
    round 3 asks where that control lives. */
 
 function panel(ep){
-  const m = mfor(ep);
   const T = [["about","About"],["chapters","Chapters"],["people",peopleHead(ep)]];
 
   /* SETTLED · the GitHub link is a hyperlink in the tab row, with GitHub's own
@@ -635,10 +641,6 @@ function panel(ep){
   const GH_MARK = `<span class="gico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="${GH_PATH}"/></svg></span>`;
   const ghTab = `<a class="ghtab" href="${ep.resource}" target="_blank" rel="noopener">${
         GH_MARK}<span>Episode files on GitHub</span><span class="ext" aria-hidden="true">\u2197</span></a>`;
-  const pane = state.tab === "chapters" ? chapBlock(ep)
-             : state.tab === "people"   ? peopleBlock(ep)
-             : `<p class="lede">${esc(ep.summary)}</p><p class="desc">${esc(m.intro)}</p>${
-                 epLinkBlock(ep)}`;
   const foot = ep.result ? `<div class="result-actions">
         <button class="result-action" data-sheet="result">
           <span class="result-copy"><b>See what it builds</b><small>Open the real website this episode produces</small></span>
@@ -659,7 +661,7 @@ function panel(ep){
               `<button role="tab" data-tab="${t[0]}" aria-selected="${state.tab===t[0]}">${t[1]}</button>`).join("")}</div>
             ${ghTab}
           </div>
-          <div class="tabpane" role="tabpanel">${pane}</div>
+          <div class="tabpane" role="tabpanel">${tabBlock(ep)}</div>
         </div>
         ${foot}
       </div>
@@ -813,6 +815,19 @@ function render(keepScroll){
   }
 }
 
+function selectPanelTab(button){
+  const open = button.closest(".open");
+  const pane = open?.querySelector(".tabpane");
+  const ep = EPISODES[state.entered-1];
+  if(!open || !pane || !ep) return;
+
+  state.tab = button.dataset.tab;
+  open.querySelectorAll("[data-tab]").forEach(tab=>{
+    tab.setAttribute("aria-selected", String(tab === button));
+  });
+  pane.innerHTML = tabBlock(ep);
+}
+
 app.addEventListener("click", e=>{
   if(e.target.closest("[data-jump]")){
     const w = document.querySelector(".wall");
@@ -831,7 +846,7 @@ app.addEventListener("click", e=>{
   if(e.target.closest("[data-close]")){ state.entered=null; render(true); return; }
   if(e.target.closest("[data-cloud]")){ state.cloudOpen=!state.cloudOpen; render(true); return; }
   const tb = e.target.closest("[data-tab]");
-  if(tb){ state.tab = tb.dataset.tab; render(true); return; }
+  if(tb){ selectPanelTab(tb); return; }
   const sk = e.target.closest("[data-seek]");
   if(sk){ state.seek = Number(sk.dataset.seek); render(true); return; }
   const c = e.target.closest("[data-ep]");
