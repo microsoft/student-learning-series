@@ -277,6 +277,7 @@ body.sheeted{overflow:hidden}
 .sitefoot .credit a{color:var(--ink)}
 .sitefoot .quiet{font-size:.74rem}
 .sitefoot .quiet a,.sitefoot .quiet .cr{font-size:.74rem}
+.sitefoot .made-with{color:#5b5a63;font-size:.74rem}
 @media (prefers-contrast:more){ .sitefoot a{border-bottom-color:currentColor} }
 @media (prefers-reduced-motion:reduce){ .sitefoot *{transition-duration:.01ms !important} }
 @container (max-width:520px){ .sitefoot .set{gap:.3rem .85rem} }
@@ -501,7 +502,7 @@ const YOUTUBE_PATH = "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 1
 /* ---------- the footer link set. Ticket #37. ---------------------------- */
 const FOOT_SERIES = [
   {t:"Watch the series", h:HERO.playlist},
-  {t:"Repository",       h:"https://github.com/microsoft/student-learning-series"}
+  {t:"Repository",       h:"https://aka.ms/student-learning-series"}
 ];
 const FOOT_LEGAL = [
   {t:"Privacy & Cookies", h:"https://privacy.microsoft.com/en-us/privacystatement"},
@@ -517,6 +518,7 @@ function siteFoot(){
   return `<footer class="sitefoot"><div class="in">
       <div class="set"><span class="credit">Produced by <a href="https://www.youtube.com/@MicrosoftDeveloper" target="_blank" rel="noopener">Microsoft Developer</a></span>${FOOT_SERIES.map(footLink).join("")}</div>
       <div class="set quiet"><span class="cr">\u00a9 Microsoft 2026</span>${FOOT_LEGAL.map(footLink).join("")}</div>
+      <div class="made-with">Made with <span role="img" aria-label="love">\u2764\uFE0F</span> by Early in Career at Microsoft</div>
     </div></footer>`;
 }
 
