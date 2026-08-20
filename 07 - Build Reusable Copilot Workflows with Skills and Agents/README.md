@@ -44,12 +44,13 @@ that can propose source-backed resume updates for human approval.
 - If a source document cannot be read, confirm that the matching file exists in
   `demo-assets/`.
 
-## Demo artifact: Jamie's portfolio with an empty blog
+## Demo artifact: Jamie's completed Episode 7 portfolio
 
 Folder: [`portfolio/`](portfolio/)
 
-The portfolio starts with a complete blog experience but no published posts. During the
-episode, Copilot:
+The committed portfolio is the completed state after Episode 7. It carries forward the
+case study, hobbies, and Trail Journal photo gallery from earlier episodes and includes
+the updated resume plus two published blog posts created during this episode. Copilot:
 
 1. Turns Jamie's Word notes into a Markdown draft.
 2. Uses Rubber Duck as a read-only reviewer.
@@ -62,10 +63,11 @@ episode, Copilot:
 From the repository root, run:
 
 ```powershell
-python -m http.server 8767 --bind 127.0.0.1 --directory "07 - Build Reusable Copilot Workflows with Skills and Agents\portfolio"
+python -m http.server 8767 --bind 127.0.0.1 --directory .
 ```
 
-Then open <http://127.0.0.1:8767/>.
+Then open
+<http://127.0.0.1:8767/07%20-%20Build%20Reusable%20Copilot%20Workflows%20with%20Skills%20and%20Agents/portfolio/>.
 
 The site uses plain HTML, CSS, JavaScript, Markdown source files, and a small
 standard-library Python generator. It has no package installation or build-tool

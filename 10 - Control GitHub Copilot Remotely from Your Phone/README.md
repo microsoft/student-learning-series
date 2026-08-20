@@ -46,20 +46,22 @@ shows the active section and progress in both desktop and mobile navigation.
 
 Folder: [`portfolio/`](portfolio/)
 
-The website includes About, a resume preview and download, Experience, Projects, Blog,
-Skills, Education, Leadership, and Contact sections. Existing features remain in place:
-a responsive menu, dark mode, reveal animations, and a static blog with two published
-posts.
+The website carries forward the complete Bootstrap-modernized Episode 9 portfolio,
+including the updated resume, case study, hobbies, Trail Journal photo gallery, and two
+published blog posts. Episode 10 adds coordinated desktop and mobile section progress
+while preserving Bootstrap navigation and cards, responsive behavior, dark mode, reveal
+animations, accessibility, and the sticky footer.
 
 ### How to open it
 
 From the repository root, run:
 
 ```powershell
-python -m http.server 8770 --bind 127.0.0.1 --directory "10 - Control GitHub Copilot Remotely from Your Phone\portfolio"
+python -m http.server 8770 --bind 127.0.0.1 --directory .
 ```
 
-Then open <http://127.0.0.1:8770/>.
+Then open
+<http://127.0.0.1:8770/10%20-%20Control%20GitHub%20Copilot%20Remotely%20from%20Your%20Phone/portfolio/>.
 
 The site uses plain HTML, CSS, JavaScript, Markdown source files, and a small
 standard-library Python generator. It has no package installation or build-tool

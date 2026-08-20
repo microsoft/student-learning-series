@@ -1,5 +1,7 @@
-const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
+const navbarCollapse = document.querySelector("#navbarNav");
+const navbarToggler = document.querySelector(".navbar-toggler");
+const navToggle = document.querySelector(".nav-toggle");
 const themeToggle = document.querySelector("#theme-toggle");
 const mobileProgressLabel = document.querySelector(".mobile-section-progress__label");
 const mobileProgressValue = document.querySelector(".mobile-section-progress__value");
@@ -12,6 +14,7 @@ const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
 const initialTheme = savedTheme || preferredTheme;
 
 document.documentElement.setAttribute("data-theme", initialTheme);
+document.documentElement.setAttribute("data-bs-theme", initialTheme);
 
 if (themeToggle) {
   const syncThemeToggle = () => {
@@ -28,8 +31,21 @@ if (themeToggle) {
     const isDark = document.documentElement.getAttribute("data-theme") === "dark";
     const nextTheme = isDark ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", nextTheme);
+    document.documentElement.setAttribute("data-bs-theme", nextTheme);
     localStorage.setItem(themeStorageKey, nextTheme);
     syncThemeToggle();
+  });
+}
+
+if (navLinks && navbarCollapse && navbarToggler && window.bootstrap?.Collapse) {
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const isMobile = window.getComputedStyle(navbarToggler).display !== "none";
+      const isMenuOpen = navbarCollapse.classList.contains("show");
+      if (isMobile && isMenuOpen) {
+        window.bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide();
+      }
+    });
   });
 }
 
@@ -81,9 +97,9 @@ if (sectionNavItems.length > 0) {
       const sectionHeight = Math.max(sectionRect.height, 1);
       const progress = clamp((marker - sectionRect.top) / sectionHeight, 0, 1);
       item.progress = progress;
-      item.link.style.setProperty("--section-progress", `${Math.round(progress * 100)}%`);
+      item.link.style.setProperty("--section-progress-ratio", String(progress));
 
-      if (marker >= sectionRect.top && marker < sectionRect.bottom) {
+      if (marker >= sectionRect.top) {
         activeItem = item;
       }
     });
@@ -95,7 +111,7 @@ if (sectionNavItems.length > 0) {
     if (isAtPageEnd) {
       activeItem = lastItem;
       lastItem.progress = 1;
-      lastItem.link.style.setProperty("--section-progress", "100%");
+      lastItem.link.style.setProperty("--section-progress-ratio", "1");
     } else if (lastItem.section.getBoundingClientRect().bottom <= marker) {
       activeItem = lastItem;
     }
@@ -103,7 +119,11 @@ if (sectionNavItems.length > 0) {
     sectionNavItems.forEach((item) => {
       const isActive = item === activeItem;
       item.link.classList.toggle("is-active", isActive);
-      item.link.setAttribute("aria-current", isActive ? "true" : "false");
+      if (isActive) {
+        item.link.setAttribute("aria-current", "true");
+      } else {
+        item.link.removeAttribute("aria-current");
+      }
     });
 
     if (
@@ -165,6 +185,87 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((element) => observer.observe(element));
 } else {
   revealElements.forEach((element) => element.classList.add("show"));
+}
+
+const rotator = document.querySelector("[data-rotator]");
+if (rotator) {
+  const slides = Array.from(rotator.querySelectorAll("[data-rotator-slide]"));
+  const dots = Array.from(rotator.querySelectorAll("[data-rotator-dot]"));
+  const rotationToggle = rotator.querySelector("[data-rotator-toggle]");
+  let currentIndex = 0;
+  let timerId;
+  let isPaused = false;
+
+  const showSlide = (nextIndex) => {
+    currentIndex = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      const isActive = index === currentIndex;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+    dots.forEach((dot, index) => {
+      const isActive = index === currentIndex;
+      dot.classList.toggle("is-active", isActive);
+      if (isActive) {
+        dot.setAttribute("aria-current", "true");
+      } else {
+        dot.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const startRotation = () => {
+    if (
+      isPaused ||
+      rotator.matches(":focus-within") ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) return;
+    stopRotation();
+    timerId = window.setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, 4500);
+  };
+
+  const stopRotation = () => {
+    if (!timerId) return;
+    window.clearInterval(timerId);
+    timerId = undefined;
+  };
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      stopRotation();
+      showSlide(index);
+      startRotation();
+    });
+  });
+
+  if (rotationToggle) {
+    rotationToggle.addEventListener("click", () => {
+      isPaused = !isPaused;
+      rotationToggle.textContent = isPaused ? "Play slideshow" : "Pause slideshow";
+      rotationToggle.setAttribute(
+        "aria-label",
+        isPaused ? "Resume automatic slideshow" : "Pause automatic slideshow"
+      );
+      if (isPaused) {
+        stopRotation();
+      } else {
+        startRotation();
+      }
+    });
+  }
+
+  rotator.addEventListener("mouseenter", stopRotation);
+  rotator.addEventListener("mouseleave", startRotation);
+  rotator.addEventListener("focusin", stopRotation);
+  rotator.addEventListener("focusout", (event) => {
+    if (!rotator.contains(event.relatedTarget)) {
+      startRotation();
+    }
+  });
+  showSlide(0);
+  startRotation();
 }
 
 const renderPostList = async (list) => {
