@@ -382,15 +382,29 @@ body.sheeted{overflow:hidden}
 .toolgrid a span{font-size:.79rem;color:var(--ink-2);line-height:1.45}
 
 /* ---------- THE SERIES TRAILER · native privacy-enhanced YouTube player ---------- */
-.trailer{max-width:1180px;margin:0 auto 64px;padding:0 28px}
+.trailer{max-width:1180px;margin:0 auto;padding:0 28px}
 .trailer-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:20px;
-  background:#17161b;box-shadow:0 20px 50px rgba(50,49,57,.22)}
+  background:#17161b;box-shadow:0 24px 60px rgba(50,49,57,.24)}
 .trailer-player{position:absolute;inset:0;width:100%;height:100%;border:0;background:#0d0d10}
+.episode-transition{max-width:1440px;margin:0 auto;padding:42px 28px 76px;
+  text-align:center;display:grid;justify-items:center;gap:.6rem}
+.episode-transition h2{margin:0;font-size:clamp(2rem,4vw,4rem);font-weight:300;
+  letter-spacing:-.035em;line-height:1.05}
+.episode-transition p{margin:0;color:var(--ink-2);line-height:1.55}
+.episode-transition .arrow{font-size:1.8rem;line-height:1;margin-top:.45rem}
+
 @media (max-width:900px){
-  .trailer{padding:0 18px;margin-bottom:42px}
+  .trailer{padding:0 18px}
+  .episode-transition{padding:32px 18px 60px}
 }
-@media (max-width:520px){
-  .trailer-frame{border-radius:14px}
+@media (max-width:620px){
+  .trailer-frame{border-radius:12px}
+}
+@media (prefers-contrast:more){
+  .trailer-frame{border:2px solid currentColor;box-shadow:none}
+}
+@media (forced-colors:active){
+  .trailer-frame{border:2px solid CanvasText}
 }
 
 </style>
@@ -454,7 +468,7 @@ const EPISODES = [
   resource:"https://github.com/microsoft/student-learning-series/tree/main/09%20-%20Modernize%20Your%20Portfolio%20with%20Bootstrap%20and%20GitHub%20Copilot",
   result:"https://microsoft.github.io/student-learning-series/09%20-%20Modernize%20Your%20Portfolio%20with%20Bootstrap%20and%20GitHub%20Copilot/portfolio/",
   cap:"The portfolio rebuilt on Bootstrap 5."},
- {n:10,youtubeId:"0du66Q1kz7g",title:"Control GitHub Copilot Remotely from Your Phone",
+ {n:10,youtubeId:"Xj_fklwLfTI",title:"Control GitHub Copilot Remotely from Your Phone",
   summary:"Start a session on your computer, take it with you on your phone, and come back to a finished feature.",
   build:"Continue your work from your phone",
   resource:"https://github.com/microsoft/student-learning-series/tree/main/10%20-%20Control%20GitHub%20Copilot%20Remotely%20from%20Your%20Phone",
@@ -471,7 +485,6 @@ const HERO = {
 };
 
 const TRAILER_YOUTUBE_ID = "dGdrVULgciY";
-
 const state = { entered:null, sheet:null, seek:null, tab:"about", cloudOpen:false };
 
 /* ---------- the parsed description of every episode ----------
@@ -548,10 +561,20 @@ function trailerPlayer(){
     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     referrerpolicy="strict-origin-when-cross-origin" tabindex="0"></iframe>`;
 }
-function trailerBlock(){
-  return `<section class="trailer" aria-label="Official series trailer">
-    <div class="trailer-frame">${trailerPlayer()}</div>
-  </section>`;
+function trailerFrame(){
+  return `<div class="trailer-frame">${trailerPlayer()}</div>`;
+}
+function heroTrailerFlow(){
+  return `<section class="hero">
+      <h1>${HERO.h1a}<span class="accent-text">${HERO.h1b}</span>.</h1>
+      <p class="sum">${HERO.sum}</p>
+    </section>
+    <section class="trailer" aria-label="Official series trailer">${trailerFrame()}</section>
+    <section class="episode-transition" aria-label="Choose an episode">
+      <h2>Choose an episode below.</h2>
+      <p>Click any card to watch.</p>
+      <div class="arrow" aria-hidden="true">\u2193</div>
+    </section>`;
 }
 
 function videoBlock(ep){
@@ -789,23 +812,10 @@ function page(){
         <p class="mstitle">${HERO.label}</p>
       </div>
     </header>
-    <section class="hero">
-      <h1>${HERO.h1a}<span class="accent-text">${HERO.h1b}</span>.</h1>
-      <p class="sum">${HERO.sum}</p>
-      <div class="acts">${ctaActs()}</div>
-    </section>
-    ${trailerBlock()}
-    <div class="sectionwrap"><section class="wall">${wall}</section></div>
+    ${heroTrailerFlow()}
+    <div class="sectionwrap"><section class="wall" id="episodes" aria-label="Ten series episodes">${wall}</section></div>
     ${setupSection()}
     ${siteFoot()}`;
-}
-
-
-/* CTA C1 · the series keeps primary weight, and a ghost pill points down. */
-const PLAY = "Pick an episode";
-function ctaActs(){
-  return `<a class="btn" href="${HERO.playlist}" target="_blank" rel="noopener">Watch the full series</a>`
-       + `<button class="btn ghost" data-jump>${PLAY} <span class="chevd" aria-hidden="true">\u2193</span></button>`;
 }
 
 
@@ -841,11 +851,6 @@ function render(keepScroll){
 }
 
 app.addEventListener("click", e=>{
-  if(e.target.closest("[data-jump]")){
-    const w = document.querySelector(".wall");
-    if(w) w.scrollIntoView({behavior:"smooth",block:"start"});
-    return;
-  }
   if(e.target.closest("[data-sheetclose]")){ closeResultSheet(); return; }
   const s = e.target.closest("[data-sheet]");
   if(s){
