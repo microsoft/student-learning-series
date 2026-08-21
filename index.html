@@ -484,8 +484,9 @@ const HERO = {
   sum:"Go from your first prompt to a live, AI-powered personal brand using free tools across the Microsoft and GitHub ecosystem."
 };
 
+const YOUTUBE_PLAYER_ORIGIN = "https://www.youtube-nocookie.com";
 const TRAILER_YOUTUBE_ID = "dGdrVULgciY";
-const state = { entered:null, sheet:null, seek:null, tab:"about", cloudOpen:false };
+const state = { entered:null, sheet:null, tab:"about", cloudOpen:false };
 
 /* ---------- the parsed description of every episode ----------
    intro, chapters {t,s,label}, people {name,role,links[{label,url}]}.
@@ -562,7 +563,7 @@ const cardArt = ep => ep.youtubeId
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function trailerPlayer(){
-  return `<iframe class="trailer-player" src="https://www.youtube-nocookie.com/embed/${TRAILER_YOUTUBE_ID}?rel=0"
+  return `<iframe class="trailer-player" src="${YOUTUBE_PLAYER_ORIGIN}/embed/${TRAILER_YOUTUBE_ID}?rel=0"
     title="Official trailer for Build your personal brand with Copilot" loading="lazy" allowfullscreen
     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     referrerpolicy="strict-origin-when-cross-origin" tabindex="0"></iframe>`;
@@ -587,7 +588,9 @@ function videoBlock(ep){
   const vid = ep.youtubeId;
   // A real id renders the privacy-enhanced player. No id renders plain text, never a control.
   if(vid){
-    return `<div class="vid"><iframe class="player" src="https://www.youtube-nocookie.com/embed/${esc(vid)}${state.seek==null?"":`?start=${state.seek}`}"
+    const params = new URLSearchParams({enablejsapi:"1"});
+    if(/^https?:$/.test(location.protocol)) params.set("origin", location.origin);
+    return `<div class="vid"><iframe class="player" src="${YOUTUBE_PLAYER_ORIGIN}/embed/${encodeURIComponent(vid)}?${params}"
       title="Episode ${pad(ep.n)} · ${esc(ep.title)}" loading="lazy" allowfullscreen
       allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
@@ -871,6 +874,19 @@ function selectPanelTab(button){
   pane.innerHTML = tabBlock(ep);
 }
 
+function seekEpisodePlayer(button){
+  const seconds = Number(button.dataset.seek);
+  const iframe = button.closest(".open")?.querySelector(".vidwrap iframe.player");
+  if(!Number.isFinite(seconds) || seconds < 0 || !iframe?.contentWindow) return;
+  if(!iframe.src.startsWith(`${YOUTUBE_PLAYER_ORIGIN}/embed/`)) return;
+
+  iframe.contentWindow.postMessage(JSON.stringify({
+    event:"command",
+    func:"seekTo",
+    args:[seconds,true]
+  }), YOUTUBE_PLAYER_ORIGIN);
+}
+
 app.addEventListener("click", e=>{
   if(e.target.closest("[data-sheetclose]")){ closeResultSheet(); return; }
   const s = e.target.closest("[data-sheet]");
@@ -886,12 +902,12 @@ app.addEventListener("click", e=>{
   const tb = e.target.closest("[data-tab]");
   if(tb){ selectPanelTab(tb); return; }
   const sk = e.target.closest("[data-seek]");
-  if(sk){ state.seek = Number(sk.dataset.seek); render(true); return; }
+  if(sk){ seekEpisodePlayer(sk); return; }
   const c = e.target.closest("[data-ep]");
   if(c){
     const n = Number(c.dataset.ep);
     state.entered = state.entered===n ? null : n;
-    state.seek=null; state.tab="about";
+    state.tab="about";
     render(true);
   }
 });
