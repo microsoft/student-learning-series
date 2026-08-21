@@ -381,6 +381,32 @@ body.sheeted{overflow:hidden}
 .toolgrid a b{font-size:.94rem;font-weight:600;line-height:1.3}
 .toolgrid a span{font-size:.79rem;color:var(--ink-2);line-height:1.45}
 
+/* ---------- THE SERIES TRAILER · native privacy-enhanced YouTube player ---------- */
+.trailer{max-width:1180px;margin:0 auto;padding:0 28px}
+.trailer-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:20px;
+  background:#17161b;box-shadow:0 24px 60px rgba(50,49,57,.24)}
+.trailer-player{position:absolute;inset:0;width:100%;height:100%;border:0;background:#0d0d10}
+.episode-transition{max-width:1440px;margin:0 auto;padding:42px 28px 76px;
+  text-align:center;display:grid;justify-items:center;gap:.6rem}
+.episode-transition h2{margin:0;font-size:clamp(2rem,4vw,4rem);font-weight:300;
+  letter-spacing:-.035em;line-height:1.05}
+.episode-transition p{margin:0;color:var(--ink-2);line-height:1.55}
+.episode-transition .arrow{font-size:1.8rem;line-height:1;margin-top:.45rem}
+
+@media (max-width:900px){
+  .trailer{padding:0 18px}
+  .episode-transition{padding:32px 18px 60px}
+}
+@media (max-width:620px){
+  .trailer-frame{border-radius:12px}
+}
+@media (prefers-contrast:more){
+  .trailer-frame{border:2px solid currentColor;box-shadow:none}
+}
+@media (forced-colors:active){
+  .trailer-frame{border:2px solid CanvasText}
+}
+
 </style>
 </head>
 <body>
@@ -458,6 +484,7 @@ const HERO = {
   sum:"Go from your first prompt to a live, AI-powered personal brand using free tools across the Microsoft and GitHub ecosystem."
 };
 
+const TRAILER_YOUTUBE_ID = "dGdrVULgciY";
 const state = { entered:null, sheet:null, seek:null, tab:"about", cloudOpen:false };
 
 /* ---------- the parsed description of every episode ----------
@@ -486,7 +513,7 @@ const TOOLS = [
    h:"https://aka.ms/StudentAI-Azure"},
   {t:"Azure for Students", d:"Free credit, and no card is needed",
    h:"https://aka.ms/StudentAI-AzureEducation"},
-  {t:"Getting started in the Azure portal", d:"A short video, not the portal itself",
+  {t:"Getting started in the Azure portal", d:"A quick Azure portal video",
    h:"https://aka.ms/StudentAI-AzurePortal"}
 ];
 
@@ -526,7 +553,32 @@ function siteFoot(){
 const pad = n => String(n).padStart(2,"0");
 const art800  = n => `assets/episodes/episode-${pad(n)}-800w.webp`;
 const art1600 = n => `assets/episodes/episode-${pad(n)}-1600w.webp`;
+const cardArt = ep => ep.youtubeId
+  ? `https://i.ytimg.com/vi/${encodeURIComponent(ep.youtubeId)}/maxresdefault.jpg`
+  : art800(ep.n);
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function trailerPlayer(){
+  return `<iframe class="trailer-player" src="https://www.youtube-nocookie.com/embed/${TRAILER_YOUTUBE_ID}?rel=0"
+    title="Official trailer for Build your personal brand with Copilot" loading="lazy" allowfullscreen
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" tabindex="0"></iframe>`;
+}
+function trailerFrame(){
+  return `<div class="trailer-frame">${trailerPlayer()}</div>`;
+}
+function heroTrailerFlow(){
+  return `<section class="hero">
+      <h1>${HERO.h1a}<span class="accent-text">${HERO.h1b}</span>.</h1>
+      <p class="sum">${HERO.sum}</p>
+    </section>
+    <section class="trailer" aria-label="Official series trailer">${trailerFrame()}</section>
+    <section class="episode-transition" aria-label="Choose an episode">
+      <h2>Choose an episode below.</h2>
+      <p>Click any card to watch.</p>
+      <div class="arrow" aria-hidden="true">\u2193</div>
+    </section>`;
+}
 
 function videoBlock(ep){
   const vid = ep.youtubeId;
@@ -546,11 +598,11 @@ function resultBlock(ep){
       <p class="cap">${esc(ep.cap)}</p></div>`;
 }
 
-/* the card: the art, and a band that wipes up over its lower edge */
+/* the card: the video thumbnail, and a band that wipes up over its lower edge */
 function card(ep,i){
   return `<button class="card${state.entered===ep.n?" on":""}" data-ep="${ep.n}" style="--i:${i}"
       aria-label="Open episode ${pad(ep.n)} of 10, ${esc(ep.title)}. ${esc(ep.build)}">
-      <span class="art"><img src="${art800(ep.n)}" alt="${esc(ep.title)}" loading="lazy"></span>
+      <span class="art"><img src="${cardArt(ep)}" alt="${esc(ep.title)}" loading="lazy"></span>
       <span class="glow" aria-hidden="true"></span>
       <span class="rv">
         <span class="barrule" aria-hidden="true"></span>
@@ -763,22 +815,10 @@ function page(){
         <p class="mstitle">${HERO.label}</p>
       </div>
     </header>
-    <section class="hero">
-      <h1>${HERO.h1a}<span class="accent-text">${HERO.h1b}</span>.</h1>
-      <p class="sum">${HERO.sum}</p>
-      <div class="acts">${ctaActs()}</div>
-    </section>
-    <div class="sectionwrap"><section class="wall">${wall}</section></div>
+    ${heroTrailerFlow()}
+    <div class="sectionwrap"><section class="wall" id="episodes" aria-label="Ten series episodes">${wall}</section></div>
     ${setupSection()}
     ${siteFoot()}`;
-}
-
-
-/* CTA C1 · the series keeps primary weight, and a ghost pill points down. */
-const PLAY = "Pick an episode";
-function ctaActs(){
-  return `<a class="btn" href="${HERO.playlist}" target="_blank" rel="noopener">Watch the full series</a>`
-       + `<button class="btn ghost" data-jump>${PLAY} <span class="chevd" aria-hidden="true">\u2193</span></button>`;
 }
 
 
@@ -814,11 +854,6 @@ function render(keepScroll){
 }
 
 app.addEventListener("click", e=>{
-  if(e.target.closest("[data-jump]")){
-    const w = document.querySelector(".wall");
-    if(w) w.scrollIntoView({behavior:"smooth",block:"start"});
-    return;
-  }
   if(e.target.closest("[data-sheetclose]")){ closeResultSheet(); return; }
   const s = e.target.closest("[data-sheet]");
   if(s){
