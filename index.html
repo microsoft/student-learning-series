@@ -553,6 +553,9 @@ function siteFoot(){
 const pad = n => String(n).padStart(2,"0");
 const art800  = n => `assets/episodes/episode-${pad(n)}-800w.webp`;
 const art1600 = n => `assets/episodes/episode-${pad(n)}-1600w.webp`;
+const cardArt = ep => ep.youtubeId
+  ? `https://i.ytimg.com/vi/${encodeURIComponent(ep.youtubeId)}/maxresdefault.jpg`
+  : art800(ep.n);
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function trailerPlayer(){
@@ -595,11 +598,11 @@ function resultBlock(ep){
       <p class="cap">${esc(ep.cap)}</p></div>`;
 }
 
-/* the card: the art, and a band that wipes up over its lower edge */
+/* the card: the video thumbnail, and a band that wipes up over its lower edge */
 function card(ep,i){
   return `<button class="card${state.entered===ep.n?" on":""}" data-ep="${ep.n}" style="--i:${i}"
       aria-label="Open episode ${pad(ep.n)} of 10, ${esc(ep.title)}. ${esc(ep.build)}">
-      <span class="art"><img src="${art800(ep.n)}" alt="${esc(ep.title)}" loading="lazy"></span>
+      <span class="art"><img src="${cardArt(ep)}" alt="${esc(ep.title)}" loading="lazy"></span>
       <span class="glow" aria-hidden="true"></span>
       <span class="rv">
         <span class="barrule" aria-hidden="true"></span>
