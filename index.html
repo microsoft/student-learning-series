@@ -553,8 +553,11 @@ function siteFoot(){
 const pad = n => String(n).padStart(2,"0");
 const art800  = n => `assets/episodes/episode-${pad(n)}-800w.webp`;
 const art1600 = n => `assets/episodes/episode-${pad(n)}-1600w.webp`;
+// YouTube keeps this URL stable when the video owner changes its thumbnail.
+const youtubeThumbnail = id =>
+  `https://i.ytimg.com/vi/${encodeURIComponent(id)}/maxresdefault.jpg`;
 const cardArt = ep => ep.youtubeId
-  ? `https://i.ytimg.com/vi/${encodeURIComponent(ep.youtubeId)}/maxresdefault.jpg`
+  ? youtubeThumbnail(ep.youtubeId)
   : art800(ep.n);
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
